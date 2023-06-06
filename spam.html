@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <script defer src="assets/js/appp.js"></script>
+        <meta content="https://i.imgur.com/5WlUdlU.jpg" property="og:image" />
+        <link rel="shortcut icon" href="https://i.imgur.com/yxoKWjo.jpg" type="image/x-icon">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/index.css">
+		<script src="https://code.jquery.com/jquery-3.6.4.min.js" crossorigin="anonymous"></script>
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<script src='assets/js/jquery.min.js' type='text/javascript'></script>
+    <script type="text/javascript" src="assets/js/t.js"></script>
+        <meta name="description" content="" />
+        <title>Nguyễn Hoàng Anh - SPAM</title>
+</head>
+<div id="particles-js"></div>
+<section class="animated-background">
+  <div id="stars1"></div>
+  <div id="stars2"></div>
+  <div id="stars3"></div>
+</section>
+
+  <div class="BlurWebs">
+      <div class="Topnav">
+          <input type="checkbox" id="menu-toggle" class="menu-toggle">
+          <a style="font-family: 'Pattaya';" href="index.html">HOME</a>
+          <a style="font-family: 'Pattaya';" href="chat.html">FORUM</a>
+          <label for="menu-toggle" class="menu-icon arrow-down red-label" onclick="scrollToSection()" style="font-family: 'Pattaya';">TOOL</label>
+      </div>
+      <div id="menu-content"></div>
+      <ul class="menu">
+          <li class="menu-item">
+              <a href="spam.html">SPAM</a>
+          </li>
+          <li class="menu-item">
+              <a href="vuotlink.html">CROS LINK</a>
+          </li>
+      </ul>
+  </div>
+</body>
+	<form id="form">
+  <script>
+    async function fetchData() {
+      let hostInput = document.querySelector("#host");
+      let phoneNumber = hostInput.value;
+      alert("Đang spam nạn nhân ☠☠");
+
+      try {
+        let response = await fetch(`https://vuminhngoc.dev/api/Spam.php?phone=${phoneNumber}`, {
+          headers: {
+            accept: "*/*",
+            "accept-language": "en-US,en;q=0.9",
+            "sec-ch-ua": '"Not:A-Brand";v="99", "Chromium";v="112"',
+            "sec-ch-ua-mobile": "?0",
+            "sec-ch-ua-platform": '"Linux"',
+            "sec-fetch-dest": "empty",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "cross-site"
+          }
+        });
+
+        if (response.ok) {
+          let data = await response.json();
+          
+          console.log(data);
+        } else {
+          console.log("Lỗi khi gửi yêu cầu");
+        }
+      } catch (error) {
+        console.log("Lỗi kết nối mạng: ", error);
+      }
+    }
+  </script>
+</head>
+<body>
+    <h2 class="HoangAnhdz">
+        <div id="userName" style="font-family: 'Pattaya';">Dịch vụ spam sđt</div>
+    </h2>
+    <div>
+  <label for="host">Nhập số điện thoại:</label>
+  <input type="text" id="host"placeholder="nhập số điện thoại nạn nhân">
+  <div class="center-button">
+    <button id="work" type="button" onclick="fetchData()">spam</button>
+</div>
+<script type="text/javascript">var fps = document.getElementById("fps");var startTime = Date.now();var frame = 0;function tick(){var time = Date.now();frame++;if(time - startTime > 1000){fps.innerHTML = (frame / ((time - startTime) / 1000)).toFixed(1);startTime = time;frame = 0;}window.requestAnimationFrame(tick);}tick();</script>
+   </div>
+</body>
+</html>

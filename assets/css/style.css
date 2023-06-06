@@ -1,0 +1,77 @@
+
+.service-title {
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+form {
+	max-width: 400px;
+	margin: 0 auto;
+}
+
+label {
+	display: block;
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+input, select {
+	width: 100%;
+	padding: 8px;
+	margin-bottom: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+button {
+	padding: 10px 20px;
+	border: none;
+	border-radius: 4px;
+	background-color: #4CAF50;
+	color: #fff;
+	cursor: pointer;
+}
+
+.center-button {
+	text-align: center;
+}
+
+#copycode {
+	font-size: 0.8em;
+	margin-left: 5px;
+	color: #999;
+}
+
+#code {
+	width: 100%;
+	padding: 8px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+.HoangAnhdz {
+    color: #FFFFFF;
+    padding: 0;
+    font-size: 22px;
+    line-height: 1.8;
+    margin-bottom: 0;
+  text-shadow: -1px 0 5px rgb(255, 0, 0), 
+                 0 1px 5px RED, 
+                 1px 0 5px rgb(255, 0, 0), 
+                 0 -1px 5px RED;
+  }
+  .HoangAnhdzvl {
+    color: #FFFFFF;
+    padding: 0;
+    font-size: 22px;
+    line-height: 1.8;
+    margin-bottom: 0;
+  text-shadow: -1px 0 5px rgb(0, 8, 255), 
+                 0 1px 5px RED, 
+                 1px 0 5px rgb(0, 4, 255), 
+                 0 -1px 5px RED;
+  }
+p {
+	margin: 0;
+}
