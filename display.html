@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Hiển thị dữ liệu</title>
+</head>
+
+<body>
+  <p id="user-data"></p>
+
+  <script>
+    var userInput = localStorage.getItem("userInput");
+    var userDataElement = document.getElementById('user-data');
+
+    if (userInput) {
+      userDataElement.textContent = userInput;
+    }
+  </script>
+</body>
+
+</html>
