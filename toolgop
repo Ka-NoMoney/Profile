@@ -201,7 +201,7 @@ for i in range(len(encoded_IP)):
 def xoa(text):
     sys.stdout.write('\r' + text)
     sys.stdout.flush()
-Key = "f"KA-{result}"
+Key = f"KA-{result}"
 clear()
 runbanner(chontool)
 
