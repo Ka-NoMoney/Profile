@@ -163,12 +163,11 @@ một  = f"""
 ╠═════╬═══════════════════════╬═════════════════════╣
 ║ {vang}1.1\033[0m ║       {dac_biet}SPAM-SMS\033[0m        ║      {xanh_la}hoạt động\033[0m      ║  
 ║ {vang}1.2\033[0m ║       {dac_biet}ĐÀO PROXY\033[0m       ║      {xanh_la}hoạt động\033[0m      ║
-║ {vang}1.3\033[0m ║     {dac_biet}LỌC LIVE PROXY\033[0m    ║      {xanh_la}hoạt động\033[0m      ║
-║ {vang}1.4\033[0m ║     {dac_biet}REG ACC GARENA\033[0m    ║      {xanh_la}hoạt động\033[0m      ║   
-║ {vang}1.5\033[0m ║     {dac_biet}GET TOKEN PRO5\033[0m    ║      {xanh_la}hoạt động\033[0m      ║      
-║ {vang}1.6\033[0m ║       {dac_biet}CHAT GPT\033[0m        ║      {xanh_la}hoạt động\033[0m      ║ 
-║ {vang}1.7\033[0m ║       {dac_biet}MAIN-MENU\033[0m       ║      {xanh_la}hoạt động\033[0m      ║
-╩═════╩═══════════════════════╩═════════════════════╝ 
+║ {vang}1.3\033[0m ║     {dac_biet}LỌC LIVE PROXY\033[0m    ║      {xanh_la}hoạt động\033[0m      ║  
+║ {vang}1.4\033[0m ║     {dac_biet}GET TOKEN PRO5\033[0m    ║      {xanh_la}hoạt động\033[0m      ║      
+║ {vang}1.5\033[0m ║       {dac_biet}CHAT GPT\033[0m        ║      {xanh_la}hoạt động\033[0m      ║ 
+║  {vang}0\033[0m  ║       {dac_biet}MAIN-MENU\033[0m       ║      {xanh_la}hoạt động\033[0m      ║
+╚═════╩═══════════════════════╩═════════════════════╝ 
 
 """
 nhện = """
