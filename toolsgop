@@ -2000,7 +2000,7 @@ def main():
     pay=requests.post('https://mbasic.facebook.com'+get.split('<form method="post" action="')[1].split('"><input type="hidden"')[0],headers={'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9','accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5','cookie': cookie_fb,'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="102", "Google Chrome";v="102"','sec-ch-ua-mobile': '?0','sec-ch-ua-platform': '"Windows"','sec-fetch-dest': 'document','sec-fetch-mode': 'navigate','sec-fetch-site': 'same-origin','sec-fetch-user': '?1','upgrade-insecure-requests': '1'},data={'fb_dtsg': fb_dtsg,'jazoest': jazoest,'confirmed': 'Chặn'}).text
     for i in range(randint(555,999)):
           s=i+1
-          print(f'{s} - Tố Cáo Thành Công ID: {id_fb}')
+          print(f'{s} {trang}- {xanh_la}Tố Cáo Thành Công ID{trang}: {tim}{id_fb}')
           time.sleep(0.01)
     print(f"\033[1;97m[\033[1;31m</>\033[1;97m] {xanh_la}Done!")
 
