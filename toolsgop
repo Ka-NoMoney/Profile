@@ -1678,8 +1678,43 @@ def gpt():
 
     response = requests.post('https://chatgpt.org/api/text', cookies=cookies, headers=headers, json=json_data).json()
     rp = response['message']
-    print(f" \033[1;97m[\033[1;31m</>\033[1;97m] {tim}CHAT-GPT SAID:{vang} ",rp)
+    print(f"\033[1;97m[\033[1;31m</>\033[1;97m] {tim}CHAT-GPT SAID:{vang} ",rp)
 #========================================================================================================================================================================
+#================================================================================================================================================================================
+def like(head):
+  link =requests.get("https://mbasic.facebook.com/",headers=head).url
+  s=requests.get(link,headers=head).text
+  check=re.findall('/a/like.php?.*?"',s)
+  if check==[]:
+    time.sleep(1)
+  else:
+    tcheck=check[0].replace('amp;','').replace('"','')
+    like=requests.get("https://mbasic.facebook.com/"+tcheck,headers=head)
+    idbv=re.findall('ft_ent_identifier=.*?&',tcheck)[0].replace("ft_ent_identifier=","").replace("&","")
+    print(f"\033[1;97m[\033[1;31m</>\033[1;97m] {xanh_la}LIKE\033[1;31m-\033[1;35m[{tim}",idbv,"\033[1;35m]")
+def addfr(head):
+  link =requests.get("https://mbasic.facebook.com/friends/center/mbasic/?fb_ref=tn&sr=1&ref_component=mbasic_home_header&ref_page=%2Fwap%2Fhome.php&refid=7",headers=head).url
+  s=requests.get(link,headers=head).text
+  check=re.findall('/a/mobile/friends/add_friend.php?.*?"',s)
+  if check==[]:
+    time.sleep(1)
+  else:
+    tcheck=check[0].replace('amp;','').replace('"','')
+    like=requests.get("https://mbasic.facebook.com/"+tcheck,headers=head)
+    idbv=re.findall('id=.*?&',tcheck)[0].replace("id=","").replace("&","")
+    print(f"\033[1;97m[\033[1;31m</>\033[1;97m] {xanh_la}ADD_FRIENDS\033[1;31m-\033[1;35m[{tim}",idbv,"\033[1;35m]")
+def jond(head):
+  link =requests.get("https://mbasic.facebook.com/search/groups/?q=Freefire&source=filter&isTrending=0",headers=head).url
+  s=requests.get(link,headers=head).text
+  check=re.findall('/a/group/join/?.*?"',s)
+  if check==[]:
+    time.sleep(1)
+  else:
+    tcheck=check[0].replace('amp;','').replace('"','')
+    like=requests.get("https://mbasic.facebook.com/"+tcheck,headers=head)
+    idbv=re.findall('group_id=.*?&',tcheck)[0].replace("group_id=","").replace("&","")
+    print(f"\033[1;97m[\033[1;31m</>\033[1;97m] {xanh_la}JOIN GROUP\033[1;31m-\033[1;35m[{tim}",idbv,"\033[1;35m]")
+#===================================================================================================================================================================================
 def main():
   nhap = input("\033[96m\033[1mVui lòng nhập tool (nhập số tương ứng): ")
   if nhap == '0':
@@ -1852,6 +1887,8 @@ def main():
       sleep(delay)
       
   elif nhap == '2.2':
+    clear()
+    runbanner(chontool)
     uid=input(f'\033[1m\033[38;5;51mVui lòng nhập Uid:{vang} ')
     
     token_fb = input(f"{xanh_nhat}nhập token :{vang}")
@@ -1885,6 +1922,21 @@ def main():
     for t in threades:
         t.join()
     print(f'{xanh_la}Đã Xong!')
+    
+  elif nhap == '2.3':
+    clear()
+    runbanner(chontool)
+    ck=input(f"{xanhnhat}Nhập Cookie Facebook Cần Nuôi:{vang} ")
+    clear()
+    runbanner(chontool)
+    idck=re.findall("c_user=.*?;",ck)[0]
+    idfb=idck.replace("c_user=","").replace(";","")
+    head={"Host":"mbasic.facebook.com","content-type":"application/x-www-form-urlencoded","user-agent":"Mozilla/5.0 (Linux; Android 8.0.0; SM-G960F Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.84 Mobile Safari/537.36","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9","sec-fetch-site":"same-origin","sec-fetch-mode":"navigate","sec-fetch-user":"?1","sec-fetch-dest":"document","cookie":ck}
+    print("\033[1;33mStart Raising UID\033[1;31m-\033[1;32m[\033[1;37m",idfb,"\033[1;32m]")
+    while(True):
+      list=["addfr(head)","like(head)","jond(head)"]
+      rd=random.choice(list)
+      exec(rd)
     
     
   else:
