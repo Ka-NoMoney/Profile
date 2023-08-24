@@ -61,7 +61,7 @@ ip_data = response.json()
 Ip = ip_data.get('ip', 'N/A')
 list_clone = []
 list_img = ['https://i.imgur.com/6jpjrQE.jpg','https://i.imgur.com/V6mUatb.jpg','https://i.imgur.com/J99z9DW.jpg','https://i.imgur.com/IlsOBxQ.jpg','https://i.imgur.com/PgnSnBG.jpg','https://i.imgur.com/HAKgMZM.jpg','https://i.imgur.com/U2uRuMq.png']
-dem = 0
+dem=0
 stt = 0
 stt2 = 0
 #==========================================================================================================================
@@ -1827,8 +1827,217 @@ class reg_pro5:
 
 #==========================================================================================================================================================================
 #==================================================================================================================
-
+def get_token(cookie):
+  header = {
+    'authority': 'business.facebook.com',
+    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+    'cache-control': 'max-age=0',
+    'cookie': cookie,
+    'referer': 'https://www.facebook.com/',
+    'sec-ch-ua': '".Not/A)Brand";v="99","Google Chrome";v="103", "Chromium";v="103"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"Linux"',
+    'sec-fetch-dest': 'document',
+    'sec-fetch-mode': 'navigate',
+    'sec-fetch-site': 'same-origin',
+    'sec-fetch-user': '?1',
+    'upgrade-insecure-requests': '1',
+  }
+  try:
+    home_business = requests.get('https://business.facebook.com/content_management', headers=header).text
+    token = home_business.split('EAAG')[1].split('","')[0]
+    token = f'EAAG{token}'
+  except:
+    print(f"{do}Cookie sai vui lòng lấy lại")
+    quit()
+  return token
 #=========================================================================================================
+def thanhngang(so):
+	a= "\033[1;31m"+"────"*so
+	for i in range(len(a)):
+		sys.stdout.write(a[i])
+		sys.stdout.flush()
+		sleep(0.003)
+#=================================================================================================
+
+def rungr(x):
+    uid_page = list_id_name_page[x].split('|')[0]
+    name_page = list_id_name_page[x].split('|')[1]
+    time = datetime.datetime.now().strftime("%H:%M:%S")
+    list1 = (f'i_user={uid_page};')
+    cookie9 = (f'{cookie}{list1}')
+    headers = {
+        'authority': 'www.facebook.com',
+        'accept': '*/*',
+        'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+        'origin': 'https://www.facebook.com',
+        'referer': 'https://www.facebook.com/groups/'+str(id_gr)+'',
+        'sec-ch-prefers-color-scheme': 'light',
+        'sec-ch-ua': '"Chromium";v="106", "Google Chrome";v="106", "Not;A=Brand";v="99"',
+        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua-platform': '"Windows"',
+        'sec-fetch-dest': 'empty',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-site': 'same-origin',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36',
+        'viewport-width': '1221',
+        'x-fb-friendly-name': 'GroupCometJoinForumMutation',
+        'x-fb-lsd': '1CWQYotunk8BXwcjavghDO',
+        'cookie': cookie9,
+    }
+
+    data = {
+        'av': uid_page,
+        '__user': uid_page,
+        '__a': '1',
+        '__dyn': '7AzHxqU5a5Q1ryaxG4VuC0BVU98nwgU765QdwSwMwNw9G2Saxa1NwJwpUe8hw6vwb-q7oc81xoswMwto88422y11xmfz83WwgEcHzoaEnxO0Bo7O2l2Utwwwi831wiEjwZwlo5qfK6E7e58jwGzEaE5e7oqBwJK2W5olwUwlu5pUfE2FBx_y8lz83VBwJCwLyES0Io88cA0z8c84qifxe3u362-2B0oobo8o',
+        '__csr': 'gT3c9Tf4Ph3lndq9E8btWdIy8B6OFTAFqZuBpWIDkDYLF8HWhaKiB9qhqHB-yAFpRXyqWV4dWpaBiHZ7J9d4G5V8GmV9u9CgGK4oKVu4agtG5quFoy9zkeBGucHAmbGnKnyonykmErBg84ubyU6e4FGxa10zpo42axi1AwNzp8C13wIz98a8O6U9UiG2-48bU3fCK19wPwpoOdwKwsrwCw-wk85q1swu84C4E1gE0aJE09kE031nw2780oow8q0S8ANO06fg0F-05mE0m4y3Q0cnwtyw0r1oW0A81oE1981VE0-K0L82xw',
+        '__req': 's',
+        '__hs': '19323.HYP:comet_pkg.2.1.0.2.1',
+        'dpr': '1',
+        '__ccg': 'EXCELLENT',
+        '__rev': '1006638605',
+        '__s': 'g46m30:o2pr1z:3yzc8j',
+        '__hsi': '7170501783158722778',
+        '__comet_req': '15',
+        'fb_dtsg': fb_dtsg,
+        'jazoest': jazoest,
+        'lsd': '1CWQYotunk8BXwcjavghDO',
+        '__aaid': '497084035286445',
+        '__spin_r': '1006638605',
+        '__spin_b': 'trunk',
+        '__spin_t': '1669512545',
+        'fb_api_caller_class': 'RelayModern',
+        'fb_api_req_friendly_name': 'GroupCometJoinForumMutation',
+        'variables': '{"feedType":"DISCUSSION","groupID":"'+str(id_gr)+'","imageMediaType":"image/x-auto","input":{"action_source":"GROUP_MALL","attribution_id_v2":"CometGroupDiscussionRoot.react,comet.group,via_cold_start,1669512546874,734244,2361831622,","group_id":"'+str(id_gr)+'","group_share_tracking_params":{"app_id":"2220391788200892","exp_id":"null","is_from_share":false},"actor_id":"'+uid_page+'","client_mutation_id":"1"},"inviteShortLinkKey":null,"isChainingRecommendationUnit":false,"isEntityMenu":true,"scale":1,"source":"GROUP_MALL","renderLocation":"group_mall","__relay_internal__pv__GroupsCometEntityMenuEmbeddedrelayprovider":true,"__relay_internal__pv__GlobalPanelEnabledrelayprovider":true}',
+        'server_timestamps': 'true',
+        'doc_id': '5608919199222447',
+        'fb_api_analytics_tags': '["qpl_active_flow_ids=431626709"]',
+    }
+
+    response = requests.post('https://www.facebook.com/api/graphql/', headers=headers, data=data).text
+    print(f'\n\033[1;31m[{vang}{+str(x+1)}\033[1;31m] | \033[1;36m{str(time)} \033[1;31m| {xanh_la}SUCCESS \033[1;31m| \033[1;35m{str(uid_page)} \033[1;31m| \033[1;34m{str(name_page)} \033[1;31m| \033[1;37m{str(id_gr)} ')
+
+#=================================================================================================
+dem=0
+class fb_buff_flow:
+	def __init__(self,cookie):
+		self.cookie = cookie
+		self.headers = {
+			'authority': 'mbasic.facebook.com',
+			'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+			'accept-language': 'vi,en;q=0.9,vi-VN;q=0.8,fr-FR;q=0.7,fr;q=0.6,en-US;q=0.5',
+			'cache-control': 'max-age=0',
+			'cookie': cookie,
+			'origin': 'https://www.facebook.com',
+			'referer': 'https://www.facebook.com',
+			'sec-ch-ua': '"Google Chrome";v="107", "Chromium";v="107", "Not=A?Brand";v="24"',
+			'sec-ch-ua-mobile': '?0',
+			'sec-ch-ua-platform': '"Windows"',
+			'sec-fetch-dest': 'document',
+			'sec-fetch-mode': 'navigate',
+			'sec-fetch-site': 'none',
+			'sec-fetch-user': '?1',
+			'upgrade-insecure-requests': '1',
+			'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
+			}
+			#continue 
+	def get_thongtin(self):
+		  try:
+			    home = requests.get('https://mbasic.facebook.com/profile.php',headers=self.headers).text
+			    self.fb_dtsg = home.split('<input type="hidden" name="fb_dtsg" value="')[1].split('"')[0]
+			    self.jazoest = home.split('<input type="hidden" name="jazoest" value="')[1].split('"')[0]
+			    ten = home.split('<title>')[1].split('</title>')[0]
+			    self.user_id = self.cookie.split('c_user=')[1].split(';')[0]
+			    print(f'\n{xanhnhat}Tên Facebook: {tim}{ten} {trang}| {xanhnhat}ID: {tim}{self.user_id} ', end='')
+			    sys.stdout.flush()
+			    return self.user_id
+		  except:
+			    print(f'{do}Không Get Được Thông Tin ! ')
+			    return 0
+	def get_pro5(self):
+		headers={
+           	     'authority': 'www.facebook.com',
+            	    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+          	      'accept-language': 'vi',
+       	         'cookie': self.cookie,
+           	     'sec-ch-prefers-color-scheme': 'light',
+            	    'sec-ch-ua': '"Chromium";v="106", "Google Chrome";v="106", "Not;A=Brand";v="99"',
+            	    'sec-ch-ua-mobile': '?0',
+          	      'sec-ch-ua-platform': '"Windows"',
+          	      'sec-fetch-dest': 'document',
+           	     'sec-fetch-mode': 'navigate',
+           	     'sec-fetch-site': 'none',
+           	     'sec-fetch-user': '?1',
+             	   'upgrade-insecure-requests': '1',
+           	     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36',
+            	    'viewport-width': '1366',
+          	 	 }
+		data ={
+					'av':self.user_id,
+					'fb_dtsg':self.fb_dtsg,
+					'jazoest':self.jazoest,
+					'fb_api_caller_class':'RelayModern',
+					'fb_api_req_friendly_name':'CometSettingsDropdownListQuery',
+					'variables':'{"fetchTestUserProfileListCell":false,"includeHorizBadging":false,"inProfileSwitcherEntry":false,"inSimpleHeaderEntry":true,"scale":2}',
+					'server_timestamps':'true',
+					'doc_id':'8179507702122101',
+				}
+		try:
+			  a=requests.post('https://www.facebook.com/api/graphql/', headers=headers,data=data).json()
+			  get = a['data']['viewer']['actor']['profile_switcher_eligible_profiles']
+			  tong = get['count']
+			  data_pro5 = get['nodes']
+			  print(f'{trang}| {vang}{tong} {xanh_la}Page Profile')
+			  return data_pro5
+		except:
+			print(f'\n{do}Không Get Được Page Profile ')
+			return 0
+	def follow(self, id, id_page, name):
+		cookie = self.cookie
+		ck_pro5 = cookie + '; i_user=' + id_page + ';'
+		headers={
+			'Host':'www.facebook.com',
+			'sec-ch-ua':'"Chromium";v="107", "Not=A?Brand";v="24"',
+			'sec-ch-ua-mobile':'?0',
+			'user-agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
+			'viewport-width':'980',
+			'content-type':'application/x-www-form-urlencoded',
+			'x-fb-lsd':'ozBHo3fICOG_bXpKqo1J1C',
+			'x-fb-friendly-name':'CometUserFollowMutation',
+			'sec-ch-prefers-color-scheme':'light',
+			'sec-ch-ua-platform':'"Linux"',
+			'accept':'*/*',
+			'origin':'https://www.facebook.com',
+			'sec-fetch-site':'same-origin',
+			'sec-fetch-mode':'cors',
+			'sec-fetch-dest':'empty',
+			'referer':'https://www.facebook.com/',
+			'accept-language':'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+			'cookie':ck_pro5
+		}
+		data={
+			'av': id_page,
+			'fb_dtsg': self.fb_dtsg,
+			'jazoest': self.jazoest,
+			'fb_api_caller_class':'RelayModern',
+			'fb_api_req_friendly_name':'CometUserFollowMutation',
+			'variables':'{"input":{"attribution_id_v2":"ProfileCometTimelineListViewRoot.react,comet.profile.timeline.list,via_cold_start,1669330367418,219724,250100865708545,","subscribe_location":"PROFILE","subscribee_id":"'+id+'","actor_id":"'+id_page+'","client_mutation_id":"1"},"scale":2}',
+			'server_timestamps':'true',
+			'doc_id':'5032256523527306'
+		}
+		try:
+			fl=requests.post('https://www.facebook.com/api/graphql/', headers=headers, data=data)
+			check = fl.json()['data']['actor_subscribe']['subscribee']['subscribe_status']
+			if check == 'IS_SUBSCRIBED':
+				print(f'{trang}[{do}</>{trang}] {trang}[{vang}{name} {trang}| {tim}{id_page}{trang}] {vang}FOLLOW {trang}[{vang}{id}{trang}] {xanh_la}SUCCESS ')
+			else:
+				print(f'{trang}[{do}</>{trang}] {trang}[{vang}{name} {trang}| {tim}{id_page}{trang}] {vang}FOLLOW {trang}[{vang}{id}{trang}] {do}ERROR ')
+		except:
+			print(f'{trang}[{do}</>{trang}] {trang}[{vang}{name} {trang}| {tim}{id_page}{trang}] {vang}FOLLOW {trang}[{vang}{id}{trang}] {do}ERROR ')
+
+#================================================================================================
 def main():
   nhap = input("\033[96m\033[1mVui lòng nhập tool (nhập số tương ứng): ")
   if nhap == '0':
@@ -1895,48 +2104,18 @@ def main():
   elif nhap == '1.4':
     clear()
     runbanner(chontool)
+    rum = reg_pro5()
+    stt = 0
     ck_fb= input(f" \033[1;97m[\033[1;31m</>\033[1;97m] {xanhnhat}Nhập Cookie Acc Cần Get Token Profile-Pro5: {vang}")
-    hed_gettoken = {
-    'authority': 'www.instagram.com',
-    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-    'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
-    'cache-control': 'no-cache',
-    'cookie': ck_fb,
-    'pragma': 'no-cache',
-    'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="102", "Google Chrome";v="102"',
-    'sec-ch-ua-mobile': '?0',
-    'sec-ch-ua-platform': '"Windows"',
-    'sec-fetch-dest': 'document',
-    'sec-fetch-mode': 'navigate',
-    'sec-fetch-site': 'none',
-    'sec-fetch-user': '?1',
-    'upgrade-insecure-requests': '1',
-    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.115 Safari/537.36',
-    }
-    try:
-      token_fb = requests.get('https://www.facebook.com/dialog/oauth?client_id=124024574287414&redirect_uri=https://www.instagram.com/accounts/signup/&&scope=email&response_type=token', headers=hed_gettoken).url.split('#access_token=')[1].split('&data_access_expiration_time')[0]
-      print(f' \033[1;97m[\033[1;31m</>\033[1;97m] {xanh_la}Get Token Profile Thành Công')
-      open('token.txt',"a").write(token_fb+'\n')
-    except:
-      print(f' \033[1;97m[\033[1;31m</>\033[1;97m] {do}Get Token Thất Bại, Vui Lòng Xem Lại Cookie')
-      sleep(5)
-      quit()
+    checklive = rum.getthongtinfacebook(ck_fb)
+    if checklive != False:
+        token_fb = get_token(ck_fb) 
+        print(f'{tim}Name Facebook: {xanh_la}'+checklive[0])
+        print(f"{xanh_la}TOKEN profile-pro5 của bạn là {trang}:{vang}{token_fb} ")
+    else:
+        stt-1
+        print(f'{do}cookie die')
 
-    header={
-     'cookie': ck_fb,
-      }
-    def gettokenpro5():
-      get_ = requests.get('https://graph.facebook.com/me/accounts?access_token='+token_fb).json()['data']
-      for access in get_:
-        tok = access['access_token']
-       
-        with open("token_pro5.txt", "a+") as f:
-            f.write(tok+'\n')
-      print(f" \033[1;97m[\033[1;31m</>\033[1;97m] {xanh_la}Get Token Pro5 Thành Công")
-    gettokenpro5()
-    print(f" \033[1;97m[\033[1;31m</>\033[1;97m] \u001b[33;1mĐã Lưu Token Của Profile Vào File: token.txt")
-    print(f" \033[1;97m[\033[1;31m</>\033[1;97m] \u001b[33;1mĐã Lưu Token Của Pro5 Vào File: token_pro5.txt")
-    
   elif nhap == '1.5':
     clear()
     runbanner(chontool)
@@ -2005,10 +2184,8 @@ def main():
     clear()
     runbanner(chontool)
     uid=input(f'\033[1m\033[38;5;51mVui lòng nhập Uid:{vang} ')
-    
-    token_fb = input(f"{xanh_nhat}nhập token :{vang}")
-
-    ck_fb = input(f"{xanh_nhat}nhập cookie :{vang}")
+    ck_fb = input(f"{xanhnhat}Nhập cookie :{vang} ")
+    token_fb = get_token(ck_fb)
     header={
         'cookie': ck_fb,
     }
@@ -2021,9 +2198,9 @@ def main():
             # print(access_token_page)
             buff = requests.post(f"https://graph.facebook.com/me/feed?link=https://www.facebook.com/{uid}&published=0&access_token={access_token_page}",headers=header).text
             if "error" in buff:
-                print(f'\033[1m\033[38;5;237m[\033[38;5;54m*\033[38;5;237m]\033[0m \033[4m\033[38;5;164m{uid_page}\033[0m \033[1;31mFaild')
+                print(f'{xanhnhat}{uid_page}\033[0m {do}Faild')
             else:
-                print(f'\033[1m\033[38;5;237m[\033[38;5;54m*\033[38;5;237m]\033[0m \033[4m\033[38;5;164m{buff}\033[0m \033[1m\033[38;5;51mSuccess')
+                print(f'{xanhnhat}{buff}\033[0m \033[1m{xanh_la}Success')
 
 
 
@@ -2126,6 +2303,7 @@ def main():
     runbanner(chontool)
     runxem = reg_pro5()
     stt = 0
+    dem = 0
     while True:
       stt+=1
       cookie_fb = input(f'\033[1;97m[\033[1;31m</>\033[1;97m] {xanhnhat}VUI LÒNG NHẬP COOKIE THỨ {trang}[{tim}{stt}{trang}] :{vang} ')
@@ -2146,18 +2324,20 @@ def main():
     while True:
       for dulieuclone in list_clone:
         idpage = runxem.RegPage(str(dulieuclone).split('|')[0], str(dulieuclone).split('|')[1], str(dulieuclone).split('|')[2], str(dulieuclone).split('|')[3], str(dulieuclone).split('|')[4])
-        link_anh = random.choice(list_img)
-        runxem.UpAvt(str(dulieuclone).split('|')[0], idpage, link_anh)
-        if runxem != False:
-            print(f'{xanh_la}UP AVT SUCCESS {trang}| {trang}[{vang}UID PAGE: {tim}{idpage}{trang}]')
-        else:
-                print(f'{do}UP AVT ERROR {trang}| {trang}[{vang}UID PAGE: {tim}{idpage}{trang}]')
-        idelay(delay)
+        if idpage:
+          link_anh = random.choice(list_img)
+          if runxem.UpAvt(str(dulieuclone).split('|')[0], idpage, link_anh):
+              print(f'{xanh_la}UP AVT SUCCESS {trang}| {trang}[{vang}UID PAGE: {tim}{idpage}{trang}]')
+              dem += 1  # Tăng số page đã tạo thành công
+          else:
+            print(f'{do}UP AVT ERROR {trang}| {trang}[{vang}UID PAGE: {tim}{idpage}{trang}]')
+          idelay(delay)
+        
         if dem == slpage:
-            print(f'\033[1;97m[\033[1;31m</>\033[1;97m] {xanh_la}Reg Thành Công {vang}{dem} {tim}Page')
-            exit()
-            
-            
+          print(f'\033[1;97m[\033[1;31m</>\033[1;97m] {xanh_la}Reg Thành Công {vang}{dem} {tim}Page')
+          exit()
+
+       
   elif nhap == '3.2':
     clear()
     runbanner(chontool)
@@ -2268,7 +2448,160 @@ def main():
     sleep(5)
     print(f'{xanh_la}DONE!')
 
+  elif nhap == '3.3':
+    clear()
+    runbanner(chontool)
+    dem = 0
+    while True:
+        while True:
+            cookie=input (f'{xanhnhat}Nhập Cookie Nick Cầm Page Profile:{vang} ')
+            thanhngang(16)
+            fbr = fb_buff_flow(cookie)
+            a = fbr.get_thongtin()
+            if a == 0:
+              continue
+            data_pro5 = fbr.get_pro5()
+            if data_pro5 == 0:
+              continue
+            else:
+              break
+        thanhngang(16)
+        id=input(f'\n{xanhnhat}Nhập ID Nick Cần Buff Follow {trang}:{vang} ')
+        dl = int(input(f'{xanhnhat}Nhập Delay {trang}:{vang} '))
+        for x in data_pro5:
+            id_page=x['profile']['id']
+            name=x['profile']['name']
+            dem+=1
+            fbr.follow (id, id_page, name)
+            idelay(dl)
+  
+  elif nhap == '3.4':
+    clear()
+    runbanner(chontool)
+    list_id_name_page = []
+    def rungr(x):
+        uid_page = list_id_name_page[x].split('|')[0]
+        name_page = list_id_name_page[x].split('|')[1]
+        time = datetime.datetime.now().strftime("%H:%M:%S")
+        list1 = (f'i_user={uid_page};')
+        cookie9 = (f'{cookie}{list1}')
+        headers = {
+            'authority': 'www.facebook.com',
+            'accept': '*/*',
+            'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+            'origin': 'https://www.facebook.com',
+            'referer': 'https://www.facebook.com/groups/'+str(id_gr)+'',
+            'sec-ch-prefers-color-scheme': 'light',
+            'sec-ch-ua': '"Chromium";v="106", "Google Chrome";v="106", "Not;A=Brand";v="99"',
+            'sec-ch-ua-mobile': '?0',
+            'sec-ch-ua-platform': '"Windows"',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-origin',
+            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36',
+            'viewport-width': '1221',
+            'x-fb-friendly-name': 'GroupCometJoinForumMutation',
+            'x-fb-lsd': '1CWQYotunk8BXwcjavghDO',
+            'cookie': cookie9,
+          }
 
+        data = {
+            'av': uid_page,
+            '__user': uid_page,
+            '__a': '1',
+            '__dyn': '7AzHxqU5a5Q1ryaxG4VuC0BVU98nwgU765QdwSwMwNw9G2Saxa1NwJwpUe8hw6vwb-q7oc81xoswMwto88422y11xmfz83WwgEcHzoaEnxO0Bo7O2l2Utwwwi831wiEjwZwlo5qfK6E7e58jwGzEaE5e7oqBwJK2W5olwUwlu5pUfE2FBx_y8lz83VBwJCwLyES0Io88cA0z8c84qifxe3u362-2B0oobo8o',
+            '__csr': 'gT3c9Tf4Ph3lndq9E8btWdIy8B6OFTAFqZuBpWIDkDYLF8HWhaKiB9qhqHB-yAFpRXyqWV4dWpaBiHZ7J9d4G5V8GmV9u9CgGK4oKVu4agtG5quFoy9zkeBGucHAmbGnKnyonykmErBg84ubyU6e4FGxa10zpo42axi1AwNzp8C13wIz98a8O6U9UiG2-48bU3fCK19wPwpoOdwKwsrwCw-wk85q1swu84C4E1gE0aJE09kE031nw2780oow8q0S8ANO06fg0F-05mE0m4y3Q0cnwtyw0r1oW0A81oE1981VE0-K0L82xw',
+            '__req': 's',
+            '__hs': '19323.HYP:comet_pkg.2.1.0.2.1',
+            'dpr': '1',
+            '__ccg': 'EXCELLENT',
+            '__rev': '1006638605',
+            '__s': 'g46m30:o2pr1z:3yzc8j',
+            '__hsi': '7170501783158722778',
+            '__comet_req': '15',
+            'fb_dtsg': fb_dtsg,
+            'jazoest': jazoest,
+            'lsd': '1CWQYotunk8BXwcjavghDO',
+            '__aaid': '497084035286445',
+            '__spin_r': '1006638605',
+            '__spin_b': 'trunk',
+            '__spin_t': '1669512545',
+            'fb_api_caller_class': 'RelayModern',
+            'fb_api_req_friendly_name': 'GroupCometJoinForumMutation',
+            'variables': '{"feedType":"DISCUSSION","groupID":"'+str(id_gr)+'","imageMediaType":"image/x-auto","input":{"action_source":"GROUP_MALL","attribution_id_v2":"CometGroupDiscussionRoot.react,comet.group,via_cold_start,1669512546874,734244,2361831622,","group_id":"'+str(id_gr)+'","group_share_tracking_params":{"app_id":"2220391788200892","exp_id":"null","is_from_share":false},"actor_id":"'+uid_page+'","client_mutation_id":"1"},"inviteShortLinkKey":null,"isChainingRecommendationUnit":false,"isEntityMenu":true,"scale":1,"source":"GROUP_MALL","renderLocation":"group_mall","__relay_internal__pv__GroupsCometEntityMenuEmbeddedrelayprovider":true,"__relay_internal__pv__GlobalPanelEnabledrelayprovider":true}',
+            'server_timestamps': 'true',
+            'doc_id': '5608919199222447',
+            'fb_api_analytics_tags': '["qpl_active_flow_ids=431626709"]',
+          }
+
+        response = requests.post('https://www.facebook.com/api/graphql/', headers=headers, data=data).text
+        print(f'\033[1;31m[{vang}{str(x+1)}\033[1;31m] | \033[1;36m{str(time)} \033[1;31m| {xanh_la}SUCCESS \033[1;31m| \033[1;35m{str(uid_page)} \033[1;31m| \033[1;34m{str(name_page)} \033[1;31m| \033[1;37m{str(id_gr)} ')
+
+    cookie = input(f'\033[1;97m[\033[1;31m</>\033[1;97m] {xanhnhat}Vui Lòng Nhập Cookie Facebook {trang}: {vang}')
+    headers = {
+        'authority': 'mbasic.facebook.com',
+        'cache-control': 'max-age=0',
+        'sec-ch-ua': '"Google Chrome";v="93", " Not;A Brand";v="99", "Chromium";v="93"',
+        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua-platform': '"Windows"',
+        'upgrade-insecure-requests': '1',
+        'origin': 'https://mbasic.facebook.com',
+        'content-type': 'application/x-www-form-urlencoded',
+        'user-agent': 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36',
+        'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+        'sec-fetch-site': 'same-origin',
+        'sec-fetch-mode': 'navigate',
+        'sec-fetch-user': '?1',
+        'sec-fetch-dest': 'document',
+        'referer': 'https://mbasic.facebook.com/',
+        'accept-language': 'en-US,en;q=0.9',
+        'cookie': cookie,
+      } 
+    try:
+      print(f"\033[1;97m[\033[1;31m</>\033[1;97m] {tim}Đang Check Live Cookie...!", end="\r")
+      find_data = requests.get("https://mbasic.facebook.com/", headers=headers).text
+      fb_dtsg = find_data.split('<input type="hidden" name="fb_dtsg" value="')[1].split('"')[0]
+      jazoest = find_data.split('<input type="hidden" name="jazoest" value="')[1].split('"')[0]
+    except:
+      exit(f"\033[1;97m[\033[1;31m</>\033[1;97m] {do}Cookie Die Vui Lòng Kiểm Tra Lại!!")
+      
+    headers_getid = {
+        'cookie': cookie, 
+    }
+    data = {
+      'fb_dtsg': fb_dtsg,
+      'jazoest': jazoest,
+      'variables': '{"showUpdatedLaunchpointRedesign":true,"useAdminedPagesForActingAccount":false,"useNewPagesYouManage":true}',
+      'doc_id': '5300338636681652'
+    }
+    getidpro5 = requests.post('https://www.facebook.com/api/graphql/', headers = headers_getid, data = data).json()['data']['viewer']['actor']['profile_switcher_eligible_profiles']['nodes']
+    for i in getidpro5:
+        uid_page = i['profile']['id']
+        name_page = i['profile']['name']
+        gomlist = f'{uid_page}|{name_page}'
+        list_id_name_page.append(gomlist)
+    clear()
+    runbanner(chontool)
+    print(f'\033[1;97m[\033[1;31m</>\033[1;97m] {xanh_la}Get Thành Công: {trang}{str(len(list_id_name_page))} {xanh_la}Page Pro5')
+    thanhngang(16)
+    linkgr = input(f'\n\033[1;97m[\033[1;31m</>\033[1;97m] {xanhnhat}Vui Lòng Nhập Link Group {trang}: {vang}')
+    get_id_gr = requests.post('https://id.traodoisub.com/api.php',data={"link":linkgr,}).json()
+    if 'success' in get_id_gr:
+        id_gr = get_id_gr["id"]
+    else:
+        exit(f'\033[1;97m[\033[1;31m</>\033[1;97m] {do}CÓ VẺ LINK GROUP SAI VUI LÒNG KIỂM TRA LẠI!!')
+        
+    thanhngang(16)
+    print(f'\n\033[1;97m[\033[1;31m</>\033[1;97m] {do}[{xanh_la}SUCCESS{do}] {trang}: {tim}UID GROUP CỦA BẠN LÀ{trang}: {id_gr}')
+    thanhngang(16)
+    soluongrungr = int(input(f'\n\033[1;97m[\033[1;31m</>\033[1;97m] {xanhnhat}Bạn Muốn Tăng Bao Nhiêu Menber{trang}: {vang}'))
+    thanhngang(16)
+    delay = int(input(f'\n\033[1;97m[\033[1;31m</>\033[1;97m] {xanhnhat}Nhập Delay Tăng Menber{trang}: {vang}'))
+    thanhngang(16)
+    for x in range(soluongrungr):
+        threading.Thread(target=rungr,args=(x, )).start()
+        idelay(delay)
+    
                       
 
 
@@ -2302,7 +2635,7 @@ def main():
     check_xu = login_tds(token)
     cookie = input(f'{xanhnhat}Nhập cookie acc :{vang} ')
     print('-'*60)
-#### vào việc
+
     get_tt_page = get_page(cookie)
     a = int(input(f'{xanhnhat}Bạn Muốn Chạy Page Pro5 Số Mấy :{vang} '))
     chon = a-1
@@ -2405,7 +2738,7 @@ def main():
   elif nhap == '5':
     clear()
     runbanner(nam)               
-  elif nhap == '5.1':
+  elif nhap == '5.2':
     clear()
     runbanner(chontool)
     Z = Zefoy()
@@ -2417,7 +2750,7 @@ def main():
             if 'Service is currently not working, try again later' in str(Z.use_service()): print(f'{do}[Trọng Thảo]</>Dịch vụ hiện không hoạt động, hãy thử lại sau. | Bạn có thể thay đổi nó trong cấu hình.');time.sleep(5)
         except Exception as e:print(f'LỖI NGHIÊM TÚC | thử lại sau 10 giây.|| {e}');time.sleep(10)
 
-  elif nhap == '5.2':
+  elif nhap == '5.1':
     clear()
     runbanner(chontool)
     Z = Zefoy2()
