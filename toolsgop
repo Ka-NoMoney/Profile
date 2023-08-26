@@ -2176,7 +2176,7 @@ def tdstt():
       print(do+'Access Token Không Hợp Lệ! Xin Thử Lại ')
       os.remove('configtds.txt')
       continue 
-    clear()
+  clear()
  
   runbanner(chontool)
   print(f'{trang}[{do}</>{trang}]{xanh_la}Tên Tài Khoản: {vang}{user} ')
