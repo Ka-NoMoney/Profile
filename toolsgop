@@ -2186,8 +2186,8 @@ def tdstt():
     ntool=0
     thanhngang(16)
     print(f'\n{trang}[{do}</>{trang}]{xanh_la}Nhập {trang}[{vang}1{trang}] {xanh_la}Để Chạy Nhiệm Vụ Tim')
-    print(f'{trang}[{do}</>{trang}]{xanh_la}Nhập {trang}[{vang}1{trang}] {xanh_la}Để Chạy Nhiệm Vụ Follow')
-    print(f'{trang}[{do}</>{trang}]{xanh_la}Nhập {trang}[{vang}1{trang}] {xanh_la}Để Chạy Nhiệm Vụ Follow Tiktok Now')
+    print(f'{trang}[{do}</>{trang}]{xanh_la}Nhập {trang}[{vang}2{trang}] {xanh_la}Để Chạy Nhiệm Vụ Follow')
+    print(f'{trang}[{do}</>{trang}]{xanh_la}Nhập {trang}[{vang}3{trang}] {xanh_la}Để Chạy Nhiệm Vụ Follow Tiktok Now')
     nhiem_vu=input(f'{trang}[{do}</>{trang}]{xanhnhat}Nhập Số Để Chạy Nhiệm Vụ: {vang}')
     dl = int(input(f'{trang}[{do}</>{trang}]{xanhnhat}Nhập Delay: {vang}'))
     while True:
