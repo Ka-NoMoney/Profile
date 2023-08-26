@@ -2129,8 +2129,8 @@ class TraoDoiSub_Api (object):
     except:
       print(f'\n{do}Nhận Xu Thất Bại !', end = '\r'); sleep(2); print('                                                       ', end = '\r')
       return False
-
-
+from sys import platform
+may = 'mb' if platform[0:3] == 'lin' else 'pc'
 def chuyen(link, may):
   if may == 'mb':
     os.system(f'xdg-open {link}')
@@ -2195,7 +2195,7 @@ def tdstt():
         break
       ntool = 0
       thanhngang
-      nv_nhan=int(input(f'|n{trang}[{do}</>{trang}]{xanhnhat}Sau Bao Nhiêu Nhiệm Vụ Thì Nhận Xu: {vang}'))
+      nv_nhan=int(input(f'{trang}[{do}</>{trang}]{xanhnhat}Sau Bao Nhiêu Nhiệm Vụ Thì Nhận Xu: {vang}'))
       if nv_nhan < 8:
         print(do+'Trên 8 Nhiệm Vụ Mới Được Nhận Tiền!')
         continue
@@ -2236,7 +2236,7 @@ def tdstt():
             if len(listlike) == 0:
               print(do+'Hết Nhiệm Vụ Like                             ', end = '\r');sleep(2); print('                                                        ', end = '\r')
             else:
-              print(f'{xanh_la}Tìm Thấy {vang}{len(listlike)} {xanh_la}Nhiệm Vụ Like                       ', end = '\r');sleep(2); print('                                                        ', end = '\r')
+              print(f'\n{xanh_la}Tìm Thấy {vang}{len(listlike)} {xanh_la}Nhiệm Vụ Like                       ', end = '\r');sleep(2); print('                                                        ', end = '\r')
               for i in listlike:
                 id = i['id']
                 link = i['link']
@@ -2248,7 +2248,7 @@ def tdstt():
                 else:
                   dem+=1
                   tg=datetime.datetime.now().strftime('%H:%M:%S')
-                  print(f'{trang}[{xang}{dem}{trang}] {do}| {xanh_la}{tg} {do}| {Colorate.Horizontal(Colors.yellow_to_red, "TIM")} {do}| {tim}{id} {do}|')
+                  print(f'{trang}[{vang}{dem}{trang}] {do}| {xanh_la}{tg} {do}| {Colorate.Horizontal(Colors.yellow_to_red, "TIM")} {do}| {tim}{id} {do}|')
                   idelay(dl)
                   if dem % nv_nhan == 0:
                     nhan = tds.nhan_xu('TIKTOK_LIKE_API', 'TIKTOK_LIKE')
@@ -2287,7 +2287,7 @@ def tdstt():
             if len(listfollow) == 0:
               print(do+'Hết Nhiệm Vụ Follow                             ', end = '\r');sleep(2); print('                                                        ', end = '\r')
             else:
-              print(xanh_la+f'Tìm Thấy {vang}{len(listfollow)} {xanh_la}Nhiệm Vụ Follow                       ', end = '\r');sleep(2); print('                                                        ', end = '\r')
+              print(xanh_la+f'\nTìm Thấy {vang}{len(listfollow)} {xanh_la}Nhiệm Vụ Follow                       ', end = '\r');sleep(2); print('                                                        ', end = '\r')
               for i in listfollow:
                 id = i['id']
                 link = i['link']
@@ -2338,7 +2338,7 @@ def tdstt():
             if len(listfollow) == 0:
               print(do+'Hết Nhiệm Vụ Follow                             ', end = '\r');sleep(2); print('                                                        ', end = '\r')
             else:
-              print(f'{xanh_la}Tìm Thấy {vang}{len(listfollow)} {xanh_la}Nhiệm Vụ Follow                       ', end = '\r');sleep(2); print('                                                        ', end = '\r')
+              print(f'{xanh_la}\nTìm Thấy {vang}{len(listfollow)} {xanh_la}Nhiệm Vụ Follow                       ', end = '\r');sleep(2); print('                                                        ', end = '\r')
               for i in listfollow:
                 id = i['id']
                 uid = id.split('_')[0] 
