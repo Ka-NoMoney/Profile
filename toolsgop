@@ -2132,246 +2132,246 @@ class TraoDoiSub_Api (object):
 
 
 def chuyen(link, may):
-	if may == 'mb':
-		os.system(f'xdg-open {link}')
-	else:
-		os.system(f'cmd /c start {link}')
+  if may == 'mb':
+    os.system(f'xdg-open {link}')
+  else:
+    os.system(f'cmd /c start {link}')
    
 def tdstt():
-	dem=0
-	while True:
-		if os.path.exists('configtds.txt'):
-			with open('configtds.txt', 'r') as f:
-				token = f.read()
-			tds = TraoDoiSub_Api(token)
-			data = tds.main()
-			try:
-				print(f'{trang}[{do}</>{trang}]{xanh_la}Nhập {trang}[{vang}1{trang}] {xanh_la}Giữ Lại Tài Khoản '+vang+ data['user'] )
-				print(f'{trang}[{do}</>{trang}]{xanh_la}Nhập {trang}[{vang}2{trang}] {xanh_la}Nhập Access_Token TDS Mới')
-				chon = input(f'{trang}[{do}</>{trang}]{xanhnhat}Nhập {trang}===>: {vang}')
-				if chon == '2':
-					os.remove('configtds.txt')
-				elif chon == '1':
-					pass
-				else:
-					print(do+'Lựa chọn không xác định !!!');thanhngang(16)
-					continue 
-			except:
-				os.remove('configtds.txt')
-		if not os.path.exists('configtds.txt'):
-			token = input(f'\n{trang}[{do}</>{trang}]{xanhnhat}Nhập Access_Token TDS: {vang}')
-			with open('configtds.txt', 'w') as f:
-				f.write(token)
-		with open('configtds.txt', 'r') as f:
-			token = f.read()
-		tds = TraoDoiSub_Api(token)
-		data = tds.main()
-		try:
-			xu = data['xu']
-			xudie = data['xudie']
-			user = data['user']
-			print(xanh_la+' Đăng Nhập Thành Công ')
-			break
-		except:
-			print(do+'Access Token Không Hợp Lệ! Xin Thử Lại ')
-			os.remove('configtds.txt')
-			continue 
-  clear()
+  dem=0
+  while True:
+    if os.path.exists('configtds.txt'):
+      with open('configtds.txt', 'r') as f:
+        token = f.read()
+      tds = TraoDoiSub_Api(token)
+      data = tds.main()
+      try:
+        print(f'{trang}[{do}</>{trang}]{xanh_la}Nhập {trang}[{vang}1{trang}] {xanh_la}Giữ Lại Tài Khoản '+vang+ data['user'] )
+        print(f'{trang}[{do}</>{trang}]{xanh_la}Nhập {trang}[{vang}2{trang}] {xanh_la}Nhập Access_Token TDS Mới')
+        chon = input(f'{trang}[{do}</>{trang}]{xanhnhat}Nhập {trang}===>: {vang}')
+        if chon == '2':
+          os.remove('configtds.txt')
+        elif chon == '1':
+          pass
+        else:
+          print(do+'Lựa chọn không xác định !!!');thanhngang(16)
+          continue 
+      except:
+        os.remove('configtds.txt')
+    if not os.path.exists('configtds.txt'):
+      token = input(f'\n{trang}[{do}</>{trang}]{xanhnhat}Nhập Access_Token TDS: {vang}')
+      with open('configtds.txt', 'w') as f:
+        f.write(token)
+    with open('configtds.txt', 'r') as f:
+      token = f.read()
+    tds = TraoDoiSub_Api(token)
+    data = tds.main()
+    try:
+      xu = data['xu']
+      xudie = data['xudie']
+      user = data['user']
+      print(xanh_la+' Đăng Nhập Thành Công ')
+      break
+    except:
+      print(do+'Access Token Không Hợp Lệ! Xin Thử Lại ')
+      os.remove('configtds.txt')
+      continue 
+    clear()
  
-	runbanner(chontool)
-	print(f'{trang}[{do}</>{trang}]{xanh_la}Tên Tài Khoản: {vang}{user} ')
-	print(f'{trang}[{do}</>{trang}]{xanh_la}Xu Hiện Tại: {vang}{xu}')
-	print(f'{trang}[{do}</>{trang}]{do}Xu Bị Phạt: {vang}{xudie} ')
-	while True:
-		ntool=0
-		thanhngang(16)
-		print(f'\n{trang}[{do}</>{trang}]{xanh_la}Nhập {trang}[{vang}1{trang}] {xanh_la}Để Chạy Nhiệm Vụ Tim')
-		print(f'{trang}[{do}</>{trang}]{xanh_la}Nhập {trang}[{vang}1{trang}] {xanh_la}Để Chạy Nhiệm Vụ Follow')
-		print(f'{trang}[{do}</>{trang}]{xanh_la}Nhập {trang}[{vang}1{trang}] {xanh_la}Để Chạy Nhiệm Vụ Follow Tiktok Now')
-		nhiem_vu=input(f'{trang}[{do}</>{trang}]{xanhnhat}Nhập Số Để Chạy Nhiệm Vụ: {vang}')
-		dl = int(input(f'{trang}[{do}</>{trang}]{xanhnhat}Nhập Delay: {vang}'))
-		while True:
-			if ntool == 2:
-				break
-			ntool = 0
-			thanhngang
-			nv_nhan=int(input(f'|n{trang}[{do}</>{trang}]{xanhnhat}Sau Bao Nhiêu Nhiệm Vụ Thì Nhận Xu: {vang}'))
-			if nv_nhan < 8:
-				print(do+'Trên 8 Nhiệm Vụ Mới Được Nhận Tiền!')
-				continue
-			if nv_nhan > 15:
-				print(do+'Nhận Xu Dưới 15 Nhiệm Vụ Để Tránh Lỗi')
-				continue
-			user_cau_hinh=input(f'{trang}[{do}</>{trang}]{xanhnhat}Nhập User Name Tik Tok Cần Cấu Hình: {vang}')
-			cau_hinh=tds.run(user_cau_hinh)
-			if cau_hinh != False:
-				user=cau_hinh['uniqueID']
-				id_acc=cau_hinh['id']
-				thanhngang(16)
-				print(f'\n{xanh_la}Đang Cấu Hình ID: {vang}{id_acc} {do}| {xanh_la}User: {vang}{user} ')
-				thanhngang(16)
-			else:
-				print(f'{do}Cấu Hinh Thất Bại User: {vang}{user_cau_hinh} ')
-				continue 
-			while True:
-				if ntool==1 or ntool==2:break
-				if '1' in nhiem_vu:
-					listlike = tds.get_job('tiktok_like')
-					if listlike == False:
-						print(do+'\nKhông Get Được Nhiệm Vụ Like              ', end = '\r');sleep(2); print('                                                        ', end = '\r')
-					elif 'error' in listlike.text:
-						if listlike.json()['error'] == 'Thao tác quá nhanh vui lòng chậm lại':
-							coun = listlike.json()['countdown']
-							print(f'{do}Đang Get Nhiệm Vụ Like, COUNTDOWN: {str(round(coun, 3))} ', end = '\r'); sleep(2); print('                                                       ', end = '\r')
-						elif listlike.json()['error'] == 'Vui lòng ấn NHẬN TẤT CẢ rồi sau đó tiếp tục làm nhiệm vụ để tránh lỗi!':
-							nhan = tds.nhan_xu('TIKTOK_LIKE_API', 'TIKTOK_LIKE') #TIKTOK_LIKE, TIKTOK_FOLLOW, TIKTOK_COMMENT
-						else:
-							print(do+listlike.json()['error'] , end ='\r');sleep(2); print('                                                        ', end = '\r')
-					else:
-						try:
-							listlike = listlike.json()['data']
-						except:
-							print(do+'Hết Nhiệm Vụ Like                             ', end = '\r');sleep(2); print('                                                        ', end = '\r')
-							continue
-						if len(listlike) == 0:
-							print(do+'Hết Nhiệm Vụ Like                             ', end = '\r');sleep(2); print('                                                        ', end = '\r')
-						else:
-							print(f'{xanh_la}Tìm Thấy {vang}{len(listlike)} {xanh_la}Nhiệm Vụ Like                       ', end = '\r');sleep(2); print('                                                        ', end = '\r')
-							for i in listlike:
-								id = i['id']
-								link = i['link']
-								chuyen(link, may)
-								cache = tds.cache(id, 'TIKTOK_LIKE_CACHE')
-								if cache != True:
-									tg=datetime.datetime.now().strftime('%H:%M:%S')
-									hien = f'{trang}[{do}</>{vang}] {trang}| {xanh_la}{tg} {trang}| {vang}TIM {trang}| {tim}{id}'; print(hien, end = '\r');sleep(1); print('                                                                                        ', end = '\r')
-								else:
-									dem+=1
-									tg=datetime.datetime.now().strftime('%H:%M:%S')
-									print(f'{trang}[{xang}{dem}{trang}] {do}| {xanh_la}{tg} {do}| {Colorate.Horizontal(Colors.yellow_to_red, "TIM")} {do}| {tim}{id} {do}|')
-									idelay(dl)
-									if dem % nv_nhan == 0:
-										nhan = tds.nhan_xu('TIKTOK_LIKE_API', 'TIKTOK_LIKE')
-										if nhan == 0:
-											print(do+'Nhận Xu Thất Bại Acc Tiktok Của Bạn Ổn Chứ ') 
-											print(f'{trang}[{do}</>{trang}]{xanh_la}Nhập {trang}[{vang}1{trang}] {xanh_la}Để Thay Nhiệm Vụ ')
-											print(f'{trang}[{do}</>{trang}]{xanh_la}Nhập {trang}[{vang}2{trang}] {xanh_la}Thay Acc Tiktok ')
-											print(f'{trang}[{do}</>{trang}]{xanh_la}Nhấn {trang}[{vang}Enter{trang}] {xanh_la}Để Tiếp Tục')
-											chon=input(f'{trang}[{do}</>{trang}]{xanhnhat}Nhập {trang}===>: {vang}')
-											if chon == '1':
-												ntool=2
-												break
-											elif chon =='2':
-												ntool = 1
-												break
-											thanhngang(16)
-				if ntool==1 or ntool==2:break
-				if '2' in nhiem_vu:
-					listfollow = tds.get_job('tiktok_follow')
-					if listfollow == False:
-						print(do+'\nKhông Get Được Nhiệm Vụ Follow              ', end = '\r');sleep(2); print('                                                        ', end = '\r')
-					elif 'error' in listfollow.text:
-						if listfollow.json()['error'] == 'Thao tác quá nhanh vui lòng chậm lại':
-							coun = listfollow.json()['countdown']
-							print(do+f'\nĐang Get Nhiệm Vụ Follow, COUNTDOWN: {str(round(coun, 3))} ', end = '\r'); sleep(2); print('                                                       ', end = '\r')
-						elif listfollow.json()['error'] == 'Vui lòng ấn NHẬN TẤT CẢ rồi sau đó tiếp tục làm nhiệm vụ để tránh lỗi!':
-							nhan = tds.nhan_xu('TIKTOK_FOLLOW_API', 'TIKTOK_FOLLOW') #TIKTOK_LIKE, TIKTOK_FOLLOW, TIKTOK_COMMENT
-						else:
-							print(do+listfollow.json()['error'] , end ='\r');sleep(2); print('                                                        ', end = '\r')
-					else:
-						try:
-							listfollow = listfollow.json()['data']
-						except:
-							print(do+'Hết Nhiệm Vụ Follow                             ', end = '\r');sleep(2); print('                                                        ', end = '\r')
-							continue
-						if len(listfollow) == 0:
-							print(do+'Hết Nhiệm Vụ Follow                             ', end = '\r');sleep(2); print('                                                        ', end = '\r')
-						else:
-							print(xanh_la+f'Tìm Thấy {vang}{len(listfollow)} {xanh_la}Nhiệm Vụ Follow                       ', end = '\r');sleep(2); print('                                                        ', end = '\r')
-							for i in listfollow:
-								id = i['id']
-								link = i['link']
-								chuyen(link, may)
-								cache = tds.cache(id, 'TIKTOK_FOLLOW_CACHE')
-								if cache != True:
-									tg=datetime.datetime.now().strftime('%H:%M:%S')
-									hien = f'{trang}[{do}</>{trang}] {do}| {xanh_la}{tg} {do}| {vang}FOLLOW {do}| {tim}{id}'; print(hien, end = '\r');sleep(1); print('                                                                                        ', end = '\r')
-								else:
-									dem+=1
-									tg=datetime.datetime.now().strftime('%H:%M:%S')
-									print(f'{trang}[{vang}{dem}{trang}] {do}| {xanh_la}{tg} {do}| {Colorate.Horizontal(Colors.yellow_to_red, "FOLLOW")} {do}| {tim}{id}')
-									idelay(dl)
-									if dem % nv_nhan == 0:
-										nhan = tds.nhan_xu('TIKTOK_FOLLOW_API', 'TIKTOK_FOLLOW')
-										if nhan == 0:
-											print(do+'Nhận Xu Thất Bại Acc Tiktok Của Bạn Ổn Chứ ') 
-											print(f'{trang}[{do}</>{trang}]{xanh_la}Nhập {trang}[{vang}1{trang}] {xanh_la}Để Thay Nhiệm Vụ ')
-											print(f'{trang}[{do}</>{trang}]{xanh_la}Nhập {trang}[{vang}2{trang}] {xanh_la}Thay Acc Tiktok ')
-											print(f'{trang}[{do}</>{trang}]{xanh_la}Nhấn {trang}[{vang}Enter{trang}] {xanh_la}Để Tiếp Tục')
-											chon=input(f'{trang}[{do}</>{trang}]{xanhnhat}Nhập {trang}===>: {vang}')
-											if chon == '1':
-												ntool=2
-												break
-											elif chon =='2':
-												ntool = 1
-												break
-											thanhngang(16)
-				if ntool==1 or ntool==2:break
-				if '3' in nhiem_vu:
-					listfollow = tds.get_job('tiktok_follow')
-					if listfollow == False:
-						print(do+'Không Get Được Nhiệm Vụ Follow              ', end = '\r');sleep(2); print('                                                        ', end = '\r')
-					elif 'error' in listfollow.text:
-						if listfollow.json()['error'] == 'Thao tác quá nhanh vui lòng chậm lại':
-							coun = listfollow.json()['countdown']
-							print(f'{do}Đang Get Nhiệm Vụ Follow, COUNTDOWN: {str(round(coun, 3))} ', end = '\r'); sleep(2); print('                                                       ', end = '\r')
-						elif listfollow.json()['error'] == 'Vui lòng ấn NHẬN TẤT CẢ rồi sau đó tiếp tục làm nhiệm vụ để tránh lỗi!':
-							nhan = tds.nhan_xu('TIKTOK_FOLLOW_API', 'TIKTOK_FOLLOW') #TIKTOK_LIKE, TIKTOK_FOLLOW, TIKTOK_COMMENT
-						else:
-							print(do+listfollow.json()['error'] , end ='\r');sleep(2); print('                                                        ', end = '\r')
-					else:
-						try:
-							listfollow = listfollow.json()['data']
-						except:
-							print(do+'Hết Nhiệm Vụ Follow                             ', end = '\r');sleep(2); print('                                                        ', end = '\r')
-							continue
-						if len(listfollow) == 0:
-							print(do+'Hết Nhiệm Vụ Follow                             ', end = '\r');sleep(2); print('                                                        ', end = '\r')
-						else:
-							print(f'{xanh_la}Tìm Thấy {vang}{len(listfollow)} {xanh_la}Nhiệm Vụ Follow                       ', end = '\r');sleep(2); print('                                                        ', end = '\r')
-							for i in listfollow:
-								id = i['id']
-								uid = id.split('_')[0] 
-								link = i['link']
-								que = i['uniqueID']
-								if may == 'mb':
-									chuyen(f'tiktoknow://user/profile?user_id={uid}', may)
-								else:
-									chuyen(f'https://now.tiktok.com/@{que}', may)
-								cache = tds.cache(id, 'TIKTOK_FOLLOW_CACHE')
-								if cache != True:
-									tg=datetime.datetime.now().strftime('%H:%M:%S')
-									hien = f'{trang}[{do}</>{trang}] {do}| {xanh_la}{tg} {do}| {vang}FOLLOW_TIKTOK_NOW {do}| {tim}{id}'; print(hien, end = '\r');sleep(1); print('                                                                                        ', end = '\r')
-								else:
-									dem+=1
-									tg=datetime.datetime.now().strftime('%H:%M:%S')
-									print(f'{trang}[{vang}{dem}{trang}] {do}| {xanh_la}{tg} {do}| {Colorate.Horizontal(Colors.yellow_to_red, "FOLLOW_TIKTOK_NOW")} {do}| {tim}{id}')
-									idelay(dl)
-									if dem % nv_nhan == 0:
-										nhan = tds.nhan_xu('TIKTOK_FOLLOW_API', 'TIKTOK_FOLLOW')
-										if nhan == 0:
-											print(do+'Nhận Xu Thất Bại Acc Tiktok Của Bạn Ổn Chứ ') 
-											print(f'{trang}[{do}</>{trang}]{xanh_la}Nhập {trang}[{vang}1{trang}] {xanh_la}Để Thay Nhiệm Vụ ')
-											print(f'{trang}[{do}</>{trang}]{xanh_la}Nhập {trang}[{vang}2{trang}] {xanh_la}Thay Acc Tiktok ')
-											print(f'{trang}[{do}</>{trang}]{xanh_la}Nhấn {trang}[{vang}Enter{trang}] {xanh_la}Để Tiếp Tục')
-											chon=input(f'{trang}[{do}</>{trang}]{xanhnhat}Nhập {trang}===>: {vang}')
-											if chon == '1':
-												ntool=2
-												break
-											elif chon =='2':
-												ntool = 1
-												break
-											thanhngang(16)
+  runbanner(chontool)
+  print(f'{trang}[{do}</>{trang}]{xanh_la}Tên Tài Khoản: {vang}{user} ')
+  print(f'{trang}[{do}</>{trang}]{xanh_la}Xu Hiện Tại: {vang}{xu}')
+  print(f'{trang}[{do}</>{trang}]{do}Xu Bị Phạt: {vang}{xudie} ')
+  while True:
+    ntool=0
+    thanhngang(16)
+    print(f'\n{trang}[{do}</>{trang}]{xanh_la}Nhập {trang}[{vang}1{trang}] {xanh_la}Để Chạy Nhiệm Vụ Tim')
+    print(f'{trang}[{do}</>{trang}]{xanh_la}Nhập {trang}[{vang}1{trang}] {xanh_la}Để Chạy Nhiệm Vụ Follow')
+    print(f'{trang}[{do}</>{trang}]{xanh_la}Nhập {trang}[{vang}1{trang}] {xanh_la}Để Chạy Nhiệm Vụ Follow Tiktok Now')
+    nhiem_vu=input(f'{trang}[{do}</>{trang}]{xanhnhat}Nhập Số Để Chạy Nhiệm Vụ: {vang}')
+    dl = int(input(f'{trang}[{do}</>{trang}]{xanhnhat}Nhập Delay: {vang}'))
+    while True:
+      if ntool == 2:
+        break
+      ntool = 0
+      thanhngang
+      nv_nhan=int(input(f'|n{trang}[{do}</>{trang}]{xanhnhat}Sau Bao Nhiêu Nhiệm Vụ Thì Nhận Xu: {vang}'))
+      if nv_nhan < 8:
+        print(do+'Trên 8 Nhiệm Vụ Mới Được Nhận Tiền!')
+        continue
+      if nv_nhan > 15:
+        print(do+'Nhận Xu Dưới 15 Nhiệm Vụ Để Tránh Lỗi')
+        continue
+      user_cau_hinh=input(f'{trang}[{do}</>{trang}]{xanhnhat}Nhập User Name Tik Tok Cần Cấu Hình: {vang}')
+      cau_hinh=tds.run(user_cau_hinh)
+      if cau_hinh != False:
+        user=cau_hinh['uniqueID']
+        id_acc=cau_hinh['id']
+        thanhngang(16)
+        print(f'\n{xanh_la}Đang Cấu Hình ID: {vang}{id_acc} {do}| {xanh_la}User: {vang}{user} ')
+        thanhngang(16)
+      else:
+        print(f'{do}Cấu Hinh Thất Bại User: {vang}{user_cau_hinh} ')
+        continue 
+      while True:
+        if ntool==1 or ntool==2:break
+        if '1' in nhiem_vu:
+          listlike = tds.get_job('tiktok_like')
+          if listlike == False:
+            print(do+'\nKhông Get Được Nhiệm Vụ Like              ', end = '\r');sleep(2); print('                                                        ', end = '\r')
+          elif 'error' in listlike.text:
+            if listlike.json()['error'] == 'Thao tác quá nhanh vui lòng chậm lại':
+              coun = listlike.json()['countdown']
+              print(f'{do}Đang Get Nhiệm Vụ Like, COUNTDOWN: {str(round(coun, 3))} ', end = '\r'); sleep(2); print('                                                       ', end = '\r')
+            elif listlike.json()['error'] == 'Vui lòng ấn NHẬN TẤT CẢ rồi sau đó tiếp tục làm nhiệm vụ để tránh lỗi!':
+              nhan = tds.nhan_xu('TIKTOK_LIKE_API', 'TIKTOK_LIKE') #TIKTOK_LIKE, TIKTOK_FOLLOW, TIKTOK_COMMENT
+            else:
+              print(do+listlike.json()['error'] , end ='\r');sleep(2); print('                                                        ', end = '\r')
+          else:
+            try:
+              listlike = listlike.json()['data']
+            except:
+              print(do+'Hết Nhiệm Vụ Like                             ', end = '\r');sleep(2); print('                                                        ', end = '\r')
+              continue
+            if len(listlike) == 0:
+              print(do+'Hết Nhiệm Vụ Like                             ', end = '\r');sleep(2); print('                                                        ', end = '\r')
+            else:
+              print(f'{xanh_la}Tìm Thấy {vang}{len(listlike)} {xanh_la}Nhiệm Vụ Like                       ', end = '\r');sleep(2); print('                                                        ', end = '\r')
+              for i in listlike:
+                id = i['id']
+                link = i['link']
+                chuyen(link, may)
+                cache = tds.cache(id, 'TIKTOK_LIKE_CACHE')
+                if cache != True:
+                  tg=datetime.datetime.now().strftime('%H:%M:%S')
+                  hien = f'{trang}[{do}</>{vang}] {trang}| {xanh_la}{tg} {trang}| {vang}TIM {trang}| {tim}{id}'; print(hien, end = '\r');sleep(1); print('                                                                                        ', end = '\r')
+                else:
+                  dem+=1
+                  tg=datetime.datetime.now().strftime('%H:%M:%S')
+                  print(f'{trang}[{xang}{dem}{trang}] {do}| {xanh_la}{tg} {do}| {Colorate.Horizontal(Colors.yellow_to_red, "TIM")} {do}| {tim}{id} {do}|')
+                  idelay(dl)
+                  if dem % nv_nhan == 0:
+                    nhan = tds.nhan_xu('TIKTOK_LIKE_API', 'TIKTOK_LIKE')
+                    if nhan == 0:
+                      print(do+'Nhận Xu Thất Bại Acc Tiktok Của Bạn Ổn Chứ ') 
+                      print(f'{trang}[{do}</>{trang}]{xanh_la}Nhập {trang}[{vang}1{trang}] {xanh_la}Để Thay Nhiệm Vụ ')
+                      print(f'{trang}[{do}</>{trang}]{xanh_la}Nhập {trang}[{vang}2{trang}] {xanh_la}Thay Acc Tiktok ')
+                      print(f'{trang}[{do}</>{trang}]{xanh_la}Nhấn {trang}[{vang}Enter{trang}] {xanh_la}Để Tiếp Tục')
+                      chon=input(f'{trang}[{do}</>{trang}]{xanhnhat}Nhập {trang}===>: {vang}')
+                      if chon == '1':
+                        ntool=2
+                        break
+                      elif chon =='2':
+                        ntool = 1
+                        break
+                      thanhngang(16)
+        if ntool==1 or ntool==2:break
+        if '2' in nhiem_vu:
+          listfollow = tds.get_job('tiktok_follow')
+          if listfollow == False:
+            print(do+'\nKhông Get Được Nhiệm Vụ Follow              ', end = '\r');sleep(2); print('                                                        ', end = '\r')
+          elif 'error' in listfollow.text:
+            if listfollow.json()['error'] == 'Thao tác quá nhanh vui lòng chậm lại':
+              coun = listfollow.json()['countdown']
+              print(do+f'\nĐang Get Nhiệm Vụ Follow, COUNTDOWN: {str(round(coun, 3))} ', end = '\r'); sleep(2); print('                                                       ', end = '\r')
+            elif listfollow.json()['error'] == 'Vui lòng ấn NHẬN TẤT CẢ rồi sau đó tiếp tục làm nhiệm vụ để tránh lỗi!':
+              nhan = tds.nhan_xu('TIKTOK_FOLLOW_API', 'TIKTOK_FOLLOW') #TIKTOK_LIKE, TIKTOK_FOLLOW, TIKTOK_COMMENT
+            else:
+              print(do+listfollow.json()['error'] , end ='\r');sleep(2); print('                                                        ', end = '\r')
+          else:
+            try:
+              listfollow = listfollow.json()['data']
+            except:
+              print(do+'Hết Nhiệm Vụ Follow                             ', end = '\r');sleep(2); print('                                                        ', end = '\r')
+              continue
+            if len(listfollow) == 0:
+              print(do+'Hết Nhiệm Vụ Follow                             ', end = '\r');sleep(2); print('                                                        ', end = '\r')
+            else:
+              print(xanh_la+f'Tìm Thấy {vang}{len(listfollow)} {xanh_la}Nhiệm Vụ Follow                       ', end = '\r');sleep(2); print('                                                        ', end = '\r')
+              for i in listfollow:
+                id = i['id']
+                link = i['link']
+                chuyen(link, may)
+                cache = tds.cache(id, 'TIKTOK_FOLLOW_CACHE')
+                if cache != True:
+                  tg=datetime.datetime.now().strftime('%H:%M:%S')
+                  hien = f'{trang}[{do}</>{trang}] {do}| {xanh_la}{tg} {do}| {vang}FOLLOW {do}| {tim}{id}'; print(hien, end = '\r');sleep(1); print('                                                                                        ', end = '\r')
+                else:
+                  dem+=1
+                  tg=datetime.datetime.now().strftime('%H:%M:%S')
+                  print(f'{trang}[{vang}{dem}{trang}] {do}| {xanh_la}{tg} {do}| {Colorate.Horizontal(Colors.yellow_to_red, "FOLLOW")} {do}| {tim}{id}')
+                  idelay(dl)
+                  if dem % nv_nhan == 0:
+                    nhan = tds.nhan_xu('TIKTOK_FOLLOW_API', 'TIKTOK_FOLLOW')
+                    if nhan == 0:
+                      print(do+'Nhận Xu Thất Bại Acc Tiktok Của Bạn Ổn Chứ ') 
+                      print(f'{trang}[{do}</>{trang}]{xanh_la}Nhập {trang}[{vang}1{trang}] {xanh_la}Để Thay Nhiệm Vụ ')
+                      print(f'{trang}[{do}</>{trang}]{xanh_la}Nhập {trang}[{vang}2{trang}] {xanh_la}Thay Acc Tiktok ')
+                      print(f'{trang}[{do}</>{trang}]{xanh_la}Nhấn {trang}[{vang}Enter{trang}] {xanh_la}Để Tiếp Tục')
+                      chon=input(f'{trang}[{do}</>{trang}]{xanhnhat}Nhập {trang}===>: {vang}')
+                      if chon == '1':
+                        ntool=2
+                        break
+                      elif chon =='2':
+                        ntool = 1
+                        break
+                      thanhngang(16)
+        if ntool==1 or ntool==2:break
+        if '3' in nhiem_vu:
+          listfollow = tds.get_job('tiktok_follow')
+          if listfollow == False:
+            print(do+'Không Get Được Nhiệm Vụ Follow              ', end = '\r');sleep(2); print('                                                        ', end = '\r')
+          elif 'error' in listfollow.text:
+            if listfollow.json()['error'] == 'Thao tác quá nhanh vui lòng chậm lại':
+              coun = listfollow.json()['countdown']
+              print(f'{do}Đang Get Nhiệm Vụ Follow, COUNTDOWN: {str(round(coun, 3))} ', end = '\r'); sleep(2); print('                                                       ', end = '\r')
+            elif listfollow.json()['error'] == 'Vui lòng ấn NHẬN TẤT CẢ rồi sau đó tiếp tục làm nhiệm vụ để tránh lỗi!':
+              nhan = tds.nhan_xu('TIKTOK_FOLLOW_API', 'TIKTOK_FOLLOW') #TIKTOK_LIKE, TIKTOK_FOLLOW, TIKTOK_COMMENT
+            else:
+              print(do+listfollow.json()['error'] , end ='\r');sleep(2); print('                                                        ', end = '\r')
+          else:
+            try:
+              listfollow = listfollow.json()['data']
+            except:
+              print(do+'Hết Nhiệm Vụ Follow                             ', end = '\r');sleep(2); print('                                                        ', end = '\r')
+              continue
+            if len(listfollow) == 0:
+              print(do+'Hết Nhiệm Vụ Follow                             ', end = '\r');sleep(2); print('                                                        ', end = '\r')
+            else:
+              print(f'{xanh_la}Tìm Thấy {vang}{len(listfollow)} {xanh_la}Nhiệm Vụ Follow                       ', end = '\r');sleep(2); print('                                                        ', end = '\r')
+              for i in listfollow:
+                id = i['id']
+                uid = id.split('_')[0] 
+                link = i['link']
+                que = i['uniqueID']
+                if may == 'mb':
+                  chuyen(f'tiktoknow://user/profile?user_id={uid}', may)
+                else:
+                  chuyen(f'https://now.tiktok.com/@{que}', may)
+                cache = tds.cache(id, 'TIKTOK_FOLLOW_CACHE')
+                if cache != True:
+                  tg=datetime.datetime.now().strftime('%H:%M:%S')
+                  hien = f'{trang}[{do}</>{trang}] {do}| {xanh_la}{tg} {do}| {vang}FOLLOW_TIKTOK_NOW {do}| {tim}{id}'; print(hien, end = '\r');sleep(1); print('                                                                                        ', end = '\r')
+                else:
+                  dem+=1
+                  tg=datetime.datetime.now().strftime('%H:%M:%S')
+                  print(f'{trang}[{vang}{dem}{trang}] {do}| {xanh_la}{tg} {do}| {Colorate.Horizontal(Colors.yellow_to_red, "FOLLOW_TIKTOK_NOW")} {do}| {tim}{id}')
+                  idelay(dl)
+                  if dem % nv_nhan == 0:
+                    nhan = tds.nhan_xu('TIKTOK_FOLLOW_API', 'TIKTOK_FOLLOW')
+                    if nhan == 0:
+                      print(do+'Nhận Xu Thất Bại Acc Tiktok Của Bạn Ổn Chứ ') 
+                      print(f'{trang}[{do}</>{trang}]{xanh_la}Nhập {trang}[{vang}1{trang}] {xanh_la}Để Thay Nhiệm Vụ ')
+                      print(f'{trang}[{do}</>{trang}]{xanh_la}Nhập {trang}[{vang}2{trang}] {xanh_la}Thay Acc Tiktok ')
+                      print(f'{trang}[{do}</>{trang}]{xanh_la}Nhấn {trang}[{vang}Enter{trang}] {xanh_la}Để Tiếp Tục')
+                      chon=input(f'{trang}[{do}</>{trang}]{xanhnhat}Nhập {trang}===>: {vang}')
+                      if chon == '1':
+                        ntool=2
+                        break
+                      elif chon =='2':
+                        ntool = 1
+                        break
+                      thanhngang(16)
 #===============================================================================================
 #===============================================================================================
 class chuyen_quyen_admin:
