@@ -2249,7 +2249,7 @@ def tdstt():
 									dem+=1
 									tg=datetime.datetime.now().strftime('%H:%M:%S')
 									print(f'{trang}[{xang}{dem}{trang}] {do}| {xanh_la}{tg} {do}| {Colorate.Horizontal(Colors.yellow_to_red, "TIM")} {do}| {tim}{id} {do}|')
-									delay(dl)
+									idelay(dl)
 									if dem % nv_nhan == 0:
 										nhan = tds.nhan_xu('TIKTOK_LIKE_API', 'TIKTOK_LIKE')
 										if nhan == 0:
@@ -2300,7 +2300,7 @@ def tdstt():
 									dem+=1
 									tg=datetime.datetime.now().strftime('%H:%M:%S')
 									print(f'{trang}[{vang}{dem}{trang}] {do}| {xanh_la}{tg} {do}| {Colorate.Horizontal(Colors.yellow_to_red, "FOLLOW")} {do}| {tim}{id}')
-									delay(dl)
+									idelay(dl)
 									if dem % nv_nhan == 0:
 										nhan = tds.nhan_xu('TIKTOK_FOLLOW_API', 'TIKTOK_FOLLOW')
 										if nhan == 0:
@@ -2356,7 +2356,7 @@ def tdstt():
 									dem+=1
 									tg=datetime.datetime.now().strftime('%H:%M:%S')
 									print(f'{trang}[{vang}{dem}{trang}] {do}| {xanh_la}{tg} {do}| {Colorate.Horizontal(Colors.yellow_to_red, "FOLLOW_TIKTOK_NOW")} {do}| {tim}{id}')
-									delay(dl)
+									idelay(dl)
 									if dem % nv_nhan == 0:
 										nhan = tds.nhan_xu('TIKTOK_FOLLOW_API', 'TIKTOK_FOLLOW')
 										if nhan == 0:
