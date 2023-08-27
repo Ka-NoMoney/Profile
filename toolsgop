@@ -2068,6 +2068,7 @@ class fb_buff_flow:
 class TraoDoiSub_Api (object):
   def __init__ (self, token):
     self.token = token
+    self.total = 0
   
   def main(self):
     try:
