@@ -2114,7 +2114,7 @@ class TraoDoiSub_Api (object):
         job = nhan.json()['data']['job_success']
         xuthem = nhan.json()['data']['xu_them']
         global total
-        total+=xuthem
+        total=xuthem
         thanhngang(16)
         print(f'\n{xanh_la}Nhận Thành Công {job} Nhiệm Vụ {trang}| {xanh_la}{msg} {trang}| {xanh_la}TOTAL {vang}{total} {xanh_la}Xu {trang}| {vang}{xu} ')
         thanhngang(16)
