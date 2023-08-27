@@ -2105,30 +2105,41 @@ class TraoDoiSub_Api (object):
     except:
       return False
 
-  def nhan_xu(self, id, type):
-    try:
-      nhan = requests.get(f'https://traodoisub.com/api/coin/?type={type}&id={id}&access_token={self.token}')
-      try:
-        xu = nhan.json()['data']['xu']
-        msg = nhan.json()['data']['msg']
-        job = nhan.json()['data']['job_success']
-        xuthem = nhan.json()['data']['xu_them']
-        global total
-        total+=xuthem
-        thanhngang(16)
-        print(f'\n{xanh_la}Nhận Thành Công {job} Nhiệm Vụ {trang}| {xanh_la}{msg} {trang}| {xanh_la}TOTAL {vang}{total} {xanh_la}Xu {trang}| {vang}{xu} ')
-        thanhngang(16)
-        if job == 0:
-          return 0
-      except:
-        if '"code":"error","msg"' in nhan.text:
-          hien = nhan.json()['msg']; print(do+hien, end = '\r'); sleep(2); print(' '*len(hien), end = '\r')
-        else:
-          print(f'\n{do}Nhận Xu Thất Bại !', end = '\r'); sleep(2); print('                                                       ', end = '\r')
-        return False
-    except:
-      print(f'\n{do}Nhận Xu Thất Bại !', end = '\r'); sleep(2); print('                                                       ', end = '\r')
-      return False
+
+    def nhan_xu(self, id, type):
+        try:
+            nhan = requests.get(f'https://traodoisub.com/api/coin/?type={type}&id={id}&access_token={self.token}')
+            try:
+                data = nhan.json()['data']  # Lấy dữ liệu JSON một lần để tránh lặp lại
+                xu = data['xu']
+                msg = data['msg']
+                job = data['job_success']
+                xuthem = data['xu_them']
+
+                self.total += xuthem  # Sử dụng self để truy cập biến instance
+
+                thanhngang(16)
+                print(f'\n{xanh_la}Nhận Thành Công {job} Nhiệm Vụ {trang}| {xanh_la}{msg} {trang}| {xanh_la}TOTAL {vang}{self.total} {xanh_la}Xu {trang}| {vang}{xu} ')
+                thanhngang(16)
+
+                if job == 0:
+                    return 0
+            except KeyError:
+                if '"code":"error","msg"' in nhan.text:
+                    hien = nhan.json()['msg']
+                    print(do + hien, end='\r')
+                    sleep(2)
+                    print(' ' * len(hien), end='\r')
+                else:
+                    print(f'\n{do}Nhận Xu Thất Bại !', end='\r')
+                    sleep(2)
+                    print(' ' * 55, end='\r')
+                return False
+        except:
+            print(f'\n{do}Nhận Xu Thất Bại !', end='\r')
+            sleep(2)
+            print(' ' * 55, end='\r')
+            return False
 from sys import platform
 may = 'mb' if platform[0:3] == 'lin' else 'pc'
 def chuyen(link, may):
@@ -2304,9 +2315,22 @@ def tdstt():
                   tg=datetime.datetime.now().strftime('%H:%M:%S')
                   print(f'{trang}[{vang}{dem}{trang}] {do}| {xanh_la}{tg} {do}|  {vang}FOLLOW {do}| {tim}{id}')
                   idelay(dl)
-                  if dem == nv_nhan:
+                  if dem % nv_nhan == 0:
                     tds.nhan_xu('TIKTOK_FOLLOW_API', 'TIKTOK_FOLLOW')
-                    
+                    nhan = tds.nhan_xu('TIKTOK_FOLLOW_API', 'TIKTOK_FOLLOW')
+                    if nhan == 0:
+                      print(do+'Nhận Xu Thất Bại Acc Tiktok Của Bạn Ổn Chứ ') 
+                      print(f'{trang}[{do}</>{trang}]{xanh_la}Nhập {trang}[{vang}1{trang}] {xanh_la}Để Thay Nhiệm Vụ ')
+                      print(f'{trang}[{do}</>{trang}]{xanh_la}Nhập {trang}[{vang}2{trang}] {xanh_la}Thay Acc Tiktok ')
+                      print(f'{trang}[{do}</>{trang}]{xanh_la}Nhấn {trang}[{vang}Enter{trang}] {xanh_la}Để Tiếp Tục')
+                      chon=input(f'{trang}[{do}</>{trang}]{xanhnhat}Nhập {trang}===>: {vang}')
+                      if chon == '1':
+                        ntool=2
+                        break
+                      elif chon =='2':
+                        ntool = 1
+                        break
+                      thanhngang(16)
         if ntool==1 or ntool==2:break
         if '3' in nhiem_vu:
           listfollow = tds.get_job('tiktok_follow')
