@@ -2305,6 +2305,7 @@ def tdstt():
                   print(f'{trang}[{vang}{dem}{trang}] {do}| {xanh_la}{tg} {do}|  {vang}FOLLOW {do}| {tim}{id}')
                   idelay(dl)
                   if dem % nv_nhan == 0:
+                    tds.nhan_xu('TIKTOK_FOLLOW_API', 'TIKTOK_FOLLOW')
                     nhan = tds.nhan_xu('TIKTOK_FOLLOW_API', 'TIKTOK_FOLLOW')
                     if nhan == 0:
                       print(do+'Nhận Xu Thất Bại Acc Tiktok Của Bạn Ổn Chứ ') 
@@ -2319,8 +2320,6 @@ def tdstt():
                         ntool = 1
                         break
                       thanhngang(16)
-                    else:
-                      tds.nhan_xu('TIKTOK_FOLLOW_API', 'TIKTOK_FOLLOW')
         if ntool==1 or ntool==2:break
         if '3' in nhiem_vu:
           listfollow = tds.get_job('tiktok_follow')
