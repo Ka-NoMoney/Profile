@@ -2248,7 +2248,7 @@ def tdstt():
                 else:
                   dem+=1
                   tg=datetime.datetime.now().strftime('%H:%M:%S')
-                  print(f'{trang}[{vang}{dem}{trang}] {do}| {xanh_la}{tg} {do}| {Colorate.Horizontal(Colors.yellow_to_red, "TIM")} {do}| {tim}{id} {do}|')
+                  print(f'{trang}[{vang}{dem}{trang}] {do}| {xanh_la}{tg} {do}| {vang}TIM {do}| {tim}{id} {do}|')
                   idelay(dl)
                   if dem % nv_nhan == 0:
                     nhan = tds.nhan_xu('TIKTOK_LIKE_API', 'TIKTOK_LIKE')
@@ -2265,6 +2265,8 @@ def tdstt():
                         ntool = 1
                         break
                       thanhngang(16)
+                  else:
+                    tds.nhan_xu('TIKTOK_LIKE_API', 'TIKTOK_LIKE')
         if ntool==1 or ntool==2:break
         if '2' in nhiem_vu:
           listfollow = tds.get_job('tiktok_follow')
@@ -2295,11 +2297,12 @@ def tdstt():
                 cache = tds.cache(id, 'TIKTOK_FOLLOW_CACHE')
                 if cache != True:
                   tg=datetime.datetime.now().strftime('%H:%M:%S')
-                  hien = f'{trang}[{do}</>{trang}] {do}| {xanh_la}{tg} {do}| {vang}FOLLOW {do}| {tim}{id}'; print(hien, end = '\r');sleep(1); print('                                                                                        ', end = '\r')
+                  hien = f'{trang}[{do}</>{trang}] {do}| {xanh_la}{tg} {do}| {vang}FOLLOW {do}| {tim}{id}' 
+                  print(hien, end = '\r');sleep(1); print('                                                                                        ', end = '\r')
                 else:
                   dem+=1
                   tg=datetime.datetime.now().strftime('%H:%M:%S')
-                  print(f'{trang}[{vang}{dem}{trang}] {do}| {xanh_la}{tg} {do}| {Colorate.Horizontal(Colors.yellow_to_red, "FOLLOW")} {do}| {tim}{id}')
+                  print(f'{trang}[{vang}{dem}{trang}] {do}| {xanh_la}{tg} {do}|  {vang}FOLLOW {do}| {tim}{id}')
                   idelay(dl)
                   if dem % nv_nhan == 0:
                     nhan = tds.nhan_xu('TIKTOK_FOLLOW_API', 'TIKTOK_FOLLOW')
@@ -2316,6 +2319,8 @@ def tdstt():
                         ntool = 1
                         break
                       thanhngang(16)
+                    else:
+                      tds.nhan_xu('TIKTOK_FOLLOW_API', 'TIKTOK_FOLLOW')
         if ntool==1 or ntool==2:break
         if '3' in nhiem_vu:
           listfollow = tds.get_job('tiktok_follow')
