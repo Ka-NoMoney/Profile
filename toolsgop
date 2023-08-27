@@ -1,9 +1,20 @@
-import requests,os,time,re,json,uuid,random,sys
 
-from concurrent.futures import ThreadPoolExecutor
 import datetime
-import base64
 import os
+try:
+    import base64
+    import requests
+    import pystyle
+    from concurrent.futures import ThreadPoolExecutor
+    
+except ImportError:
+    import os
+    os.system("pip install requests")
+    os.system("pip install pystyle")
+    os.system("pip install concurrent.futures")
+    os.system("pip install base64")
+import requests,os,time,re,json,uuid,random,sys
+from concurrent.futures import ThreadPoolExecutor
 import datetime
 from datetime import datetime
 import requests,json
