@@ -2119,12 +2119,17 @@ class TraoDoiSub_Api (object):
         thanhngang(16)
         if job == 0:
           return 0
-      except:
-        if "error" in nhan.text:
-          hien = nhan.json()['msg']; print(do+hien, end = '\r'); sleep(2); print(' '*len(hien), end = '\r')
-        else:
-          print(f'\n{do}Nhận Xu Thất Bại !', end = '\r'); sleep(2); print('                                                       ', end = '\r')
-        return False
+      except requests.exceptions.RequestException as e:
+            if "error" in nhan.text and "msg" in nhan_data:
+                hien = nhan_data.get('msg', '')
+                print(do + hien, end='\r')
+                sleep(2)
+                print(' ' * len(hien), end='\r')
+            else:
+                print(f'\n{do}Nhận Xu Thất Bại !', end='\r')
+                sleep(2)
+                print(' ' * 55, end='\r')
+            return False
 from sys import platform
 may = 'mb' if platform[0:3] == 'lin' else 'pc'
 def chuyen(link, may):
