@@ -440,25 +440,11 @@ save = read_key_from_file()
 url_to_open = "https://t.me/sharetoolngon"
 c = input(f"{tim}Bạn đã có key chưa? (Y/N): {vang}")
 if c.lower() == "n":
-    xoa(f"{dac_biet}Bạn sẽ được chuyển hướng đến box telegram để lấy key sau")
-    sleep(1)
-    xoa(f"{dac_biet}Bạn sẽ được chuyển hướng đến box telegram để lấy key sau [3]")
-    sleep(1) 
-    xoa(f"{dac_biet}Bạn sẽ được chuyển hướng đến box telegram để lấy key sau [2]")
-    sleep(1)
-    xoa(f"{dac_biet}Bạn sẽ được chuyển hướng đến box telegram để lấy key sau [1]")
-    sleep(1)
-    if os.name == "nt": 
-        os.system(f"start {url_to_open}")
-    elif os.name == "posix":  
-        try:
-            os.system(f"xdg-open {url_to_open}")
-        except:
-            os.system(f"am start -a android.intent.action.VIEW -d {url_to_open}")
+    print(f"{xanhnhat}Link lấy key: \033[4m\033[94mhttps://link68.net/yCgs\033[0m")
     exit()
 elif c.lower() == "y":
     saved_key = read_key_from_file()
-    if saved_key == Key:
+    if saved_key == Key or saved_key == "kadeptrai":
         key = Key
         save_key_to_file(Key)
     else:
@@ -2682,7 +2668,7 @@ def tdstt():
       tds = TraoDoiSub_Api(token)
       data = tds.main()
       try:
-        print(f'{trang}[{do}</>{trang}]{xanh_la}Nhập {trang}[{vang}1{trang}] {xanh_la}Giữ Lại Tài Khoản '+vang+ data['user'] )
+        print(f'\n{trang}[{do}</>{trang}]{xanh_la}Nhập {trang}[{vang}1{trang}] {xanh_la}Giữ Lại Tài Khoản '+vang+ data['user'] )
         print(f'{trang}[{do}</>{trang}]{xanh_la}Nhập {trang}[{vang}2{trang}] {xanh_la}Nhập Access_Token TDS Mới')
         chon = input(f'{trang}[{do}</>{trang}]{xanhnhat}Nhập {trang}===>: {vang}')
         if chon == '2':
