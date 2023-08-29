@@ -440,7 +440,7 @@ save = read_key_from_file()
 url_to_open = "https://t.me/sharetoolngon"
 c = input(f"{tim}Bạn đã có key chưa? (Y/N): {vang}")
 if c.lower() == "n":
-    print(f"{xanhnhat}Link lấy key: \033[4m\033[94mhttps://link68.net/yCgs\033[0m")
+    print(f"{xanhnhat}Link lấy key: \033[4m\033[94mhttps://link68.net/DedFSe3t\033[0m")
     exit()
 elif c.lower() == "y":
     saved_key = read_key_from_file()
