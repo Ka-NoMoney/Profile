@@ -2787,8 +2787,6 @@ def tdstt():
                         ntool = 1
                         break
                       thanhngang(16)
-                  else:
-                    tds.nhan_xu('TIKTOK_LIKE_API', 'TIKTOK_LIKE')
         if ntool==1 or ntool==2:break
         if '2' in nhiem_vu:
           listfollow = tds.get_job('tiktok_follow')
