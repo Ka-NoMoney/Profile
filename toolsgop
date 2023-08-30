@@ -421,8 +421,36 @@ def xoa(text):
     sys.stdout.write('\r' + text)
     sys.stdout.flush()
     
+#======ket thiet bi=========
+def remove_dots(ip_address):
+    return ip_address.replace(".", "")
+
+maip = remove_dots(Ip)
+IPs = int(maip) + ma
+
+ippps = 12344321
+encoded_IP = base64.b64encode(str(IPs).encode()).decode()
+numberss = []
+
+while ippps > 0:
+    digit = ippps % 10
+    numberss.append(digit)
+    ippps //= 10
+
+numberss.reverse()
+
+number_indexs = 0
+results = ""
+
+for i in range(len(encoded_IP)):
+    results += encoded_IP[i]
+    if number_indexs < len(numberss):
+        results += str(numberss[number_indexs])
+        number_indexs += 1
+#===========================
 
 Key = f"KA-{result}"
+keytb = f"KA-{results}"
 clear()
 runbanner(chontool)
 
@@ -444,7 +472,7 @@ if c.lower() == "n":
     exit()
 elif c.lower() == "y":
     saved_key = read_key_from_file()
-    if saved_key == Key or saved_key == "kadeptrai":
+    if saved_key == Key or saved_key == "kadeptrai" or saved_key == keytb:
         key = Key
         save_key_to_file(Key)
     else:
@@ -455,7 +483,7 @@ else:
     exit()
 
 while True:
-    if key !=Key and key != "kadeptrai":
+    if key !=Key and key != "kadeptrai" and key != keytb:
         print("\033[91m\033[1mKey sai!")
     else:
         clear()
