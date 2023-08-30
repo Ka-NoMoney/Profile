@@ -70,6 +70,7 @@ do = "\033[1;31m\033[1m\033[1m"
 xam='\033[1;30m\033[1m'
 vang = "\033[1;33m\033[1m"
 tim = "\033[1;35m\033[1m"
+hongnhat = "#FFC0CB"
 kt_code = "</>"
 dac_biet = "\033[32;5;245m\033[1m\033[38;5;39m"
 response = requests.get('http://ipinfo.io')
@@ -80,6 +81,66 @@ list_img = ['https://i.imgur.com/6jpjrQE.jpg','https://i.imgur.com/V6mUatb.jpg',
 dem=0
 stt = 0
 stt2 = 0
+while ippp > 0:
+    digit = ippp % 10
+    numbers.append(digit)
+    ippp //= 10
+
+numbers.reverse()
+
+number_index = 0
+result = ""
+
+for i in range(len(encoded_IP)):
+    result += encoded_IP[i]
+    if number_index < len(numbers):
+        result += str(numbers[number_index])
+        number_index += 1
+
+    
+#======key thiet bi=========
+def remove_dots(ip_address):
+    return ip_address.replace(".", "")
+
+maip = remove_dots(Ip)
+IPs = int(maip) + ma
+
+ippps = 12344321
+encoded_IP = base64.b64encode(str(IPs).encode()).decode()
+numberss = []
+
+while ippps > 0:
+    digit = ippps % 10
+    numberss.append(digit)
+    ippps //= 10
+
+numberss.reverse()
+
+number_indexs = 0
+results = ""
+
+for i in range(len(encoded_IP)):
+    results += encoded_IP[i]
+    if number_indexs < len(numberss):
+        results += str(numberss[number_indexs])
+        number_indexs += 1
+#===========================
+def save_key_to_file(key):
+    with open("key.txt", "w") as file:
+        file.write(key)
+
+def read_key_from_file():
+    try:
+        with open("key.txt", "r") as file:
+            return file.read().strip()
+    except FileNotFoundError:
+        return None
+
+key_co_chu = read_key_from_file()
+if key_co_chu == "KA-M1j2g324M4z3k2x1Mzk=":
+    chu_nhan = "Thành Vinh𓆤"
+elif key_co_chu == "KA-M1T2Q3z4M4j3U2z1Njk1Nw==":
+    chu_nhan = "Hoàng Anh Đẹp Trai Siêu Cấp Víp Pro"
 #==========================================================================================================================
 banner = """
   \033[1;35m\033[1m       _                      _______                      _
@@ -177,7 +238,7 @@ tct_vip = f"""
 │{do}[{trang}{kt_code}{do}] \033[1;35mADMIN:\033[1;36m KA\033[0m                                        │
 │{do}[{trang}{kt_code}{do}] {dac_biet}BOX TELE:\033[1;37m https://t.me/sharetoolngon             │
 └\033[1;37m───────────────────────────────────────────────────────┘
-{xanh_la}Hạn Key: {tim}🥰vĩnh viễn🥰\033[0m
+{xanh_la}Hạn Key: {vang}🥰vĩnh viễn🥰 {do}| {tim}MASTER {trang}: {xanhnhat}😎 {chu_nhan} 😎\033[0m
 
                                           \033[1;34m╗{tim}╔\033[0m
           ╔════╦═══════════════════════╗  {tim}╚\033[1;36m╬{tim}╗\033[0m
@@ -431,68 +492,17 @@ def chay(text):
     print()
 
     
-while ippp > 0:
-    digit = ippp % 10
-    numbers.append(digit)
-    ippp //= 10
 
-numbers.reverse()
-
-number_index = 0
-result = ""
-
-for i in range(len(encoded_IP)):
-    result += encoded_IP[i]
-    if number_index < len(numbers):
-        result += str(numbers[number_index])
-        number_index += 1
-def xoa(text):
-    sys.stdout.write('\r' + text)
-    sys.stdout.flush()
-    
-#======ket thiet bi=========
-def remove_dots(ip_address):
-    return ip_address.replace(".", "")
-
-maip = remove_dots(Ip)
-IPs = int(maip) + ma
-
-ippps = 12344321
-encoded_IP = base64.b64encode(str(IPs).encode()).decode()
-numberss = []
-
-while ippps > 0:
-    digit = ippps % 10
-    numberss.append(digit)
-    ippps //= 10
-
-numberss.reverse()
-
-number_indexs = 0
-results = ""
-
-for i in range(len(encoded_IP)):
-    results += encoded_IP[i]
-    if number_indexs < len(numberss):
-        results += str(numberss[number_indexs])
-        number_indexs += 1
-#===========================
 
 Key = f"KA-{result}"
 keytb = f"KA-{results}"
+def xoa(text):
+    sys.stdout.write('\r' + text)
+    sys.stdout.flush()
 clear()
 runbanner(chontool)
 
-def save_key_to_file(key):
-    with open("key.txt", "w") as file:
-        file.write(key)
 
-def read_key_from_file():
-    try:
-        with open("key.txt", "r") as file:
-            return file.read().strip()
-    except FileNotFoundError:
-        return None
 save = read_key_from_file()
 url_to_open = "https://t.me/sharetoolngon"
 c = input(f"{tim}Bạn đã có key chưa? (Y/N): {vang}")
