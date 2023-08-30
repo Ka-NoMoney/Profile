@@ -3283,7 +3283,7 @@ def main():
     runbanner(chontool)
     idcanspam=input(f'\033[1;97m[\033[1;31m</>\033[1;97m] {xanhnhat}Nhập id người cần spam :{vang} ')
     while True:
-      ck=input(f'\033[1;97m[\033[1;31m</>\033[1;97m] {xanhnhat}Nhập cookie facebook {vang} ')
+      ck=input(f'\033[1;97m[\033[1;31m</>\033[1;97m] {xanhnhat}Nhập cookie facebook :{vang} ')
       try:
         get=requests.get(f'https://mbasic.facebook.com/privacy/touch/block/confirm/?bid={idcanspam}&ret_cancel&source=profile',headers={'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9','accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5','cookie': ck,'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="102", "Google Chrome";v="102"','sec-ch-ua-mobile': '?0','sec-ch-ua-platform': '"Windows"','sec-fetch-dest': 'document','sec-fetch-mode': 'navigate','sec-fetch-site': 'same-origin','sec-fetch-user': '?1','upgrade-insecure-requests': '1'}).text
         fb_dtsg=get.split('<input type="hidden" name="fb_dtsg" value="')[1].split('" autocomplete="off" />')[0]
@@ -3296,8 +3296,7 @@ def main():
 
     runbanner(chontool)
     nd=input(f'\033[1;97m[\033[1;31m</>\033[1;97m] {xanhnhat}Nhập nội dung :{vang} ')
-    so_luong=int(input(f'\033[1;97m[\033[1;31m</>\033[1;97m] {xanhnhat}Nhập số tin nhắn muốn gửi :{vang} '))
-    delay=int(input(f'\033[1;97m[\033[1;31m</>\033[1;97m] {xanhnhat}Nhập delay(khuyến cáo trên 10s) :{vang} '))
+    yn=str(input(f'\033[1;97m[\033[1;31m</>\033[1;97m] {xanhnhat}bạn muốn spam mãi mãi không :> {trang}({vang}y{trang}/{vang}n{trang}) :{vang} '))
     headers = {
       'authority': 'm.facebook.com',
       'accept': '*/*',
@@ -3328,10 +3327,23 @@ def main():
      'fb_dtsg': fb_dtsg,
      'jazoest': jazoest,
     }
-    for i in range(1,so_luong+1):
-      response = requests.post('https://m.facebook.com/messages/send/', params=params, headers=headers, data=data.encode('utf-8'))
-      print(f'{xanh_la}Lần {i} Send Success | {nd}')
-      sleep(delay)
+    if yn.lower() == 'y':
+      delay=int(input(f'\033[1;97m[\033[1;31m</>\033[1;97m] {xanhnhat}Nhập delay(khuyến cáo trên 10s) :{vang} '))
+      while True:
+          response = requests.post('https://m.facebook.com/messages/send/', params=params, headers=headers, data=data)
+          print(f'{xanh_la}Send Success | {nd}')
+          idelay(delay)
+
+    elif yn.lower() == 'n':
+      soluong = int(input(f'\033[1;97m[\033[1;31m</>\033[1;97m] {xanhnhat}Nhập số tin nhắn muốn gửi :{vang} '))
+      delay=int(input(f'\033[1;97m[\033[1;31m</>\033[1;97m] {xanhnhat}Nhập delay(khuyến cáo trên 10s) :{vang} '))
+      for i in range(1,soluong+1):
+        response = requests.post('https://m.facebook.com/messages/send/', params=params, headers=headers, data=data)
+        print(f'{xanh_la}Lần {i} Send Success | {nd}')
+        idelay(delay) 
+    else:
+      print(f"{do}Vui lòng điền đúng")  
+
       
   elif nhap == '2.2':
     clear()
@@ -3435,7 +3447,9 @@ def main():
         response = requests.post("https://mbasic.facebook.com/messages/send/", params=params, headers=headers, data=data.encode('utf-8'))
         i = i + 1
         print(f"\033[1;31m[\033[1;33m{i}\033[1;31m] \033[1;31m| \033[1;33mID BOX\033[1;97m: {idcanspam} \033[1;31m| \033[1;92mNỘI DUNG\033[1;97m: {nds.decode('utf-8')} \033[1;31m| \033[1;35mTRẠNG THÁI\033[1;97m: {xanh_la}SUCCESS")
-        idelay(delay)   
+        idelay(delay) 
+    else:
+      print(f"{do}Vui lòng điền đúng")  
           
   elif nhap == '2.5':
     #tk = input(f'\033[1;97m[\033[1;31m</>\033[1;97m] {xanhnhat}Nhập tài khoản Facebook muốn đi report:{vang} ')
