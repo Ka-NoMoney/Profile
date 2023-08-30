@@ -138,7 +138,7 @@ def read_key_from_file():
 
 key_co_chu = read_key_from_file()
 if key_co_chu == "KA-M1j2g324M4z3k2x1Mzk=":
-    chu_nhan = "Thành Vinh𓆤"
+  chu_nhan = "Thành Vinh𓆤"
 elif key_co_chu == "KA-M1T2Q3z4M4j3U2z1Njk1Nw==":
     chu_nhan = "Hoàng Anh Đẹp Trai Siêu Cấp Víp Pro"
 #==========================================================================================================================
