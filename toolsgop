@@ -468,7 +468,7 @@ save = read_key_from_file()
 url_to_open = "https://t.me/sharetoolngon"
 c = input(f"{tim}Bạn đã có key chưa? (Y/N): {vang}")
 if c.lower() == "n":
-    print(f"{xanhnhat}Link lấy key: \033[4m\033[94mhttps://link68.net/tX1y5n\033[0m")
+    print(f"{xanhnhat}Link lấy key: \033[4m\033[94mhttps://link68.net/e45cp\033[0m")
     exit()
 elif c.lower() == "y":
     saved_key = read_key_from_file()
@@ -3160,14 +3160,16 @@ class chuyen_quyen_admin:
           if id_admin == id:
             id_moi= x['profile_admin_invite_id']
             break
-        print(f'{trang}[{vang}{dem}{trang}] {trang}[{xanh_duong}{name} {do}| {tim}{id_page}{trang}] {trang}[{xanhnhat}{name_admin} {do}| {tim}{id}{trang}] {xanh_la} SUCCESS')
+        
+        
+        print(f'{trang}[{vang}{dem+1}{trang}] {trang}[{xanh_duong}{name} {do}| {tim}{id_page}{trang}] {trang}[{xanhnhat}{name_admin} {do}| {tim}{id}{trang}] {xanh_la} SUCCESS')
         
         return id_moi
       else:
-        print(f'{trang}[{vang}{dem}{trang}] {trang}[{xanh_duong}{name} {do}| {tim}{id_page}{trang}] {trang}[{xanhnhat}Admin {do}: {tim}{id}{trang}] {do} ERROR')
+        print(f'{trang}[{vang}{dem+1}{trang}] {trang}[{xanh_duong}{name} {do}| {tim}{id_page}{trang}] {trang}[{xanhnhat}Admin {do}: {tim}{id}{trang}] {do} ERROR')
         
     except:
-      print(f'{trang}[{vang}{dem}{trang}] {trang}[{xanh_duong}{name} {do}| {tim}{id_page}{trang}] {trang}[{xanhnhat}Admin {do}: {tim}{id}{trang}] {do} ERROR')
+      print(f'{trang}[{vang}{dem+1}{trang}] {trang}[{xanh_duong}{name} {do}| {tim}{id_page}{trang}] {trang}[{xanhnhat}Admin {do}: {tim}{id}{trang}] {do} ERROR')
       
     return 'None'
   
