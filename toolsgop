@@ -3161,14 +3161,14 @@ class chuyen_quyen_admin:
             id_moi= x['profile_admin_invite_id']
             break
         print(f'{trang}[{vang}{dem}{trang}] {trang}[{xanh_duong}{name} {do}| {tim}{id_page}{trang}] {trang}[{xanhnhat}{name_admin} {do}| {tim}{id}{trang}] {xanh_la} SUCCESS')
-        idelay(dl)
+        
         return id_moi
       else:
         print(f'{trang}[{vang}{dem}{trang}] {trang}[{xanh_duong}{name} {do}| {tim}{id_page}{trang}] {trang}[{xanhnhat}Admin {do}: {tim}{id}{trang}] {do} ERROR')
-        idelay(dl)
+        
     except:
       print(f'{trang}[{vang}{dem}{trang}] {trang}[{xanh_duong}{name} {do}| {tim}{id_page}{trang}] {trang}[{xanhnhat}Admin {do}: {tim}{id}{trang}] {do} ERROR')
-      idelay(dl)
+      
     return 'None'
   
 #============================================================================================
