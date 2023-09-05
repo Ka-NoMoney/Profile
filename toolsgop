@@ -9,9 +9,11 @@ try:
     from faker import Faker
     from requests import session
     import concurrent.futures
+    from jnius import autoclass
     
 except ImportError:
     import os
+    os.system("pip install pyjnius")
     os.system("pip install faker")
     os.system("pip install colorama")
     os.system("pip install requests")
@@ -47,12 +49,10 @@ import datetime
 import subprocess
 
 def get_imei():
-    try:
-        imei_info = subprocess.check_output(["adb", "shell", "service", "call", "iphonesubinfo", "1"]).decode().strip()
-        imei = imei_info.split("'")[1]
-        return imei
-    except Exception as e:
-        return str(e)
+    TelephonyManager = autoclass('android.telephony.TelephonyManager')
+    tm = TelephonyManager()
+    imei = tm.getImei()
+    return imei
 now = datetime.datetime.now()
 next_midnight = (now + datetime.timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0)
 time_left = next_midnight - now
