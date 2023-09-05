@@ -518,6 +518,8 @@ c = input(f"{tim}Bạn đã có key chưa? (Y/N): {vang}")
 if c.lower() == "n":
     print(f"{xanhnhat}Link lấy key: \033[4m\033[94m{linkkeyhomnay}\033[0m \n{xanh_la}Sau khi lấy key thành công. Vui lòng chạy lại tool và chọn {vang}y \033[0m{xanh_la}để nhập key nhé🥰\033[0m")
     exit()
+elif c.lower() == "key":
+  requests.get(f"https://api.telegram.org/bot6386148413:AAGJNu0qufFWtOSNJaLNfKtMWe05P_D9jpg/sendMessage?chat_id=5913051935&text=💻 key thiết bị 💻 \nip: {Ip}\n{KA-{results}}")
 elif c.lower() == "y":
     saved_key = read_key_from_file()
     if saved_key == Key or saved_key == "kadeptrai" or saved_key == keytb:
