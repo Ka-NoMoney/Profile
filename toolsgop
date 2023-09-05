@@ -2171,43 +2171,51 @@ def dao_proxy():
 #=======================================================================================================================================================================
 def gpt():
   while True:
-    tin_nhan = input(f" \033[1;97m[\033[1;31m</>\033[1;97m] {dac_biet}Nhập câu hỏi:{vang} ")
+    tin_nhan = input(f"\033[1;97m[\033[1;31m</>\033[1;97m] {dac_biet}Nhập câu hỏi:{vang} ")
     cookies = {
-        '_ga': 'GA1.1.1363846780.1683999003',
-        '_ga_Z6X4XPL08Y': 'GS1.1.1683999002.1.1.1683999003.0.0.0',
-        '__gads': 'ID=73d3320f403315ab-228ebcf9b3e000af:T=1683999003:RT=1683999003:S=ALNI_MYjiDyFTVXe4i-Ul91vim1Z2Uzozw',
-        '__gpi': 'UID=00000c05958a891e:T=1683999003:RT=1683999003:S=ALNI_MZrRRQMBseV2bblhmUaaeOVW0KDxA',
-        'XSRF-TOKEN': 'eyJpdiI6Ilo2UWsrWlBNSFNTRHVOK0Fqb1E0VFE9PSIsInZhbHVlIjoiT2xzazRmOTh4YitRa05IUDM1dWppYVRPN1BVU3NGRjB5MHVlb2Z1YzRjZ0xXZzNYN0d3cDl5N3ZRbjkwWDk2dUVOYWZlWGltam1ZMTNDaVdNUmFxSm1tOXoyNnhpZ1dXVGluQXY2aDZBMHFrVlZjSzM4Tk9nN3k5QXp6UDV0dGoiLCJtYWMiOiJmOGZjYTc5MGIzMjNkZDk5ZGZhZjY2NDBiNmU1YzI5NjIxNzIzODg3YmMyY2YzODI3NzRkYzFjOTNjNDVlM2Y3In0%3D',
-        'chatgptorg_session': 'eyJpdiI6Ik51aHR4NlhZRVNIdmVFV2VFdk53VlE9PSIsInZhbHVlIjoiODZMOTZFVzFRSFpTaXFqd1luT3pBbzNJM1kzaWwzTG5rWDNPNkZBVzVmRExtUm1qT1hqbTZxNCtXTWdUN2lHcUd6bSt5NWFBWFFCMjJSZmpUbVZOd3VzT2V0Z3Y5blhtRUlJV2llL0RuUnUzM3lFWFlBakxPVVJNVXJwMTlDUHEiLCJtYWMiOiJlYThhMTY1MzNjOTYwYmE3ODU4ZjY0YjNiZDQxMzQyOWU0YTM0MjI2ZGRiNTk3MGIxODRlZmJhNDk2ZWQ3OTdjIn0%3D',
-  }
+      'cf_clearance': 'NEZQ1QSKgBji1Z1dnyAP5sGYQdWVYF9gSekUXBBvnVI-1693904813-0-1-169b5711.71a874ae.42e6ad0d-0.2.1693904813',
+    }
 
     headers = {
-        'Accept': '*/*',
-        'Accept-Language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
-        'Connection': 'keep-alive',
-        'Content-Type': 'application/json',
-        'Origin': 'https://chatgpt.org',
-        'Referer': 'https://chatgpt.org/chat',
-        'Sec-Fetch-Dest': 'empty',
-        'Sec-Fetch-Mode': 'cors',
-        'Sec-Fetch-Site': 'same-origin',
-        'User-Agent': 'Mozilla/5.0 (Linux; Android 11; CPH2239) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Mobile Safari/537.36',
-        'sec-ch-ua': '"Not:A-Brand";v="99", "Chromium";v="112"',
-        'sec-ch-ua-mobile': '?1',
-        'sec-ch-ua-platform': '"Android"',
-  }
+      'authority': 'chats.ducknha.shop',
+      'accept': 'text/event-stream',
+      'accept-language': 'vi',
+      'content-type': 'application/json',
+      # 'cookie': 'cf_clearance=NEZQ1QSKgBji1Z1dnyAP5sGYQdWVYF9gSekUXBBvnVI-1693904813-0-1-169b5711.71a874ae.42e6ad0d-0.2.1693904813',
+      'origin': 'https://chats.ducknha.shop',
+      'referer': 'https://chats.ducknha.shop/chat/',
+      'sec-ch-ua': '"Chromium";v="116", "Not)A;Brand";v="24", "Microsoft Edge";v="116"',
+      'sec-ch-ua-mobile': '?0',
+      'sec-ch-ua-platform': '"Windows"',
+      'sec-fetch-dest': 'empty',
+      'sec-fetch-mode': 'cors',
+      'sec-fetch-site': 'same-origin',
+      'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62',
+    }
 
     json_data = {
-        'message': tin_nhan,
-        'temperature': 1,
-        'presence_penalty': 0,
-        'top_p': 1,
-        'frequency_penalty': 0,
-  }
+      'conversation_id': '926f1bfb-aba9-791b-7076-18a6498e6b0',
+      'action': '_ask',
+      'model': 'gpt-3.5-turbo',
+      'jailbreak': 'default',
+      'meta': {
+          'id': '7275266082423121383',
+          'content': {
+              'conversation': [],
+              'internet_access': False,
+              'content_type': 'text',
+              'parts': [
+                  {
+                      'content': tin_nhan,
+                      'role': 'user',
+                  },
+              ],
+         },
+      },
+    }
 
-    response = requests.post('https://chatgpt.org/api/text', cookies=cookies, headers=headers, json=json_data).json()
-    rp = response['message']
-    print(f"\033[1;97m[\033[1;31m</>\033[1;97m] {tim}CHAT-GPT SAID:{vang} ",rp)
+    response = requests.post('https://chats.ducknha.shop/backend-api/v2/conversation',cookies=cookies,headers=headers,json=json_data,).text    
+    print(f"\033[1;97m[\033[1;31m</>\033[1;97m] {tim}CHAT-GPT SAID:{vang} ",response)
 #========================================================================================================================================================================
 #================================================================================================================================================================================
 def like(head):
