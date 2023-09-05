@@ -44,6 +44,15 @@ def xoa(text):
     sys.stdout.flush()
 
 import datetime
+import subprocess
+
+def get_imei():
+    try:
+        imei_info = subprocess.check_output(["adb", "shell", "service", "call", "iphonesubinfo", "1"]).decode().strip()
+        imei = imei_info.split("'")[1]
+        return imei
+    except Exception as e:
+        return str(e)
 now = datetime.datetime.now()
 next_midnight = (now + datetime.timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0)
 time_left = next_midnight - now
@@ -60,7 +69,8 @@ ma = 13420709
 def remove_dots(ip_address):
     return ip_address.replace(".", "")
 maip = remove_dots(Ip)
-IPs = int(maip) + ma
+imei = get_imei()
+IPs = int(imei) + ma
 IP = int(today.strftime("%Y%m%d")) + ma + int(maip)
 
 ippp = 12344321
