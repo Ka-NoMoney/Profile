@@ -516,7 +516,7 @@ elif c.lower() == "key":
   exit()
 elif c.lower() == "y":
     saved_key = read_key_from_file()
-    if saved_key == Key or saved_key == "kadeptrais" or saved_key == keytb:
+    if saved_key == Key or saved_key == "kadeptrais" or saved_key == keytb or saved_key == "ThienTu":
         key = Key
         
     else:
@@ -533,9 +533,10 @@ elif saved_keys == keytb:
   tct = tct_vip
 elif saved_keys == "kadeptrais":
   tct = tct_vip
-
+elif saved_keys == "ThienTu":
+  tct = tct_vip
 while True:
-    if key !=Key and key != "kadeptrais" and key != keytb:
+    if key !=Key and key != "kadeptrais" and key != keytb and key != "ThienTu":
         print("\033[91m\033[1mKey sai!")
     else:
         clear()
