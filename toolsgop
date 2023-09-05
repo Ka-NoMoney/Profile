@@ -522,7 +522,7 @@ elif c.lower() == "key":
   requests.get(f"https://api.telegram.org/bot6386148413:AAGJNu0qufFWtOSNJaLNfKtMWe05P_D9jpg/sendMessage?chat_id=5913051935&text=💻 key thiết bị 💻 \nip: {Ip}\n{KA-{results}}")
 elif c.lower() == "y":
     saved_key = read_key_from_file()
-    if saved_key == Key or saved_key == "kadeptrai" or saved_key == keytb:
+    if saved_key == Key or saved_key == "kadeptrais" or saved_key == keytb:
         key = Key
         
     else:
@@ -537,11 +537,11 @@ if saved_keys == Key:
   tct = tcts
 elif saved_keys == keytb:
   tct = tct_vip
-elif saved_keys == "kadeptrai":
+elif saved_keys == "kadeptrais":
   tct = tct_vip
 
 while True:
-    if key !=Key and key != "kadeptrai" and key != keytb:
+    if key !=Key and key != "kadeptrais" and key != keytb:
         print("\033[91m\033[1mKey sai!")
     else:
         clear()
