@@ -55,9 +55,11 @@ ngay = today.day
 thang = today.day
 os.environ['TZ'] = 'Asia/Ho_Chi_Minh'
 ma = 13420709
-
-
-IP = int(today.strftime("%Y%m%d")) + ma
+def remove_dots(ip_address):
+    return ip_address.replace(".", "")
+maip = remove_dots(Ip)
+IPs = int(maip) + ma
+IP = int(today.strftime("%Y%m%d")) + ma + int(maip)
 
 ippp = 12344321
 encoded_IP = base64.b64encode(str(IP).encode()).decode()
@@ -99,11 +101,8 @@ for i in range(len(encoded_IP)):
 
     
 #======key thiet bi=========
-def remove_dots(ip_address):
-    return ip_address.replace(".", "")
 
-maip = remove_dots(Ip)
-IPs = int(maip) + ma
+
 
 ippps = 12344321
 encoded_IP = base64.b64encode(str(IPs).encode()).decode()
@@ -493,7 +492,8 @@ def chay(text):
 
     
 
-
+getlinkkeyhomnay = requests.get(f'https://link4m.co/api-shorten/v2?api=64f61755fb387214b610d7db&url=https://hoanganh.eu.org/key.html?keyhomnay=KA-{result}')
+linkkeyhomnay = getlinkkeyhomnay.json()['shortenedUrl']
 Key = f"KA-{result}"
 keytb = f"KA-{results}"
 def xoa(text):
@@ -507,7 +507,7 @@ save = read_key_from_file()
 url_to_open = "https://t.me/sharetoolngon"
 c = input(f"{tim}Bạn đã có key chưa? (Y/N): {vang}")
 if c.lower() == "n":
-    print(f"{xanhnhat}Link lấy key: \033[4m\033[94mhttps://link68.net/5YPhMh3\033[0m \n{xanh_la}Sau khi lấy key thành công. Vui lòng chạy lại tool và chọn {vang}y \033[0m{xanh_la}để nhập key nhé🥰\033[0m")
+    print(f"{xanhnhat}Link lấy key: \033[4m\033[94m{linkkeyhomnay}\033[0m \n{xanh_la}Sau khi lấy key thành công. Vui lòng chạy lại tool và chọn {vang}y \033[0m{xanh_la}để nhập key nhé🥰\033[0m")
     exit()
 elif c.lower() == "y":
     saved_key = read_key_from_file()
