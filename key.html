@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pattaya|Potta One|Rowdies">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./sta.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <style>
+        /* Reset các kiểu mặc định của các phần tử */
+        body, h1, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 30px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        /* Phần kiểu dáng cho nội dung */
+        .content-container {
+            display: inline-block;
+            background-color: #fff;
+            padding: 10px 20px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .content-text {
+            font-size: 24px;
+            color: #ff5733;
+        }
+
+        /* Phần kiểu dáng cho nút gửi */
+        button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+    <script>
+        // Hàm để trích xuất tham số từ URL
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        // Lấy tham số từ URL và hiển thị nó
+        window.onload = function () {
+            var param = getParameterByName('keyhomnay');
+            if (param !== null) {
+                var contentElement = document.getElementById('content');
+                contentElement.textContent = param;
+
+                // Thêm sự kiện click để sao chép nội dung vào clipboard
+                contentElement.addEventListener('click', function () {
+                    var textArea = document.createElement('textarea');
+                    textArea.value = param;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+
+                    alert('Đã sao chép nội dung vào clipboard.');
+                });
+            }
+        }
+    </script>
+</head>
+
+</head>
+<body>
+<div class="demo">
+
+    <p align="center">
+        <img class="p" src="avt.gif" alt="hmmmm" width="120" height="120" >
+    </p>
+      
+    <h2 class="HoangAnh">
+        <div class="name" style="font-family: 'Pattaya';">Nguyễn Hoàng Anh</div>
+    </h2>
+</div>
+<body>
+    <p class="HoangAnh">Key ngày hôm nay của bạn là</p>
+    <div class="content-container">
+        <p id="content" class="content-text"></p>
+<div class="backroud2"></div>
+
+
+
+
+</body>
+</html>
