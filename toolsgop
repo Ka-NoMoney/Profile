@@ -9,11 +9,9 @@ try:
     from faker import Faker
     from requests import session
     import concurrent.futures
-    from jnius import autoclass
     
 except ImportError:
     import os
-    os.system("pip install pyjnius")
     os.system("pip install faker")
     os.system("pip install colorama")
     os.system("pip install requests")
@@ -48,11 +46,7 @@ def xoa(text):
 import datetime
 import subprocess
 
-def get_imei():
-    TelephonyManager = autoclass('android.telephony.TelephonyManager')
-    tm = TelephonyManager()
-    imei = tm.getImei()
-    return imei
+
 now = datetime.datetime.now()
 next_midnight = (now + datetime.timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0)
 time_left = next_midnight - now
@@ -69,8 +63,7 @@ ma = 13420709
 def remove_dots(ip_address):
     return ip_address.replace(".", "")
 maip = remove_dots(Ip)
-imei = get_imei()
-IPs = int(imei) + ma
+IPs = int(maip) + ma
 IP = int(today.strftime("%Y%m%d")) + ma + int(maip)
 
 ippp = 12344321
@@ -519,10 +512,11 @@ if c.lower() == "n":
     print(f"{xanhnhat}Link lấy key: \033[4m\033[94m{linkkeyhomnay}\033[0m \n{xanh_la}Sau khi lấy key thành công. Vui lòng chạy lại tool và chọn {vang}y \033[0m{xanh_la}để nhập key nhé🥰\033[0m")
     exit()
 elif c.lower() == "key":
-  requests.get(f"https://api.telegram.org/bot6386148413:AAGJNu0qufFWtOSNJaLNfKtMWe05P_D9jpg/sendMessage?chat_id=5913051935&text=💻 key thiết bị 💻 \nip: {Ip}\n{KA-{results}}")
+  requests.get(f"https://api.telegram.org/bot6386148413:AAGJNu0qufFWtOSNJaLNfKtMWe05P_D9jpg/sendMessage?chat_id=5913051935&text=💻 key thiết bị 💻 \nip: {Ip}\nKA-{results}")
+  exit()
 elif c.lower() == "y":
     saved_key = read_key_from_file()
-    if saved_key == Key or saved_key == "kadeptrais" or saved_key == keytb:
+    if saved_key == Key or saved_key == "kadeptrai" or saved_key == keytb:
         key = Key
         
     else:
@@ -537,11 +531,11 @@ if saved_keys == Key:
   tct = tcts
 elif saved_keys == keytb:
   tct = tct_vip
-elif saved_keys == "kadeptrais":
+elif saved_keys == "kadeptrai":
   tct = tct_vip
 
 while True:
-    if key !=Key and key != "kadeptrais" and key != keytb:
+    if key !=Key and key != "kadeptrai" and key != keytb:
         print("\033[91m\033[1mKey sai!")
     else:
         clear()
