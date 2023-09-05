@@ -3590,7 +3590,7 @@ def main():
     i = 0
     while True:
       run(sdt, i)
-    if sdt == "0359489322":
+    if sdt == "0359489321":
         print("\033[91mSài tool tao thì spam cc số tao nha con chó\033[0m")
         quit()
         
