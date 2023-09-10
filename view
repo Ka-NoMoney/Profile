@@ -1,4 +1,6 @@
-
+#Enc Như Con Cặc Vậy Hdt?
+#Crack Key: KhoiHuynh1109
+#Update: 7/9/2023 12:20
 from urllib.parse import urlencode
 import base64
 from pystyle import *
@@ -24,11 +26,10 @@ tim = "\033[1;35m"
 dac_biet = "\033[32;5;245m\033[1m\033[38;5;39m"
 kt_code = "</>"
 dem = 0
+#-----[BẮT ĐẦU]-----#
 response = requests.get('http://ipinfo.io')
 ip_data = response.json()
 Ip = ip_data.get('ip', 'N/A')
-#-----[BẮT ĐẦU]-----#
-
 banner = f"""
   \033[1;31m██╗  ██╗ █████╗    ████████╗ ██████╗  ██████╗ ██╗     
   \033[1;36m██║ ██╔╝██╔══██╗   ╚══██╔══╝██╔═══██╗██╔═══██╗██║     
@@ -44,11 +45,6 @@ banner = f"""
 └\033[1;37m───────────────────────────────────────────────────────┘
 
 """
-def runbanner(text, delay=0.001):
-    for char in text:
-        print(char, end='', flush=True)
-        time.sleep(delay)
-    print()
 class BlockCookies(cookiejar.CookiePolicy):
     return_ok = set_ok = domain_return_ok = path_return_ok = lambda self, *args, **kwargs: False
     netscape = True
@@ -177,25 +173,20 @@ def rpsm_loop():
 
 
 def fetch_proxies():
-    urls = '''
-        https://api.proxyscrape.com/?request=displayproxies&proxytype=http
-        https://api.openproxylist.xyz/http.txt
-        http://alexa.lr2b.com/proxylist.txt
-        https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/http.txt
-        https://proxy-spider.com/api/proxies.example.txt
-        http://worm.rip/http.txt
-        https://sheesh.rip/http.txt
-        https://www.freeproxychecker.com/result/http_proxies.txt
-        https://raw.githubusercontent.com/proxy4parsing/proxy-list/main/http.txt
-        https://proxyspace.pro/http.txt
-
-        '''
+    url_list =[
+        "https://raw.githubusercontent.com/yemixzy/proxy-list/main/proxy-list/data.txt",
+        "https://raw.githubusercontent.com/UptimerBot/proxy-list/main/proxies/http.txt",
+        "https://raw.githubusercontent.com/rdavydov/proxy-list/main/proxies/http.txt",
+        "https://raw.githubusercontent.com/rdavydov/proxy-list/main/proxies/socks4.txt",
+        "https://raw.githubusercontent.com/rdavydov/proxy-list/main/proxies/socks5.txt"
+        
+    ]
     for url in url_list :
         response = requests.get(
             url=url
         )
         if response.ok:
-            with open("proxy.txt", "a+") as f:
+            with open("proxies.txt", "a+") as f:
                 f.write(response.text)
                 f.close()
         else:
@@ -214,9 +205,9 @@ if __name__ == "__main__":
         with open('proxies.txt', 'r') as f:
             proxies = f.read().splitlines()
     os.system("cls" if os.name == "nt" else "clear")
-    runbanner(banner)
+    print(banner)
     try:
-        link = input(f'{do}[{trang}</>{do}] {xanh_la}INPUT LINK VIDEO: {trang}')
+        link = input(f'{do}[{trang}{kt_code}{do}] {xanh_la}INPUT LINK VIDEO: {trang}')
         print(f'{trang}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -')
         __aweme_id = str(
             re.findall(r"(\d{18,19})", link)[0]
@@ -227,7 +218,7 @@ if __name__ == "__main__":
             )[0]
         )
     except:
-        exit(f"{do}[{trang}</>{do}] {do}INVALID LINK")
+        exit(f"{do}[{trang}{kt_code}{do}] {do}INVALID LINK")
     
     _lock = threading.Lock()
     reqs = 0
