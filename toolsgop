@@ -10,7 +10,7 @@ try:
     import base64
     from requests.exceptions import RequestException
     from rich.panel import Panel
-    from rich import print
+    #from rich import print
     from rich.console import Console
     import requests
     import pystyle
