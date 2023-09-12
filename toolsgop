@@ -10,8 +10,6 @@ try:
     import base64
     from requests.exceptions import RequestException
     from rich.panel import Panel
-    #from rich import print
-    from rich.console import Console
     import requests
     import pystyle
     from concurrent.futures import ThreadPoolExecutor
@@ -219,7 +217,7 @@ chontool = f"""
   \033[1;35m╚═╝  ╚═╝╚═╝  ╚═╝      ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝
              {xanh_la} </>TOOL GỘP ĐA CHỨC NĂNG</>\033[0m
 ┌\033[1;37m───────────────────────────────────────────────────────┐
-│{do}[{trang}{kt_code}{do}] {do}IP: {vang}{Ip}\033[0m                                │
+│{do}[{trang}{kt_code}{do}] {do}IP: {vang}{Ip}\033[0m                                 │
 │{do}[{trang}{kt_code}{do}] \033[1;35mADMIN:\033[1;36m KA\033[0m                                        │
 │{do}[{trang}{kt_code}{do}] {dac_biet}BOX TELE:\033[1;37m https://t.me/sharetoolngon             │
 └\033[1;37m───────────────────────────────────────────────────────┘
@@ -234,7 +232,7 @@ tcts = f"""
   \033[1;35m╚═╝  ╚═╝╚═╝  ╚═╝      ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝
              {xanh_la} </>TOOL GỘP ĐA CHỨC NĂNG</>\033[0m
 ┌\033[1;37m───────────────────────────────────────────────────────┐
-│{do}[{trang}{kt_code}{do}] {do}IP: {vang}{Ip}\033[0m                                │
+│{do}[{trang}{kt_code}{do}] {do}IP: {vang}{Ip}\033[0m                                 │
 │{do}[{trang}{kt_code}{do}] \033[1;35mADMIN:\033[1;36m KA\033[0m                                        │
 │{do}[{trang}{kt_code}{do}] {dac_biet}BOX TELE:\033[1;37m https://t.me/sharetoolngon             │
 └\033[1;37m───────────────────────────────────────────────────────┘
@@ -263,7 +261,7 @@ tct_vip = f"""
   \033[1;35m╚═╝  ╚═╝╚═╝  ╚═╝      ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝
              {xanh_la} </>TOOL GỘP ĐA CHỨC NĂNG</>\033[0m
 ┌\033[1;37m───────────────────────────────────────────────────────┐
-│{do}[{trang}{kt_code}{do}] {do}IP: {vang}{Ip}\033[0m                                │
+│{do}[{trang}{kt_code}{do}] {do}IP: {vang}{Ip}\033[0m                                 │
 │{do}[{trang}{kt_code}{do}] \033[1;35mADMIN:\033[1;36m KA\033[0m                                        │
 │{do}[{trang}{kt_code}{do}] {dac_biet}BOX TELE:\033[1;37m https://t.me/sharetoolngon             │
 └\033[1;37m───────────────────────────────────────────────────────┘
@@ -292,7 +290,7 @@ ba  = f"""
   \033[1;35m╚═╝  ╚═╝╚═╝  ╚═╝      ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝
              {xanh_la} </>TOOL GỘP ĐA CHỨC NĂNG</>\033[0m
 ┌\033[1;37m───────────────────────────────────────────────────────┐
-│{do}[{trang}{kt_code}{do}] {do}IP: {vang}{Ip}\033[0m                                │
+│{do}[{trang}{kt_code}{do}] {do}IP: {vang}{Ip}\033[0m                                 │
 │{do}[{trang}{kt_code}{do}] \033[1;35mADMIN:\033[1;36m KA\033[0m                                        │
 │{do}[{trang}{kt_code}{do}] {dac_biet}BOX TELE:\033[1;37m https://t.me/sharetoolngon             │
 └\033[1;37m───────────────────────────────────────────────────────┘
@@ -319,7 +317,7 @@ bon  = f"""
   \033[1;35m╚═╝  ╚═╝╚═╝  ╚═╝      ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝
              {xanh_la} </>TOOL GỘP ĐA CHỨC NĂNG</>\033[0m
 ┌\033[1;37m───────────────────────────────────────────────────────┐
-│{do}[{trang}{kt_code}{do}] {do}IP: {vang}{Ip}\033[0m                                │
+│{do}[{trang}{kt_code}{do}] {do}IP: {vang}{Ip}\033[0m                                 │
 │{do}[{trang}{kt_code}{do}] \033[1;35mADMIN:\033[1;36m KA\033[0m                                        │
 │{do}[{trang}{kt_code}{do}] {dac_biet}BOX TELE:\033[1;37m https://t.me/sharetoolngon             │
 └\033[1;37m───────────────────────────────────────────────────────┘
@@ -345,7 +343,7 @@ mot  = f"""
   \033[1;35m╚═╝  ╚═╝╚═╝  ╚═╝      ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝
              {xanh_la} </>TOOL GỘP ĐA CHỨC NĂNG</>\033[0m
 ┌\033[1;37m───────────────────────────────────────────────────────┐
-│{do}[{trang}{kt_code}{do}] {do}IP: {vang}{Ip}\033[0m                                │
+│{do}[{trang}{kt_code}{do}] {do}IP: {vang}{Ip}\033[0m                                 │
 │{do}[{trang}{kt_code}{do}] \033[1;35mADMIN:\033[1;36m KA\033[0m                                        │
 │{do}[{trang}{kt_code}{do}] {dac_biet}BOX TELE:\033[1;37m https://t.me/sharetoolngon             │
 └\033[1;37m───────────────────────────────────────────────────────┘
@@ -373,7 +371,7 @@ nam  = f"""
   \033[1;35m╚═╝  ╚═╝╚═╝  ╚═╝      ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝
              {xanh_la} </>TOOL GỘP ĐA CHỨC NĂNG</>\033[0m
 ┌\033[1;37m───────────────────────────────────────────────────────┐
-│{do}[{trang}{kt_code}{do}] {do}IP: {vang}{Ip}\033[0m                                │
+│{do}[{trang}{kt_code}{do}] {do}IP: {vang}{Ip}\033[0m                                 │
 │{do}[{trang}{kt_code}{do}] \033[1;35mADMIN:\033[1;36m KA\033[0m                                        │
 │{do}[{trang}{kt_code}{do}] {dac_biet}BOX TELE:\033[1;37m https://t.me/sharetoolngon             │
 └\033[1;37m───────────────────────────────────────────────────────┘
@@ -397,7 +395,7 @@ sau  = f"""
   \033[1;35m╚═╝  ╚═╝╚═╝  ╚═╝      ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝
              {xanh_la} </>TOOL GỘP ĐA CHỨC NĂNG</>\033[0m
 ┌\033[1;37m───────────────────────────────────────────────────────┐
-│{do}[{trang}{kt_code}{do}] {do}IP: {vang}{Ip}\033[0m                                │
+│{do}[{trang}{kt_code}{do}] {do}IP: {vang}{Ip}\033[0m                                 │
 │{do}[{trang}{kt_code}{do}] \033[1;35mADMIN:\033[1;36m KA\033[0m                                        │
 │{do}[{trang}{kt_code}{do}] {dac_biet}BOX TELE:\033[1;37m https://t.me/sharetoolngon             │
 └\033[1;37m───────────────────────────────────────────────────────┘
@@ -421,7 +419,7 @@ hai  = f"""
   \033[1;35m╚═╝  ╚═╝╚═╝  ╚═╝      ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝
              {xanh_la} </>TOOL GỘP ĐA CHỨC NĂNG</>\033[0m
 ┌\033[1;37m───────────────────────────────────────────────────────┐
-│{do}[{trang}{kt_code}{do}] {do}IP: {vang}{Ip}\033[0m                                │
+│{do}[{trang}{kt_code}{do}] {do}IP: {vang}{Ip}\033[0m                                 │
 │{do}[{trang}{kt_code}{do}] \033[1;35mADMIN:\033[1;36m KA\033[0m                                        │
 │{do}[{trang}{kt_code}{do}] {dac_biet}BOX TELE:\033[1;37m https://t.me/sharetoolngon             │
 └\033[1;37m───────────────────────────────────────────────────────┘
@@ -485,7 +483,7 @@ helpmenu  = f"""
   \033[1;35m╚═╝  ╚═╝╚═╝  ╚═╝      ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝
              {xanh_la} </>TOOL GỘP ĐA CHỨC NĂNG</>\033[0m
 ┌\033[1;37m───────────────────────────────────────────────────────┐
-│{do}[{trang}{kt_code}{do}] {do}IP: {vang}{Ip}\033[0m                                │
+│{do}[{trang}{kt_code}{do}] {do}IP: {vang}{Ip}\033[0m                                 │
 │{do}[{trang}{kt_code}{do}] \033[1;35mADMIN:\033[1;36m KA\033[0m                                        │
 │{do}[{trang}{kt_code}{do}] {dac_biet}BOX TELE:\033[1;37m https://t.me/sharetoolngon             │
 └\033[1;37m───────────────────────────────────────────────────────┘
@@ -1870,14 +1868,14 @@ class Main:
         try:
             clear()
             runbanner(chontool)
-            print(Panel(f"[italic white]Vui lòng nhập Username và Password tài khoản Instagram của bạn được chia bởi kí tự [italic white]\"[italic green]/[italic white]\" \n[italic purple]eg[italic white]: kasocute[italic green]/[italic white]ka123 (kasocute[italic purple]=[italic yellow]Username [italic red]| [italic white]ka123[italic purple]=[italic yellow]Password[italic white])", width=60, style="bold bright_black", title=">>> Username & Password <<<", subtitle="╭─────", subtitle_align="left"))
-            your_username_password = Console().input("[bold bright_black]   ╰─>[italic yellow] ")
+            print(f"{trang}Vui lòng nhập Username và Password tài khoản Instagram của bạn được chia bởi kí tự {trang}\"{xanh_la}/{trang}\" \n{tim}eg{trang}: kasocute{xanh_la}/{trang}ka123 (kasocute{tim}={vang}Username {do}| {trang}ka123{tim}={vang}Password{trang})")
+            your_username_password = input(f"{xanhnhat}   ╰─>{vang} ")
             if '/' in str(your_username_password):
                 clear()
                 runbanner(chontool)
                 self.username, self.password = your_username_password.split('/')[0], your_username_password.split('/')[1]
-                print(Panel(f"[italic white]Vui lòng nhập liên kết bài đăng trên Instagram \nví dụ:[italic green] https://www.instagram.com/p/CXyPwLSJCtl/", width=60, style="bold bright_black", title=">>> Link Postingan <<<", subtitle="╭─────", subtitle_align="left"))
-                your_postingan = Console().input("[bold bright_black]   ╰─>[italic yellow] ").replace('/reel/', '/p/').replace('/reels/', '/p/')
+                print(f"{trang}Vui lòng nhập liên kết bài đăng trên Instagram \nví dụ:{xanh_la} https://www.instagram.com/p/CxC097Pvma5/")
+                your_postingan = input(f"{xanhnhat}   ╰─>{vang} ").replace('/reel/', '/p/').replace('/reels/', '/p/')
                 self.link_split = your_postingan.split('https://www.instagram.com/p/')[1]
                 if '/' in str(self.link_split):
                     self.code_postingan = (self.link_split.split('/')[0])
@@ -1886,15 +1884,15 @@ class Main:
                 clear()
                 runbanner(chontool)
                 self.final_postingan = (f'https://www.instagram.com/p/{self.code_postingan}/')
-                print(Panel(f"[italic white]Đang tăng lượt thích mà bạn có thể sử dụng[italic green] CTRL + C[italic white] để dừng hoặc [italic red] CTRL + Z[italic white] để dừng!", width=60, style="bold bright_black", title=">>> Catatan <<<"))
+                print(f"{trang}Đang tăng lượt thích mà bạn có thể sử dụng{xanh_la} CTRL + C{trang} để dừng hoặc {do} CTRL + Z{trang} để dừng!")
                 while True:
                     try:
                         self.status, self.media_ids = self.Submit_Likes(self.username, self.password, self.final_postingan)
                         if Jumlah['Count'] > 20:
                             Sukses.append(Jumlah['Count'])
-                            print(Panel(f"""[bold white]Status :[italic green] Successfully sent likes...[/]
-[bold white]Link :[bold red] {str(self.final_postingan)[:49]}
-[bold white]Jumlah :[bold green] +{Jumlah['Count']}[italic yellow] *Successful""", width=60, style="bold bright_black", title=">>> Sukses <<<"))
+                            print(f"""{trang}Status :{xanh_la} Successfully sent likes...[/]
+{trang}Link :{do} {str(self.final_postingan)[:49]}
+{trang}Jumlah :{xanh_la} +{Jumlah['Count']}{vang} *Successful""")
                             Jumlah.update({
                                 "Count": 0
                             })
@@ -1912,20 +1910,20 @@ class Main:
                     except (RequestException):
                         print("\r                                                    ", end='\r')
                         time.sleep(1.5)
-                        print(f"[bold bright_black]   ╰─>[bold red] KẾT NỐI CÓ VẤN ĐỀ!", end='\r')
+                        print(f"{xanhnhat}   ╰─>{do} KẾT NỐI CÓ VẤN ĐỀ!", end='\r')
                         time.sleep(4.5)
                         continue
                     except (Exception) as e:
                         print("\r                                                    ", end='\r')
                         time.sleep(1.5)
-                        print(f"[bold bright_black]   ╰─>[bold red] {str(e).upper()}!", end='\r')
+                        print(f"{xanhnhat}   ╰─>{do} {str(e).upper()}!", end='\r')
                         time.sleep(4.5)
                         continue
             else:
-                print(Panel(f"[italic red]Dấu tách tên người dùng hoặc mật khẩu của bạn đã nhập bị sai!", width=60, style="bold bright_black", title=">>> Pemisah Salah <<<"))
+                print(f"{do}Dấu tách tên người dùng hoặc mật khẩu của bạn đã nhập bị sai!")
                 exit()
         except (Exception) as e:
-            print(Panel(f"[italic red]{str(e).title()}!", width=60, style="bold bright_black", title=">>> Error <<<"))
+            print(f"{do}{str(e).title()}!")
             exit()
 
     def Submit_Likes(self, username, password, your_links):
@@ -1964,7 +1962,7 @@ class Main:
             if '"error":false' in str(response2.text):
                 print("\r                                                    ", end='\r')
                 time.sleep(1.5)
-                print(f"[bold bright_black]   ╰─>[bold green] ĐĂNG NHẬP THÀNH CÔNG...", end='\r')
+                print(f"{xanhnhat}   ╰─>{xanh_la} ĐĂNG NHẬP THÀNH CÔNG...", end='\r')
                 time.sleep(2.5)
                 r.headers.pop('content-type');r.headers.pop('x-requested-with')
                 r.headers.update({
@@ -1979,7 +1977,7 @@ class Main:
                 })
                 response3 = r.get('https://instahile.co/tools/send-likes')
                 if 'Hesabınızı Instagram üzerinden doğrulayın ve tekrar giriş yapın.' in str(response3.text) or 'Giriş yap' in str(response3.text):
-                    print(Panel(f"[italic red]Có vẻ như tài khoản Instagram của bạn đã bị Checkpoint!", width=60, style="bold bright_black", title=">>> Login Checkpoint <<<"))
+                    print(f"{do}Có vẻ như tài khoản Instagram của bạn đã bị Checkpoint!")
                     exit()
                 r.headers.pop('sec-fetch-user');r.headers.pop('upgrade-insecure-requests')
                 r.headers.update({
@@ -2019,7 +2017,7 @@ class Main:
                             if int(self.credi) == 0:
                                 print("\r                                                    ", end='\r')
                                 time.sleep(1.5)
-                                print(f"[bold bright_black]   ╰─>[bold red] Bạn đã hết lượt tim...", end='\r')
+                                print(f"{xanhnhat}   ╰─>{do} Bạn đã hết lượt tim...", end='\r')
                                 time.sleep(2.5)
                                 return ("Likes Limit", self.media_ids)
                             else:
@@ -2032,34 +2030,34 @@ class Main:
                             if 'Beğeni Eklenemedi' in str(json.loads(response5.text)):
                                 print("\r                                                    ", end='\r')
                                 time.sleep(1.5)
-                                print(f"[bold bright_black]   ╰─>[bold red] KHÔNG THÊM LƯỢT THÍCH...", end='\r')
+                                print(f"{xanhnhat}   ╰─>{do} KHÔNG THÊM LƯỢT THÍCH...", end='\r')
                                 time.sleep(4.5)
                                 return ("Likes Limit", self.media_ids)
                             else:
                                 print("\r                                                    ", end='\r')
                                 Gagal.append(response5.text)
                                 time.sleep(1.5)
-                                print(f"[bold bright_black]   ╰─>[bold yellow] KHÔNG NHẬN ĐƯỢC LƯỢT THÍCH...", end='\r')
+                                print(f"{xanhnhat}   ╰─>[bold yellow] KHÔNG NHẬN ĐƯỢC LƯỢT THÍCH...", end='\r')
                                 time.sleep(4.5)
                                 return ("Likes Gagal", self.media_ids)
                         else:
                             print("\r                                                    ", end='\r')
                             Gagal.append(response5.text)
                             time.sleep(1.5)
-                            print(f"[bold bright_black]   ╰─>[bold red] KHÔNG NHẬN ĐƯỢC LƯỢT THÍCH...", end='\r')
+                            print(f"{xanhnhat}   ╰─>{do} KHÔNG NHẬN ĐƯỢC LƯỢT THÍCH...", end='\r')
                             time.sleep(4.5)
                             return ("Likes Gagal", self.media_ids)
                     return ("Likes Sukses", f'@{username}')
                 else:
                     print("\r                                                    ", end='\r')
                     time.sleep(1.5)
-                    print(f"[bold bright_black]   ╰─>[bold red] KHÔNG TÌM THẤY BÀI VIẾT...", end='\r')
+                    print(f"{xanhnhat}   ╰─>{do} KHÔNG TÌM THẤY BÀI VIẾT...", end='\r')
                     time.sleep(4.5)
                     return ("Không tìm thấy bài viết", f'@{username}')
             else:
                 print("\r                                                    ", end='\r')
                 time.sleep(1.5)
-                print(f"[bold bright_black]   ╰─>[bold red] ĐĂNG NHẬP KHÔNG THÀNH CÔNG...", end='\r')
+                print(f"{xanhnhat}   ╰─>{do} ĐĂNG NHẬP KHÔNG THÀNH CÔNG...", end='\r')
                 time.sleep(4.5)
                 return ("Login Gagal", f'@{username}')
             
@@ -2067,7 +2065,7 @@ class Main:
         self.total = (menit * 60 + detik)
         while (self.total):
             menit, detik = divmod(self.total, 60)
-            print(f"[bold bright_black]   ╰─>[bold green] {str(username)[:20]}[bold white]/[bold green]{menit:02d}:{detik:02d}[bold white] Sukses:-[bold green]{len(Sukses)}[bold white] Gagal:-[bold red]{len(Gagal)}     ", end='\r')
+            print(f"{xanhnhat}   ╰─>{xanh_la} {str(username)[:20]}{trang}/{xanh_la}{menit:02d}:{detik:02d}{trang} Sukses:-{xanh_la}{len(Sukses)}{trang} Gagal:-{do}{len(Gagal)}     ", end='\r')
             time.sleep(1)
             self.total -= 1
         return ("Delay SUCCESSFUL")
@@ -4118,7 +4116,7 @@ def main():
         Main().Pengguna()
         Main().Your_Username_Password()
       except (Exception) as e:
-        print(Panel(f"[italic red]{str(e).title()}!", width=60, style="bold bright_black", title=">>> Error <<<"))
+        print(f"{do}{str(e).title()}!")
         exit()
       except (KeyboardInterrupt):
         exit()
