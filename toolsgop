@@ -3988,7 +3988,7 @@ def main():
   elif nhap == '2.2':
     clear()
     runbanner(chontool)
-    uid=input(f'\033[1m\033[38;5;51mVui lòng nhập Uid:{vang} ')
+    uid=input(f'\033[1m\033[38;5;51mVui lòng nhập link bài viết:{vang} ')
     ck_fb = input(f"{xanhnhat}Nhập cookie :{vang} ")
     soluong = int(input('\033[1m\033[38;5;51mNhập Số luồng: \033[38;5;15m '))
     token_fb = get_token(ck_fb)
