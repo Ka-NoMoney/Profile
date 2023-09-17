@@ -83,8 +83,9 @@ def extract_numbers_from_string(input_string):
     return numbers
 mac_address = display_mac_address()
 numbers_from_mac = extract_numbers_from_string(mac_address)
-IPs = int(numbers_from_mac) + ma
-IP = int(today.strftime("%Y%m%d")) + ma + int(numbers_from_mac)
+maip = remove_dots(Ip)
+IPs = int(maip) + ma
+IP = int(today.strftime("%Y%m%d")) + ma + int(maip)
 
 ippp = 12344321
 encoded_IP = base64.b64encode(str(IP).encode()).decode()
