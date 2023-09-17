@@ -73,14 +73,15 @@ ma = 13420709
 def remove_dots(ip_address):
     return ip_address.replace(".", "")
 
-def get_mac_address():
+def display_mac_address():
     mac = uuid.UUID(int=uuid.getnode()).hex[-12:]
-    return ":".join([mac[e:e+2] for e in range(0, 12, 2)])
+    mac_address = ":".join([mac[e:e+2] for e in range(0, 12, 2)])
+    return mac_address
 
 def extract_numbers_from_string(input_string):
     numbers = ''.join(filter(str.isdigit, input_string))
     return numbers
-mac_address = get_mac_address()
+mac_address = display_mac_address()
 numbers_from_mac = extract_numbers_from_string(mac_address)
 IPs = int(numbers_from_mac) + ma
 IP = int(today.strftime("%Y%m%d")) + ma + int(numbers_from_mac)
