@@ -156,11 +156,6 @@ def read_key_from_file():
     except FileNotFoundError:
         return None
 
-key_co_chu = read_key_from_file()
-if key_co_chu == "KA-M1j2g324M4z3k2x1Mzk=":
-  chu_nhan = "Thành Vinh𓆤"
-elif key_co_chu == "KA-M1T2Q3z4M4j3U2z1Njk1Nw==":
-    chu_nhan = "Hoàng Anh Đẹp Trai Siêu Cấp Víp Pro"
 #==========================================================================================================================
 banner = """
   \033[1;35m\033[1m       _                      _______                      _
@@ -532,11 +527,10 @@ def chay(text):
     print()
 
     
-
-getlinkkeyhomnay = requests.get(f'https://link4m.co/api-shorten/v2?api=64f61755fb387214b610d7db&url=https://hoanganh.eu.org/key.html?keyhomnay=KA-{result}')
-linkkeyhomnay = getlinkkeyhomnay.json()['shortenedUrl']
 Key = f"KA-{result}"
 keytb = f"KA-{results}"
+getlinkkeyhomnay = requests.get(f'https://link4m.co/api-shorten/v2?api=64f61755fb387214b610d7db&url=https://hoanganh.eu.org/key.html?keyhomnay={Key}')
+linkkeyhomnay = getlinkkeyhomnay.json()['shortenedUrl']
 def xoa(text):
     sys.stdout.write('\r' + text)
     sys.stdout.flush()
