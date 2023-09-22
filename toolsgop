@@ -9,3 +9,4 @@ url = "https://hoanganh.eu.org/archive/toolgopcapnhap"
 save_path = "toolgop.py"
 download_file(url, save_path)
 print("đã cập nhập xong vui lòng chạy lại")
+
