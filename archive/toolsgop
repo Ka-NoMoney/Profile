@@ -439,7 +439,7 @@ hai  = f"""
 ║ {vang}2.5\033[0m ║    {dac_biet}REPORT FACENOOK\033[0m    ║      {xanh_la}hoạt động\033[0m      ║
 ║ {vang}2.6\033[0m ║ {dac_biet}BUFF INSTAGRAM LIKES\033[0m  ║      {xanh_la}hoạt động\033[0m      ║
 ║ {vang}2.7\033[0m ║  {dac_biet}SPAM CHỬI MESSENGER\033[0m  ║      {xanh_la}hoạt động\033[0m      ║
-║ {vang}2.7\033[0m ║{dac_biet}SPAM CHỬI MESSENGER BOX\033[0m║      {xanh_la}hoạt động\033[0m      ║ 
+║ {vang}2.8\033[0m ║{dac_biet}SPAM CHỬI MESSENGER BOX\033[0m║      {xanh_la}hoạt động\033[0m      ║ 
 ║  {vang}0\033[0m  ║       {dac_biet}MAIN MENU\033[0m       ║      {xanh_la}hoạt động\033[0m      ║
 ╚═════╩═══════════════════════╩═════════════════════╝ 
 
