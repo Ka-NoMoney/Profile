@@ -3,6 +3,14 @@ import datetime
 import os
 import ssl
 import random
+import platform
+machine = platform.machine()
+if "arm" in machine.lower() or "iphone" in machine.lower() or "android" in machine.lower():
+    # Máy là điện thoại di động, không import netifaces hoặc thực hiện các hành động phù hợp
+    import netifaces
+else:
+    # Máy không phải là điện thoại di động, có thể import netifaces hoặc thực hiện các hành động phù hợp
+    pass
 from urllib.parse import urlencode
 from http import cookiejar
 from urllib3.exceptions import InsecureRequestWarning
@@ -83,13 +91,14 @@ def get_mac_address(interface):
         print(f"Lỗi: {str(e)}")
         return None
 
-try:
-    a = get_mac_address('dummy0')
-except:
-    try:
-        a = get_mac_address('wlan0')
-    except:
-        a = ''
+interfaces_to_check = ['dummy0', 'wlan0']
+mac_address = ''
+
+for interface in interfaces_to_check:
+    mac_address = get_mac_address(interface)
+    if mac_address:
+        break
+
 def remove_dots(ip_address):
     return ip_address.replace(".", "")
 
@@ -99,7 +108,7 @@ def extract_numbers_from_string(input_string):
     return numbers
 
 loc = extract_numbers_from_string(LOC)
-mac = extract_numbers_from_string(a)
+mac = extract_numbers_from_string(mac_address)
 IPs = int(mac) + ma
 IP = int(today.strftime("%Y%m%d")) + ma + int(loc)
 
