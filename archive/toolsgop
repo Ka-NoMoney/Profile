@@ -18,6 +18,7 @@ try:
     from faker import Faker
     from requests import session
     import concurrent.futures
+    import netifaces
     
 except ImportError:
     import os
@@ -28,6 +29,7 @@ except ImportError:
     os.system("pip install pystyle")
     os.system("pip install concurrent.futures")
     os.system("pip install base64")
+    os.system("pip install netifaces")
 import requests,os,time,re,json,uuid,random,sys
 from concurrent.futures import ThreadPoolExecutor
 import datetime
@@ -71,6 +73,23 @@ ngay = today.day
 thang = today.day
 os.environ['TZ'] = 'Asia/Ho_Chi_Minh'
 ma = 13420709
+
+def get_mac_address(interface):
+    try:
+        addresses = netifaces.ifaddresses(interface)
+        mac_address = addresses[netifaces.AF_LINK][0]['addr']
+        return mac_address
+    except Exception as e:
+        print(f"Lỗi: {str(e)}")
+        return None
+
+try:
+    a = get_mac_address('dummy0')
+except:
+    try:
+        a = get_mac_address('wlan0')
+    except:
+        a = ''
 def remove_dots(ip_address):
     return ip_address.replace(".", "")
 
@@ -80,7 +99,8 @@ def extract_numbers_from_string(input_string):
     return numbers
 
 loc = extract_numbers_from_string(LOC)
-IPs = int(loc) + ma
+mac = extract_numbers_from_string(a)
+IPs = int(mac) + ma
 IP = int(today.strftime("%Y%m%d")) + ma + int(loc)
 
 ippp = 12344321
