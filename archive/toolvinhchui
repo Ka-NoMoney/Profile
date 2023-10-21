@@ -1,0 +1,303 @@
+from urllib.parse import quote
+import datetime
+import os
+import ssl
+from urllib.parse import urlencode
+from http import cookiejar
+from urllib3.exceptions import InsecureRequestWarning
+import hashlib
+import random
+try:
+    import base64
+    from requests.exceptions import RequestException
+    import requests
+    import pystyle
+    from concurrent.futures import ThreadPoolExecutor
+    from faker import Faker
+    from requests import session
+    import concurrent.futures
+    
+except ImportError:
+    import os
+    os.system("pip install faker")
+    os.system("pip install colorama")
+    os.system("pip install requests")
+    os.system("pip install pystyle")
+    os.system("pip install concurrent.futures")
+    os.system("pip install base64")
+import requests,os,time,re,json,uuid,random,sys
+from concurrent.futures import ThreadPoolExecutor
+import datetime
+from datetime import datetime
+import requests,json
+import uuid
+import requests
+from time import sleep
+from random import choice, randint, shuffle
+from pystyle import Add, Center, Anime, Colors, Colorate, Write, System
+from os.path import isfile
+from pystyle import Colors, Colorate, Write, Center, Add, Box
+from time import sleep,strftime
+import socket
+from pystyle import *
+def clear():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+def runbanner(text, delay=0.001):
+    for char in text:
+        print(char, end='', flush=True)
+        time.sleep(delay)
+    print()
+
+
+trang = "\033[1;37m\033[1m"
+xanh_la = "\033[1;32m\033[1m"
+xanh_duong = "\033[1;34m\033[1m"
+xanhnhat = '\033[1m\033[38;5;51m'
+do = "\033[1;31m\033[1m\033[1m"
+xam='\033[1;30m\033[1m'
+vang = "\033[1;33m\033[1m"
+tim = "\033[1;35m\033[1m"
+hongnhat = "#FFC0CB"
+kt_code = "</>"
+dac_biet = "\033[32;5;245m\033[1m\033[38;5;39m"
+colors = [
+    "\033[1;37m\033[1m",  # Trắng
+    "\033[1;32m\033[1m",  # Xanh lá
+    "\033[1;34m\033[1m",  # Xanh dương
+    "\033[1m\033[38;5;51m",  # Xanh nhạt
+    "\033[1;31m\033[1m\033[1m",  # Đỏ
+    "\033[1;30m\033[1m",  # Xám
+    "\033[1;33m\033[1m",  # Vàng
+    "\033[1;35m\033[1m",  # Tím
+    "\033[32;5;245m\033[1m\033[38;5;39m",  # Màu đặc biệt
+]
+random_color = random.choice(colors)
+def idelay(o):
+    while(o>0):
+        o=o-1
+        print(f"{trang}[{xanhnhat}Thành Vinh{trang}] \033[1;33mV\033[1;34mu\033[1;35mi \033[1;32mL\033[1;33mò\033[1;34mn\033[1;35mg \033[1;36mC\033[1;33mh\033[1;34mờ {trang}[\033[1;35m.....""]""["+str(o)+"]""    ",end='\r')
+        time.sleep(1/6)
+        print(f"{trang}[{xanhnhat}Thành Vinh{trang}] \033[1;31mV\033[1;32mu\033[1;33mi \033[1;34mL\033[1;35mò\033[1;31mn\033[1;32mg \033[1;33mC\033[1;32mh\033[1;35mờ {trang}[\033[1;33m•{trang}....""]"f"{trang}[{xanhnhat}"+str(o)+f"{trang}]""     ",end='\r')
+        time.sleep(1/6)
+        print(f"{trang}[{xanhnhat}Thành Vinh{trang}] \033[1;32mV\033[1;33mu\033[1;34mi \033[1;35mL\033[1;36mò\033[1;33mn\033[1;34mg \033[1;35mC\033[1;31mh\033[1;32mờ {trang}[\033[1;35m••{trang}...""]"f"{trang}[{xanh_la}"+str(o)+f"{trang}]""     ",end='\r')
+        time.sleep(1/6)
+        print(f"{trang}[{xanhnhat}Thành Vinh{trang}] \033[1;31mV\033[1;33mu\033[1;35mi \033[1;33mL\033[1;31mò\033[1;32mn\033[1;34mg \033[1;36mC\033[1;35mh\033[1;31mờ {trang}[\033[1;32m•••{trang}..""]"f"{trang}[{do}"+str(o)+f"{trang}]""     ",end='\r')
+        time.sleep(1/6)
+        print(f"{trang}[{xanhnhat}Thành Vinh{trang}] \033[1;32mV\033[1;34mu\033[1;36mi \033[1;32mL\033[1;34mò\033[1;31mn\033[1;35mg \033[1;33mC\033[1;36mh\033[1;35mờ {trang}[\033[1;38m••••{trang}.""]"f"{trang}[{tim}"+str(o)+f"{trang}]""     ",end='\r')
+        time.sleep(1/6)
+        print(f"{trang}[{xanhnhat}Thành Vinh{trang}] \033[1;31mV\033[1;34mu\033[1;36mi \033[1;32mL\033[1;34mò\033[1;32mn\033[1;35mg \033[1;36mC\033[1;34mh\033[1;32mờ {trang}[\033[1;33m•••••{trang}""]"f"{trang}[{vang}"+str(o)+f"{trang}]""     ",end='\r')
+        time.sleep(0.1)
+        print(f"{trang}[{xanhnhat}Thành Vinh{trang}] \033[1;31mV\033[1;34mu\033[1;36mi \033[1;32mL\033[1;34mò\033[1;32mn\033[1;35mg \033[1;36mC\033[1;34mh\033[1;32mờ {trang}[\033[1;33m•••••{trang}""]"f"{trang}[{xanh_la}"+str(o)+f"{trang}]""     ",end='\r')
+
+chontool = f"""
+  \033[1;31m\033[1m████████╗██╗  ██╗ █████╗ ███╗   ██╗██╗  ██╗    ██╗   ██╗██╗███╗   ██╗██╗  ██╗
+  \033[1;36m\033[1m╚══██╔══╝██║  ██║██╔══██╗████╗  ██║██║  ██║    ██║   ██║██║████╗  ██║██║  ██║
+  \033[1;32m\033[1m   ██║   ███████║███████║██╔██╗ ██║███████║    ██║   ██║██║██╔██╗ ██║███████║
+  \033[1;33m\033[1m   ██║   ██╔══██║██╔══██║██║╚██╗██║██╔══██║    ╚██╗ ██╔╝██║██║╚██╗██║██╔══██║
+  \033[1;31m\033[1m   ██║   ██║  ██║██║  ██║██║ ╚████║██║  ██║     ╚████╔╝ ██║██║ ╚████║██║  ██║
+  \033[1;35m\033[1m   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝      ╚═══╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝\033[0m
+            ┌\033[1;37m───────────────────────────────────────────────────────┐
+            │{do}[{trang}{kt_code}{do}] {do}FB: {vang}Thành Vinh (hv)\033[0m                              │
+            │{do}[{trang}{kt_code}{do}] \033[1;35mMua Tool Lh Zalo :\033[1;36m 0399836447\033[0m                    │
+            │{do}[{trang}{kt_code}{do}] {dac_biet}Tool by Hồ Văn Thành Vinh 🧸\033[0m                    │
+            └\033[1;37m───────────────────────────────────────────────────────┘
+"""
+
+clear()
+runbanner(chontool)
+idcanspam=input(f'\033[1;97m[\033[1;31m</>\033[1;97m] {xanhnhat}Nhập id chó rách muốn chửi :{vang} ')
+while True:
+    ck=input(f'\033[1;97m[\033[1;31m</>\033[1;97m] {xanhnhat}Nhập cookie facebook :{vang} ')
+    try:
+        get=requests.get(f'https://mbasic.facebook.com/privacy/touch/block/confirm/?bid={idcanspam}&ret_cancel&source=profile',headers={'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9','accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5','cookie': ck,'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="102", "Google Chrome";v="102"','sec-ch-ua-mobile': '?0','sec-ch-ua-platform': '"Windows"','sec-fetch-dest': 'document','sec-fetch-mode': 'navigate','sec-fetch-site': 'same-origin','sec-fetch-user': '?1','upgrade-insecure-requests': '1'}).text
+        fb_dtsg=get.split('<input type="hidden" name="fb_dtsg" value="')[1].split('" autocomplete="off" />')[0]
+        jazoest=get.split('<input type="hidden" name="jazoest" value="')[1].split('" autocomplete="off" />')[0]
+        clear()
+        break
+    except:
+        print(f'{do}Cookie sai!!')    
+CAU_CHUI = [
+  "sủa đi",
+"cố lên con",
+"sồn hăng lên em",
+"sao m yếu v ",
+"cố tí nữa",
+"sao kìa chậm à",
+"hăng hái lên tí chứ",
+"tới sáng đi em=))",
+"cố gắng tí con chó dốt=))",
+"k đc à",
+"con chó ngu cố đê",
+"sao m câm kìa",
+"gà j",
+"mày sợ tvinh à =))",
+"m gà mà",
+"mày ngu rõ mà",
+"đúng mà",
+"cãi à",
+"mày còn gì khác k",
+"học lỏm kìa",
+"cố tí em",
+"mếu à",
+"sao mếu kìa",
+"tao đã cho m mếu đâu",
+"va lẹ đi con dốt",
+"sao kìa",
+"từ bỏ r à",
+"mạnh mẽ tí đi con đĩ",
+"cố lên con chó ngu",
+"=)) cay tao à con đĩ",
+"sợ tao à",
+"sao sợ tao kìa",
+"cay lắm phải kh",
+"ớt rồi kìa em",
+"mày còn chối à",
+"làm tí đê",
+"mới đó đã mệt r kìa",
+"sao gà mà sồn v",
+"sồn như lúc đầu cho tao",
+"sao à",
+"ai cho m nhai",
+"cay lắm r", 
+"từ bỏ đi em",
+"mày nghĩ mày làm t cay đc à",
+"có đâu",
+"tao đang hành m mà",
+"bịa à",
+"cay :)))))",
+"cố lên chó dốt",
+"hăng tiếp đi",
+"tới sáng k em",
+"k tới sáng à",
+"chán v",
+"m gà mà",
+"log acc thay phiên à",
+"coi tụi nó dồn ngu kìa",
+"sợ tao à con chó đần",
+"lại win à",
+"lại win r",
+"lũ cặc cay tao lắm🤣🤣",
+"cố lên đê",
+"sao mới 5p đã câm r",
+"yếu đến thế à",
+"sao kìa",
+"khóc kìa",
+"cầu cứu lẹ ei",
+"ai cứu đc m à :))",
+"tao bá mà",
+"sao m gà thế",
+"hăng lẹ cho tao",
+"con chó eiii🤣",
+"ổn k em",
+"kh ổn r à",
+"mày óc à con chó bẻm=))",
+"mẹ mày ngu à",
+"bú cặc cha m k em",
+"thg giả gái :))",
+"coi nó ngu kìa ae",
+"con chó này giả ngu à",
+"m ổn k",
+"mồ côi kìa",
+"sao v sợ r à",
+"cố gắng tí em",
+"cay cú lắm r",
+"đấy đấy bắt đầu",
+"chảy nước đái bò r à em",
+"sao kìa đừng run",
+"mày run à:))",
+"thg dái lở",
+"cay mẹ m lắm",
+"lgbt xuất trận à con đĩ",
+"thg cặc giết cha mắng mẹ",
+"sủa mạnh eii",
+"mày chết r à:))",
+"sao chết kìa",
+"bị t hành nên muốn chết à",
+"con lồn ngu=))",
+"sao kìa",
+"mạnh lên kìa",
+"yếu sinh lý à",
+  "sủa đê",
+"cay à",
+"hăng đê",
+"gà kìa ae",
+"akakaa",
+"óc chó kìa",
+"🤣🤣🤣",
+"ổn không🤣🤣",
+"bất ổn à",
+"ơ kìaaa",
+"hăng hái đê",
+"chạy à 🤣🤣",
+"tởn à",
+"kkkk",
+"mày dốt à",
+"cặc ngu",
+"cháy đê",
+"chat hăng lên",
+"cố lên",
+"mồ côi cay",
+"cay à",
+"cn chó ngu",
+"óc cặc kìa",
+"đĩ đú:))",
+"đú kìa",
+"cùn v",
+"r x",
+"hhhhh",
+"kkakak",
+"sao đú",
+"cặc con",
+"ngu kìa",
+"chat mạnh đê",
+"hăng ee",
+"ơ ơ ơ",
+"sủa cháy đê",
+"sủa mạnh eei",
+"mày óc à con",
+"tao cho m chạy à",
+"con đĩ ngu sủa?",
+"mày chạy à con đĩ lồn",
+]  
+headers = {
+      'authority': 'm.facebook.com',
+      'accept': '*/*',
+      'accept-language': 'vi,en;q=0.9,vi-VN;q=0.8,fr-FR;q=0.7,fr;q=0.6,en-US;q=0.5',
+      # Requests sorts cookies= alphabetically
+      'cookie': ck,
+      'origin': 'https://m.facebook.com',
+      'referer': 'https://www.facebook.com',
+      'sec-ch-ua': '"Chromium";v="104", " Not A;Brand";v="99", "Google Chrome";v="104"',
+      'sec-ch-ua-mobile': '?0',
+      'sec-ch-ua-platform': '"Windows"',
+      'sec-fetch-dest': 'empty',
+     'sec-fetch-mode': 'cors',
+     'sec-fetch-site': 'same-origin',
+     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36',
+     'x-requested-with': 'XMLHttpRequest',
+     'x-response-format': 'JSONStream',
+    }
+params = {
+      'icm': '1',
+    } 
+delay=int(input(f'\033[1;97m[\033[1;31m</>\033[1;97m] {xanhnhat}Nhập delay(khuyến cáo trên 10s) :{vang} '))
+
+while True:
+        try:
+          ping = requests.get("https://www.google.com")
+          if ping.status_code == 200:
+            for nd in CAU_CHUI:
+                datas = {
+                    f'ids[{idcanspam}]': idcanspam,
+                    'body': nd,
+                    'waterfall_source': 'message',
+                    'fb_dtsg': fb_dtsg,
+                    'jazoest': jazoest,
+                  }
+                response = requests.post('https://m.facebook.com/messages/send/', params=params, headers=headers, data=datas)
+                print(f'{xanh_la}Send Success | {tim}{nd}')
+                idelay(delay)
+        except Exception as e:
+          print(f"{do}Lỗi bị ngắt kết lối vui lòng kết lối lại mạng để tiếp tục spam")
+          time.sleep(5)
