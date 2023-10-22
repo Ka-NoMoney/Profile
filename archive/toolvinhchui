@@ -106,161 +106,173 @@ chontool = f"""
 
 clear()
 runbanner(chontool)
-idcanspam=input(f'\033[1;97m[\033[1;31m</>\033[1;97m] {xanhnhat}Nhập id chó rách muốn chửi :{vang} ')
-while True:
-    ck=input(f'\033[1;97m[\033[1;31m</>\033[1;97m] {xanhnhat}Nhập cookie facebook :{vang} ')
-    try:
+print(f"{vang}[{trang}1{vang}]{xanh_la} Spam chửi 1vs1")
+print(f"{vang}[{trang}2{vang}]{xanh_la} Spam chửi trong box")
+chon = int(input(f"{xanhnhat}Vui lòng chọn: {vang}"))
+if chon == 1:
+    idcanspam=input(f'\033[1;97m[\033[1;31m</>\033[1;97m] {xanhnhat}Nhập id chó rách muốn chửi :{vang} ')
+    while True:
+      ck=input(f'\033[1;97m[\033[1;31m</>\033[1;97m] {xanhnhat}Nhập cookie facebook :{vang} ')
+      try:
         get=requests.get(f'https://mbasic.facebook.com/privacy/touch/block/confirm/?bid={idcanspam}&ret_cancel&source=profile',headers={'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9','accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5','cookie': ck,'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="102", "Google Chrome";v="102"','sec-ch-ua-mobile': '?0','sec-ch-ua-platform': '"Windows"','sec-fetch-dest': 'document','sec-fetch-mode': 'navigate','sec-fetch-site': 'same-origin','sec-fetch-user': '?1','upgrade-insecure-requests': '1'}).text
         fb_dtsg=get.split('<input type="hidden" name="fb_dtsg" value="')[1].split('" autocomplete="off" />')[0]
         jazoest=get.split('<input type="hidden" name="jazoest" value="')[1].split('" autocomplete="off" />')[0]
         clear()
         break
-    except:
-        print(f'{do}Cookie sai!!')    
-CAU_CHUI = [
-  "sủa đi",
-"cố lên con",
-"sồn hăng lên em",
-"sao m yếu v ",
-"cố tí nữa",
-"sao kìa chậm à",
-"hăng hái lên tí chứ",
-"tới sáng đi em=))",
-"cố gắng tí con chó dốt=))",
-"k đc à",
-"con chó ngu cố đê",
-"sao m câm kìa",
-"gà j",
-"mày sợ tvinh à =))",
-"m gà mà",
-"mày ngu rõ mà",
-"đúng mà",
-"cãi à",
-"mày còn gì khác k",
-"học lỏm kìa",
-"cố tí em",
-"mếu à",
-"sao mếu kìa",
-"tao đã cho m mếu đâu",
-"va lẹ đi con dốt",
-"sao kìa",
-"từ bỏ r à",
-"mạnh mẽ tí đi con đĩ",
-"cố lên con chó ngu",
-"=)) cay tao à con đĩ",
-"sợ tao à",
-"sao sợ tao kìa",
-"cay lắm phải kh",
-"ớt rồi kìa em",
-"mày còn chối à",
-"làm tí đê",
-"mới đó đã mệt r kìa",
-"sao gà mà sồn v",
-"sồn như lúc đầu cho tao",
-"sao à",
-"ai cho m nhai",
-"cay lắm r", 
-"từ bỏ đi em",
-"mày nghĩ mày làm t cay đc à",
-"có đâu",
-"tao đang hành m mà",
-"bịa à",
-"cay :)))))",
-"cố lên chó dốt",
-"hăng tiếp đi",
-"tới sáng k em",
-"k tới sáng à",
-"chán v",
-"m gà mà",
-"log acc thay phiên à",
-"coi tụi nó dồn ngu kìa",
-"sợ tao à con chó đần",
-"lại win à",
-"lại win r",
-"lũ cặc cay tao lắm🤣🤣",
-"cố lên đê",
-"sao mới 5p đã câm r",
-"yếu đến thế à",
-"sao kìa",
-"khóc kìa",
-"cầu cứu lẹ ei",
-"ai cứu đc m à :))",
-"tao bá mà",
-"sao m gà thế",
-"hăng lẹ cho tao",
-"con chó eiii🤣",
-"ổn k em",
-"kh ổn r à",
-"mày óc à con chó bẻm=))",
-"mẹ mày ngu à",
-"bú cặc cha m k em",
-"thg giả gái :))",
-"coi nó ngu kìa ae",
-"con chó này giả ngu à",
-"m ổn k",
-"mồ côi kìa",
-"sao v sợ r à",
-"cố gắng tí em",
-"cay cú lắm r",
-"đấy đấy bắt đầu",
-"chảy nước đái bò r à em",
-"sao kìa đừng run",
-"mày run à:))",
-"thg dái lở",
-"cay mẹ m lắm",
-"lgbt xuất trận à con đĩ",
-"thg cặc giết cha mắng mẹ",
-"sủa mạnh eii",
-"mày chết r à:))",
-"sao chết kìa",
-"bị t hành nên muốn chết à",
-"con lồn ngu=))",
-"sao kìa",
-"mạnh lên kìa",
-"yếu sinh lý à",
-  "sủa đê",
-"cay à",
-"hăng đê",
-"gà kìa ae",
-"akakaa",
-"óc chó kìa",
-"🤣🤣🤣",
-"ổn không🤣🤣",
-"bất ổn à",
-"ơ kìaaa",
-"hăng hái đê",
-"chạy à 🤣🤣",
-"tởn à",
-"kkkk",
-"mày dốt à",
-"cặc ngu",
-"cháy đê",
-"chat hăng lên",
-"cố lên",
-"mồ côi cay",
-"cay à",
-"cn chó ngu",
-"óc cặc kìa",
-"đĩ đú:))",
-"đú kìa",
-"cùn v",
-"r x",
-"hhhhh",
-"kkakak",
-"sao đú",
-"cặc con",
-"ngu kìa",
-"chat mạnh đê",
-"hăng ee",
-"ơ ơ ơ",
-"sủa cháy đê",
-"sủa mạnh eei",
-"mày óc à con",
-"tao cho m chạy à",
-"con đĩ ngu sủa?",
-"mày chạy à con đĩ lồn",
-]  
-headers = {
+      except:
+        print(f'{do}Cookie sai!!')
+    
+    chon_name = str(input(f"{xanhnhat}Bạn có muốn câu chửi có thêm kí tự gây lag không {trang}({vang}y{tim}/{vang}n{trang}) : {vang}"))
+    if chon_name.lower() == "y":
+      lag = " /꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰/꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟/꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰"
+    elif chon_name.lower() == "n":
+      lag = " "
+    else:
+      print(f"{do}Vui Lòng Nhập Đúng")    
+    CAU_CHUI = [
+  f"sủa đi {lag}",
+f"cố lên con {lag}",
+f"sồn hăng lên em {lag}",
+f"sao m yếu v {lag} ",
+f"cố tí nữa {lag}",
+f"sao kìa chậm à {lag}",
+f"hăng hái lên tí chứ {lag}",
+f"tới sáng đi em=)) {lag}",
+f"cố gắng tí con chó dốt=)) {lag}",
+f"k đc à {lag}",
+f"con chó ngu cố đê {lag}",
+f"sao m câm kìa {lag}",
+f"gà j {lag}",
+f"mày sợ tvinh à =)) {lag}",
+f"m gà mà {lag}",
+f"mày ngu rõ mà {lag}",
+f"đúng mà {lag}",
+f"cãi à {lag}",
+f"mày còn gì khác k {lag}",
+f"học lỏm kìa {lag}",
+f"cố tí em {lag}",
+f"mếu à {lag}",
+f"sao mếu kìa {lag}",
+f"tao đã cho m mếu đâu {lag}",
+f"va lẹ đi con dốt {lag}",
+f"sao kìa {lag}",
+f"từ bỏ r à {lag}",
+f"mạnh mẽ tí đi con đĩ {lag}",
+f"cố lên con chó ngu {lag}",
+f"=)) cay tao à con đĩ {lag}",
+f"sợ tao à {lag}",
+f"sao sợ tao kìa {lag}",
+f"cay lắm phải kh {lag}",
+f"ớt rồi kìa em {lag}",
+f"mày còn chối à {lag}",
+f"làm tí đê {lag}",
+f"mới đó đã mệt r kìa {lag}",
+f"sao gà mà sồn v {lag}",
+f"sồn như lúc đầu cho tao {lag}",
+f"sao à {lag}",
+f"ai cho m nhai {lag}",
+f"cay lắm r {lag}", 
+f"từ bỏ đi em {lag}",
+f"mày nghĩ mày làm t cay đc à {lag}",
+f"có đâu {lag}",
+f"tao đang hành m mà {lag}",
+f"bịa à {lag}",
+f"cay :))))) {lag}",
+f"cố lên chó dốt {lag}",
+f"hăng tiếp đi {lag}",
+f"tới sáng k em {lag}",
+f"k tới sáng à {lag}",
+f"chán v {lag}",
+f"m gà mà {lag}",
+f"log acc thay phiên à {lag}",
+f"coi tụi nó dồn ngu kìa {lag}",
+f"sợ tao à con chó đần {lag}",
+f"lại win à {lag}",
+f"lại win r {lag}",
+f"lũ cặc cay tao lắm🤣🤣 {lag}",
+f"cố lên đê {lag}",
+f"sao mới 5p đã câm r {lag}",
+f"yếu đến thế à {lag}",
+f"sao kìa {lag}",
+f"khóc kìa {lag}",
+f"cầu cứu lẹ ei {lag}",
+f"ai cứu đc m à :)) {lag}",
+f"tao bá mà {lag}",
+f"sao m gà thế {lag}",
+f"hăng lẹ cho tao {lag}",
+f"con chó eiii🤣 {lag}",
+f"ổn k em {lag}",
+f"kh ổn r à {lag}",
+f"mày óc à con chó bẻm=)) {lag}",
+f"mẹ mày ngu à {lag}",
+f"bú cặc cha m k em {lag}",
+f"thg giả gái :)) {lag}",
+f"coi nó ngu kìa ae {lag}",
+f"con chó này giả ngu à {lag}",
+f"m ổn k {lag}",
+f"mồ côi kìa {lag}",
+f"sao v sợ r à {lag}",
+f"cố gắng tí em {lag}",
+f"cay cú lắm r {lag}",
+f"đấy đấy bắt đầu {lag}",
+f"chảy nước đái bò r à em {lag}",
+f"sao kìa đừng run {lag}",
+f"mày run à:)) {lag}",
+f"thg dái lở {lag}",
+f"cay mẹ m lắm {lag}",
+f"lgbt xuất trận à con đĩ {lag}",
+f"thg cặc giết cha mắng mẹ {lag}",
+f"sủa mạnh eii {lag}",
+f"mày chết r à:)) {lag}",
+f"sao chết kìa {lag}",
+f"bị t hành nên muốn chết à {lag}",
+f"con lồn ngu=)) {lag}",
+f"sao kìa {lag}",
+f"mạnh lên kìa {lag}",
+f"yếu sinh lý à {lag}",
+f"sủa đê {lag}",
+f"cay à {lag}",
+f"hăng đê {lag}",
+f"gà kìa ae {lag}",
+f"akakaa {lag}",
+f"óc chó kìa {lag}",
+f"🤣🤣🤣 {lag}",
+f"ổn không🤣🤣 {lag}",
+f"bất ổn à {lag}",
+f"ơ kìaaa {lag}",
+f"hăng hái đê {lag}",
+f"chạy à 🤣🤣 {lag}",
+f"tởn à {lag}",
+f"kkkk {lag}",
+f"mày dốt à {lag}",
+f"cặc ngu {lag}",
+f"cháy đê {lag}",
+f"chat hăng lên {lag}",
+f"cố lên {lag}",
+f"mồ côi cay {lag}",
+f"cay à {lag}",
+f"cn chó ngu {lag}",
+f"óc cặc kìa {lag}",
+f"đĩ đú:)) {lag}",
+f"đú kìa {lag}",
+f"cùn v {lag}",
+f"r x {lag}",
+f"hhhhh {lag}",
+f"kkakak {lag}",
+f"sao đú {lag}",
+f"cặc con {lag}",
+f"ngu kìa {lag}",
+f"chat mạnh đê {lag}",
+f"hăng ee {lag}",
+f"ơ ơ ơ {lag}",
+f"sủa cháy đê {lag}",
+f"sủa mạnh eei {lag}",
+f"mày óc à con {lag}",
+f"tao cho m chạy à {lag}",
+f"con đĩ ngu sủa? {lag}",
+f"mày chạy à con đĩ lồn {lag}",
+]
+    headers = {
       'authority': 'm.facebook.com',
       'accept': '*/*',
       'accept-language': 'vi,en;q=0.9,vi-VN;q=0.8,fr-FR;q=0.7,fr;q=0.6,en-US;q=0.5',
@@ -278,12 +290,14 @@ headers = {
      'x-requested-with': 'XMLHttpRequest',
      'x-response-format': 'JSONStream',
     }
-params = {
+
+    params = {
       'icm': '1',
     } 
-delay=int(input(f'\033[1;97m[\033[1;31m</>\033[1;97m] {xanhnhat}Nhập delay(khuyến cáo trên 10s) :{vang} '))
-
-while True:
+    clear()
+    runbanner(chontool)
+    delay=int(input(f'\033[1;97m[\033[1;31m</>\033[1;97m] {xanhnhat}Nhập delay(khuyến cáo trên 10s) :{vang} '))
+    while True:
         try:
           ping = requests.get("https://www.google.com")
           if ping.status_code == 200:
@@ -296,8 +310,218 @@ while True:
                     'jazoest': jazoest,
                   }
                 response = requests.post('https://m.facebook.com/messages/send/', params=params, headers=headers, data=datas)
-                print(f'{xanh_la}Send Success | {tim}{nd}')
+                chonname = chon_name
+                if chonname.lower() == "y":
+                    NOIDUNG = f"\033[1;33mCHỬI IB\033[1;97m: {idcanspam} \033[1;31m| \033[1;35mTRẠNG THÁI\033[1;97m: {xanh_la}SUCCESS"
+                else:
+                    NOIDUNG = f"\033[1;33mCHỬI IB\033[1;97m: {idcanspam} \033[1;31m| \033[1;92mNỘI DUNG\033[1;97m: {nd} \033[1;31m| \033[1;35mTRẠNG THÁI\033[1;97m: {xanh_la}SUCCESS"
+                print(f"{NOIDUNG}")
                 idelay(delay)
         except Exception as e:
           print(f"{do}Lỗi bị ngắt kết lối vui lòng kết lối lại mạng để tiếp tục spam")
           time.sleep(5)
+elif chon == 2:
+    clear()
+    runbanner(chontool)
+    idcanspam=input(f'\033[1;97m[\033[1;31m</>\033[1;97m] {xanhnhat}Nhập id box cần spam :{vang} ')
+    while True:
+      ck=input(f'\033[1;97m[\033[1;31m</>\033[1;97m] {xanhnhat}Nhập cookie facebook :{vang} ')
+      try:
+        get=requests.get(f'https://mbasic.facebook.com/privacy/touch/block/confirm/?bid={idcanspam}&ret_cancel&source=profile',headers={'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9','accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5','cookie': ck,'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="102", "Google Chrome";v="102"','sec-ch-ua-mobile': '?0','sec-ch-ua-platform': '"Windows"','sec-fetch-dest': 'document','sec-fetch-mode': 'navigate','sec-fetch-site': 'same-origin','sec-fetch-user': '?1','upgrade-insecure-requests': '1'}).text
+        fb_dtsg=get.split('<input type="hidden" name="fb_dtsg" value="')[1].split('" autocomplete="off" />')[0]
+        jazoest=get.split('<input type="hidden" name="jazoest" value="')[1].split('" autocomplete="off" />')[0]
+        clear()
+        break
+      except:
+        print(f'{do}Cookie sai!!')   
+    runbanner(chontool)
+    params = {
+      "icm": '1',
+    }
+    
+    headers = {
+      "Host":"mbasic.facebook.com",
+      "content-length":"247",
+      "content-type":"application/x-www-form-urlencoded",
+      "user-agent":"Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5A Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.130 Mobile Safari/537.36",
+      "accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+      "sec-fetch-site":"same-origin",
+      "sec-fetch-mode":"navigate",
+      "sec-fetch-user":"?1",
+      "sec-fetch-dest":"document",
+      "accept-encoding":"gzip, deflate, br",
+      "accept-language":"vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7",
+      "cookie":ck,
+    }
+    chon_name = str(input(f"{xanhnhat}Bạn có muốn câu chửi có thêm kí tự gây lag không {trang}({vang}y{tim}/{vang}n{trang}) : {vang}"))
+    if chon_name.lower() == "y":
+      lag = " /꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰/꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟/꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰⃟꙰꙰⃟꙰⃟꙰"
+    elif chon_name.lower() == "n":
+      lag = " "
+    else:
+      print(f"{do}Vui Lòng Nhập Đúng")     
+    CAU_CHUI = [
+  f"sủa đi {lag}",
+f"cố lên con {lag}",
+f"sồn hăng lên em {lag}",
+f"sao m yếu v {lag} ",
+f"cố tí nữa {lag}",
+f"sao kìa chậm à {lag}",
+f"hăng hái lên tí chứ {lag}",
+f"tới sáng đi em=)) {lag}",
+f"cố gắng tí con chó dốt=)) {lag}",
+f"k đc à {lag}",
+f"con chó ngu cố đê {lag}",
+f"sao m câm kìa {lag}",
+f"gà j {lag}",
+f"mày sợ tvinh à =)) {lag}",
+f"m gà mà {lag}",
+f"mày ngu rõ mà {lag}",
+f"đúng mà {lag}",
+f"cãi à {lag}",
+f"mày còn gì khác k {lag}",
+f"học lỏm kìa {lag}",
+f"cố tí em {lag}",
+f"mếu à {lag}",
+f"sao mếu kìa {lag}",
+f"tao đã cho m mếu đâu {lag}",
+f"va lẹ đi con dốt {lag}",
+f"sao kìa {lag}",
+f"từ bỏ r à {lag}",
+f"mạnh mẽ tí đi con đĩ {lag}",
+f"cố lên con chó ngu {lag}",
+f"=)) cay tao à con đĩ {lag}",
+f"sợ tao à {lag}",
+f"sao sợ tao kìa {lag}",
+f"cay lắm phải kh {lag}",
+f"ớt rồi kìa em {lag}",
+f"mày còn chối à {lag}",
+f"làm tí đê {lag}",
+f"mới đó đã mệt r kìa {lag}",
+f"sao gà mà sồn v {lag}",
+f"sồn như lúc đầu cho tao {lag}",
+f"sao à {lag}",
+f"ai cho m nhai {lag}",
+f"cay lắm r {lag}", 
+f"từ bỏ đi em {lag}",
+f"mày nghĩ mày làm t cay đc à {lag}",
+f"có đâu {lag}",
+f"tao đang hành m mà {lag}",
+f"bịa à {lag}",
+f"cay :))))) {lag}",
+f"cố lên chó dốt {lag}",
+f"hăng tiếp đi {lag}",
+f"tới sáng k em {lag}",
+f"k tới sáng à {lag}",
+f"chán v {lag}",
+f"m gà mà {lag}",
+f"log acc thay phiên à {lag}",
+f"coi tụi nó dồn ngu kìa {lag}",
+f"sợ tao à con chó đần {lag}",
+f"lại win à {lag}",
+f"lại win r {lag}",
+f"lũ cặc cay tao lắm🤣🤣 {lag}",
+f"cố lên đê {lag}",
+f"sao mới 5p đã câm r {lag}",
+f"yếu đến thế à {lag}",
+f"sao kìa {lag}",
+f"khóc kìa {lag}",
+f"cầu cứu lẹ ei {lag}",
+f"ai cứu đc m à :)) {lag}",
+f"tao bá mà {lag}",
+f"sao m gà thế {lag}",
+f"hăng lẹ cho tao {lag}",
+f"con chó eiii🤣 {lag}",
+f"ổn k em {lag}",
+f"kh ổn r à {lag}",
+f"mày óc à con chó bẻm=)) {lag}",
+f"mẹ mày ngu à {lag}",
+f"bú cặc cha m k em {lag}",
+f"thg giả gái :)) {lag}",
+f"coi nó ngu kìa ae {lag}",
+f"con chó này giả ngu à {lag}",
+f"m ổn k {lag}",
+f"mồ côi kìa {lag}",
+f"sao v sợ r à {lag}",
+f"cố gắng tí em {lag}",
+f"cay cú lắm r {lag}",
+f"đấy đấy bắt đầu {lag}",
+f"chảy nước đái bò r à em {lag}",
+f"sao kìa đừng run {lag}",
+f"mày run à:)) {lag}",
+f"thg dái lở {lag}",
+f"cay mẹ m lắm {lag}",
+f"lgbt xuất trận à con đĩ {lag}",
+f"thg cặc giết cha mắng mẹ {lag}",
+f"sủa mạnh eii {lag}",
+f"mày chết r à:)) {lag}",
+f"sao chết kìa {lag}",
+f"bị t hành nên muốn chết à {lag}",
+f"con lồn ngu=)) {lag}",
+f"sao kìa {lag}",
+f"mạnh lên kìa {lag}",
+f"yếu sinh lý à {lag}",
+f"sủa đê {lag}",
+f"cay à {lag}",
+f"hăng đê {lag}",
+f"gà kìa ae {lag}",
+f"akakaa {lag}",
+f"óc chó kìa {lag}",
+f"🤣🤣🤣 {lag}",
+f"ổn không🤣🤣 {lag}",
+f"bất ổn à {lag}",
+f"ơ kìaaa {lag}",
+f"hăng hái đê {lag}",
+f"chạy à 🤣🤣 {lag}",
+f"tởn à {lag}",
+f"kkkk {lag}",
+f"mày dốt à {lag}",
+f"cặc ngu {lag}",
+f"cháy đê {lag}",
+f"chat hăng lên {lag}",
+f"cố lên {lag}",
+f"mồ côi cay {lag}",
+f"cay à {lag}",
+f"cn chó ngu {lag}",
+f"óc cặc kìa {lag}",
+f"đĩ đú:)) {lag}",
+f"đú kìa {lag}",
+f"cùn v {lag}",
+f"r x {lag}",
+f"hhhhh {lag}",
+f"kkakak {lag}",
+f"sao đú {lag}",
+f"cặc con {lag}",
+f"ngu kìa {lag}",
+f"chat mạnh đê {lag}",
+f"hăng ee {lag}",
+f"ơ ơ ơ {lag}",
+f"sủa cháy đê {lag}",
+f"sủa mạnh eei {lag}",
+f"mày óc à con {lag}",
+f"tao cho m chạy à {lag}",
+f"con đĩ ngu sủa? {lag}",
+f"mày chạy à con đĩ lồn {lag}",
+]
+    clear()
+    runbanner(chontool)
+    delay=int(input(f'\033[1;97m[\033[1;31m</>\033[1;97m] {xanhnhat}Nhập delay(khuyến cáo trên 10s) :{vang} '))
+    while True:
+        try:
+          ping = requests.get("https://www.google.com")
+          if ping.status_code == 200:
+            for nd in CAU_CHUI:
+                data = f"fb_dtsg={fb_dtsg}&jazoest={jazoest}&body={nd}&send=Send&tids=cid.g.{idcanspam}&wwwupp=C3&platform_xmd=&referrer=&ctype=&cver=legacy&csid=366a74a7-2d30-45dd-94c2-ad47d662dcfb"  
+                response = requests.post("https://mbasic.facebook.com/messages/send/", params=params, headers=headers, data=data.encode('utf-8'))
+                chonname = chon_name
+                if chonname.lower() == "y":
+                    NOIDUNG = f"\033[1;33mCHỬI IB\033[1;97m: {idcanspam} \033[1;31m| \033[1;35mTRẠNG THÁI\033[1;97m: {xanh_la}SUCCESS"
+                else:
+                    NOIDUNG = f"\033[1;33mCHỬI IB\033[1;97m: {idcanspam} \033[1;31m| \033[1;92mNỘI DUNG\033[1;97m: {nd} \033[1;31m| \033[1;35mTRẠNG THÁI\033[1;97m: {xanh_la}SUCCESS"
+                print(f"{NOIDUNG}")
+                idelay(delay)
+        except Exception as e:
+          print(f"{do}Lỗi bị ngắt kết lối vui lòng kết lối lại mạng để tiếp tục spam")
+          time.sleep(5)
+else:
+    print(f"{do}Vui lòng chọn đúng")   
