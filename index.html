@@ -61,7 +61,34 @@
      Nguyễn Hoàng Anh <img src="https://thanhdieu.com/thanhdieuft-data/img/tich-xanh.png"
     width="15" height="15" alt="Tích Xanh">
       </div></h2>
-      <h2 class="TieuSu">Hey brother, I'm a Developer.<br>I like website design :)</h2>
+      <h2 class="TieuSu GioiThieu" id="animatedText" style="font-family: 'Potta One';"><span class="typed-cursor" aria-hidden="true"></span>
+</h2>
+      <script>
+        const texts = [
+            "Hello, I'm a Nguyễn Hoàng Anh (Anwir)",
+            "I'm conquering my dream of becoming a Developer :))",
+            "Join me on this journey of creativity and growth 🚀!",
+
+        ];
+
+        let currentTextIndex = 0;
+        let currentCharIndex = 0;
+        const animatedText = document.getElementById('animatedText');
+
+        function updateText() {
+            animatedText.innerText = texts[currentTextIndex].slice(0, currentCharIndex);
+            currentCharIndex++;
+
+            if (currentCharIndex > texts[currentTextIndex].length) {
+                currentTextIndex = (currentTextIndex + 1) % texts.length;
+                currentCharIndex = 0;
+            }
+        }
+
+        setInterval(() => {
+            updateText();
+        }, 150); // update text every 150 milliseconds
+    </script>
 <a id="noisong"></a>
     <br>
     <br><hr class="New"><br>
