@@ -531,7 +531,7 @@ def chay(text):
     
 Key = f"KA-{result}"
 keytb = f"KA-{results}"
-getlinkkeyhomnay = requests.get(f'https://link4m.co/api-shorten/v2?api=64f61755fb387214b610d7db&url=https://hoanganh.eu.org/key.html?keyhomnay={Key}')
+getlinkkeyhomnay = requests.get(f'https://link4m.co/api-shorten/v2?api=64f61755fb387214b610d7db&url=https://hoanganhk7.com/key.html?keyhomnay={Key}')
 linkkeyhomnay = getlinkkeyhomnay.json()['shortenedUrl']
 def xoa(text):
     sys.stdout.write('\r' + text)
