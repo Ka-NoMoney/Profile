@@ -99,16 +99,6 @@ def get_token(cookie):
 #======================================================================================= 
 
 #================================GET ID=================================================
-# Lấy danh sách ID bài đăng từ nhóm
-token_fb1 = get_facebook_token(ck_fb)
-response = requests.get(f"https://graph.facebook.com/v13.0/{id_group}/feed?access_token={token_fb1}")
-data = response.json()
-
-for post in data['data']:
-    if 'id' in post:
-        iddl = post['id']
-        post_number = iddl.split('_')[1]
-        list_id.append(post_number)
 
 #---------------------------------------------------------------------------------------
 
