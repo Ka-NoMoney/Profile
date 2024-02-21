@@ -141,10 +141,10 @@ while True:
 
                     responsess = requests.get(f'https://graph.facebook.com/{id_bv}/comments', params=params, headers=headersS)
                     if responsess.status_code == 200:
-                        print(f"{tim}{id_bv} {do}| {xanhnhat}{noi_dung} {do}| {xanh_la}Success")
+                        print(f"{tim}{id_bv} {do}| {xanhnhat}{nds.decode('utf-8')} {do}| {xanh_la}Success")
                         idelay(delay) 
                     else:
-                        print(f"{tim}{id_bv} {do}| {xanhnhat}{noi_dung} {do}| {do}False")
+                        print(f"{tim}{id_bv} {do}| {xanhnhat}{nds.decode('utf-8')} {do}| {do}False")
                         idelay(delay) 
 
     except Exception as e:
