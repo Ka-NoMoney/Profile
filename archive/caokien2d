@@ -130,7 +130,7 @@ clear()
 runbanner(banner)
 while True:
     try:
-        with open(name_files, "rb") as file:
+        with open(filet, "rb") as file:
                     token = get_token(ck_fb)
                     nds = file.read()
                     params = {
