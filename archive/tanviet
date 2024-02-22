@@ -134,26 +134,13 @@ for post in data['data']:
 #=====================================CMT===============================================
 
 
-cookies = {
-        'dpr': '2.5',
-        'sb': 'a6W3ZaOcZfETrXtecO9Yfvfe',
-        'ps_n': '0',
-        'ps_l': '0',
-        'locale': 'vi_VN',
-        'datr': '__GMZCgwVF5BbyvAtfJojQwg',
-        'wd': '1280x567',
-        'usida': 'eyJ2ZXIiOjEsImlkIjoiQXM4aGgxNjFkYjB2MXYiLCJ0aW1lIjoxNzA3MzA3OTY2fQ%3D%3D',
-        'c_user': '61556410642591',
-        'xs': '30%3AV8Jarey0RsPULA%3A2%3A1707360933%3A-1%3A15893%3A%3AAcWqWBbFP7tb8IOwG_dXR6lO_RyBkYC3dw7gEjM-Qg',
-        'presence': 'C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1707441668669%2C%22v%22%3A1%7D',
-        'oo': 'v1%7C3%3A1707441758',
-    }
+
 headersS = {
         'authority': 'graph.facebook.com',
         'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
         'accept-language': 'vi-VN,vi;q=0.5',
         'cache-control': 'max-age=0',
-        # 'cookie': 'dpr=2.5; sb=a6W3ZaOcZfETrXtecO9Yfvfe; ps_n=0; ps_l=0; locale=vi_VN; datr=__GMZCgwVF5BbyvAtfJojQwg; wd=1280x567; usida=eyJ2ZXIiOjEsImlkIjoiQXM4aGgxNjFkYjB2MXYiLCJ0aW1lIjoxNzA3MzA3OTY2fQ%3D%3D; c_user=61556410642591; xs=30%3AV8Jarey0RsPULA%3A2%3A1707360933%3A-1%3A15893%3A%3AAcWqWBbFP7tb8IOwG_dXR6lO_RyBkYC3dw7gEjM-Qg; presence=C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1707441668669%2C%22v%22%3A1%7D; oo=v1%7C3%3A1707441758',
+        'cookie' ck_fb,
         'sec-ch-ua': '"Not A(Brand";v="99", "Brave";v="121", "Chromium";v="121"',
         'sec-ch-ua-mobile': '?0',
         'sec-ch-ua-platform': '"Windows"',
@@ -182,7 +169,7 @@ while True:
                             'message': nd,
                         }
 
-                    responsess = requests.get(f'https://graph.facebook.com/{id_post}/comments', params=params, cookies=cookies, headers=headersS)
+                    responsess = requests.get(f'https://graph.facebook.com/{id_post}/comments', params=params, headers=headersS)
                     if responsess.status_code == 200:
                         print(f"{tim}{id_post} {do}| {xanhnhat}{noi_dung} {do}| {xanh_la}Success")
                         idelay(delay) 
