@@ -140,7 +140,7 @@ headersS = {
         'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
         'accept-language': 'vi-VN,vi;q=0.5',
         'cache-control': 'max-age=0',
-        'cookie' ck_fb,
+        'cookie': ck_fb,
         'sec-ch-ua': '"Not A(Brand";v="99", "Brave";v="121", "Chromium";v="121"',
         'sec-ch-ua-mobile': '?0',
         'sec-ch-ua-platform': '"Windows"',
