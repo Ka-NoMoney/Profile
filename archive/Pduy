@@ -4,6 +4,7 @@ import json
 import requests,os,time,re,json,uuid,random,sys
 from time import sleep
 import os
+import base64
 
 # Định nghĩa các mã màu
 trang = "\033[1;37m\033[1m"
@@ -59,33 +60,13 @@ clear()
 runbanner(banner)
 # Nhập cookie và ID nhóm từ người dùng
 ck_fb = input(f'{xanhnhat}NHẬP COOKIE{trang}:{vang} ')
-id_group = input(f"{xanhnhat}NHẬP ID GROUP{trang}:{vang} ")
-noi_dung = input(f"{xanhnhat}NHẬP NỘI DUNG{trang}:{vang} ")
+id_bv = input(f"{xanhnhat}NHẬP ID BÀI VIẾT{trang}:{vang} ")
 delay = int(input(f"{xanhnhat}NHẬP delay (đặt cao tí để tránh check poin spam){trang}:{vang} "))
+filet = input(f"{xanhnhat}NHẬP FILE CHỨA NGÔN:{vang} ")
 list_id = []
 #================================================================================================
 #=================================GET TOKEN======================================================
-def get_facebook_token(cookie):
-    hed_gettoken = {
-        'authority': 'www.instagram.com',
-        'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-        'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
-        'cache-control': 'no-cache',
-        'cookie': cookie,
-        'pragma': 'no-cache',
-        'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="102", "Google Chrome";v="102"',
-        'sec-ch-ua-mobile': '?0',
-        'sec-ch-ua-platform': '"Windows"',
-        'sec-fetch-dest': 'document',
-        'sec-fetch-mode': 'navigate',
-        'sec-fetch-site': 'none',
-        'sec-fetch-user': '?1',
-        'upgrade-insecure-requests': '1',
-        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.115 Safari/537.36',
-    }
 
-    token_fb = requests.get('https://www.facebook.com/dialog/oauth?client_id=124024574287414&redirect_uri=https://www.instagram.com/accounts/signup/&&scope=email&response_type=token', headers=hed_gettoken).url.split('#access_token=')[1].split('&data_access_expiration_time')[0]
-    return token_fb
 
 def get_token(cookie):
     header = {
@@ -116,21 +97,10 @@ def get_token(cookie):
 #======================================================================================= 
 
 #================================GET ID=================================================
-# Lấy danh sách ID bài đăng từ nhóm
-token_fb1 = get_facebook_token(ck_fb)
-response = requests.get(f"https://graph.facebook.com/v13.0/{id_group}/feed?access_token={token_fb1}")
-data = response.json()
-
-for post in data['data']:
-    if 'id' in post:
-        iddl = post['id']
-        post_number = iddl.split('_')[1]
-        list_id.append(post_number)
 
 #---------------------------------------------------------------------------------------
 
 #=====================================CMT===============================================
-
 
 
 headersS = {
@@ -158,21 +128,21 @@ clear()
 runbanner(banner)
 while True:
     try:
-                for id_post in list_id:
+        with open(filet, "rb") as file:
                     token = get_token(ck_fb)
-                    nd = noi_dung
+                    nds = file.read()
                     params = {
                             'method': 'post',
                             'access_token': token,
-                            'message': nd,
+                            'message': nds.decode('utf-8'),
                         }
 
-                    responsess = requests.get(f'https://graph.facebook.com/{id_post}/comments', params=params, headers=headersS)
+                    responsess = requests.get(f'https://graph.facebook.com/{id_bv}/comments', params=params, headers=headersS)
                     if responsess.status_code == 200:
-                        print(f"{tim}{id_post} {do}| {xanhnhat}{noi_dung} {do}| {xanh_la}Success")
+                        print(f"{tim}{id_bv} {do}| {xanh_la}Success")
                         idelay(delay) 
                     else:
-                        print(f"{tim}{id_post} {do}| {xanhnhat}{noi_dung} {do}| {do}False")
+                        print(f"{tim}{id_bv} {do}| {do}False")
                         idelay(delay) 
 
     except Exception as e:
