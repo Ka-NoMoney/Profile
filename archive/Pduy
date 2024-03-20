@@ -62,7 +62,16 @@ runbanner(banner)
 ck_fb = input(f'{xanhnhat}NHẬP COOKIE{trang}:{vang} ')
 id_bv = input(f"{xanhnhat}NHẬP ID BÀI VIẾT{trang}:{vang} ")
 delay = int(input(f"{xanhnhat}NHẬP delay (đặt cao tí để tránh check poin spam){trang}:{vang} "))
-filet = input(f"{xanhnhat}NHẬP FILE CHỨA NGÔN:{vang} ")
+ngon = []
+stt = 0
+while True:
+    stt += 1
+    filets = input(f"{xanhnhat}NHẬP FILE CHỨA NGÔN THỨ {stt}:{vang} ")
+    if filets != '':
+        ngon.append(filets)
+    elif filets == '':
+        break
+    
 list_id = []
 #================================================================================================
 #=================================GET TOKEN======================================================
@@ -128,22 +137,23 @@ clear()
 runbanner(banner)
 while True:
     try:
-        with open(filet, "rb") as file:
-                    token = get_token(ck_fb)
-                    nds = file.read()
-                    params = {
-                            'method': 'post',
-                            'access_token': token,
-                            'message': nds.decode('utf-8'),
-                        }
+        for filet in ngon:
+            with open(filet, "rb") as file:
+                        token = get_token(ck_fb)
+                        nds = file.read()
+                        params = {
+                                'method': 'post',
+                                'access_token': token,
+                                'message': nds.decode('utf-8'),
+                            }
 
-                    responsess = requests.get(f'https://graph.facebook.com/{id_bv}/comments', params=params, headers=headersS)
-                    if responsess.status_code == 200:
-                        print(f"{tim}{id_bv} {do}| {xanh_la}Success")
-                        idelay(delay) 
-                    else:
-                        print(f"{tim}{id_bv} {do}| {do}False")
-                        idelay(delay) 
+                        responsess = requests.get(f'https://graph.facebook.com/{id_bv}/comments', params=params, headers=headersS)
+                        if responsess.status_code == 200:
+                            print(f"{tim}{id_bv} {do}| {xanh_la}Success")
+                            idelay(delay) 
+                        else:
+                            print(f"{tim}{id_bv} {do}| {do}False")
+                            idelay(delay) 
 
     except Exception as e:
         print(f"{do}Lỗi!!! \n{e}")
