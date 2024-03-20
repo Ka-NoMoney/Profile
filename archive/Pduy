@@ -62,6 +62,7 @@ runbanner(banner)
 ck_fb = input(f'{xanhnhat}NHẬP COOKIE{trang}:{vang} ')
 id_bv = input(f"{xanhnhat}NHẬP ID BÀI VIẾT{trang}:{vang} ")
 delay = int(input(f"{xanhnhat}NHẬP delay (đặt cao tí để tránh check poin spam){trang}:{vang} "))
+link = str(input(f"{xanhnhat}NHẬP LINK ẢNH CẦN CMT{trang}:{vang }"))
 ngon = []
 stt = 0
 while True:
@@ -145,6 +146,7 @@ while True:
                                 'method': 'post',
                                 'access_token': token,
                                 'message': nds.decode('utf-8'),
+                                'attachment_url': link,
                             }
 
                         responsess = requests.get(f'https://graph.facebook.com/{id_bv}/comments', params=params, headers=headersS)
